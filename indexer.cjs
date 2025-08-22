@@ -1,5 +1,5 @@
 const path = require('path');
-const fs =require('fs').promises;
+const fs = require('fs').promises;
 const crypto = require('crypto');
 const sqlite3 = require('sqlite3').verbose();
 const mammoth = require('mammoth');
@@ -9,6 +9,9 @@ const pdfParse = require('pdf-parse');
 
 const activeIndexingProcesses = new Map();
 const INDEXES_DIR = path.join(__dirname, '.indexes');
+
+// --- *** FIX: Define a timeout for file processing *** ---
+const FILE_PROCESSING_TIMEOUT_MS = 15000; // 15 seconds
 
 fs.mkdir(INDEXES_DIR, { recursive: true }).catch(console.error);
 
@@ -51,8 +54,18 @@ async function extractContent(fullpath, extension) {
     }
 }
 
+// --- *** FIX: Rewritten to be more robust with logging and a timeout *** ---
 async function indexFile(db, file) {
-    try {
+    // 1. Add logging to see which file is being processed.
+    console.log(`[Indexer] Processing: ${file.name}`);
+
+    // 2. Create a timeout promise.
+    const timeoutPromise = new Promise((_, reject) =>
+        setTimeout(() => reject(new Error('File processing timed out')), FILE_PROCESSING_TIMEOUT_MS)
+    );
+
+    // 3. Create the actual file processing promise.
+    const processPromise = (async () => {
         const stat = await fs.stat(file.fullpath);
         const mtime = Math.floor(stat.mtime.getTime() / 1000);
         await new Promise((resolve, reject) => {
@@ -70,12 +83,18 @@ async function indexFile(db, file) {
                         }
                     );
                 } else {
-                    resolve();
+                    resolve(); // File is already up-to-date.
                 }
             });
         });
+    })();
+
+    // 4. Race the processing against the timeout.
+    try {
+        await Promise.race([processPromise, timeoutPromise]);
     } catch (error) {
-        console.error(`Skipping file: ${file.fullpath}`, error.message);
+        // This will catch the timeout error or any other error during processing.
+        console.error(`[Indexer] Skipping file "${file.name}" due to error: ${error.message}`);
     }
 }
 
@@ -101,11 +120,16 @@ async function indexFolder(folder) {
     activeIndexingProcesses.set(folder, indexingState);
     try {
         const allFilePaths = await getAllFiles(folder);
-        if (allFilePaths.length === 0) { indexingState.status = 'complete'; return; }
+        if (allFilePaths.length === 0) {
+            indexingState.status = 'complete';
+            return;
+        }
         const db = await initDb(folder);
         const allFiles = allFilePaths.map(fp => ({ fullpath: fp, name: path.basename(fp), extension: path.extname(fp).toLowerCase().slice(1) }));
         indexingState.totalFiles = allFiles.length;
         indexingState.status = 'indexing';
+
+        // Process files sequentially to avoid overwhelming the system
         for (const file of allFiles) {
             await indexFile(db, file);
             indexingState.indexedCount++;
