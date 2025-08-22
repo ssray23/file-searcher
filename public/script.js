@@ -49,46 +49,64 @@ class FileSearcher {
     }
 
     async handleFolderChange(e) {
-        this.setSearchUIReady(false);
         const value = e.target.value;
+        const newSelectedDirectory = (value === 'custom') ? this.customPathInput.value.trim() || 'current' : value;
+        
+        // This check prevents re-indexing if the user clicks the same folder twice.
+        // It's safe because `e.type` is undefined on the initial load, allowing it to proceed.
+        if (newSelectedDirectory === this.selectedDirectory && e.type === 'change') {
+            return;
+        }
+
         this.customPathInput.style.display = (value === 'custom') ? 'inline-block' : 'none';
-        this.selectedDirectory = (value === 'custom') ? this.customPathInput.value.trim() || 'current' : value;
-        if (value === 'custom') this.customPathInput.focus();
+        this.selectedDirectory = newSelectedDirectory;
+        if (value === 'custom') {
+            this.customPathInput.focus();
+        }
         
         this.hideResults();
         await this.updateCurrentPath();
+        this.setSearchUIReady(false);
         this.initiateIndexing();
     }
 
     async handleCustomPath(e) {
-        this.setSearchUIReady(false);
         const path = e.target.value.trim();
-        if (path) {
+        if (path && path !== this.selectedDirectory) { // Only re-index if path has changed
             this.selectedDirectory = path;
             this.hideResults();
             await this.updateCurrentPath();
+            this.setSearchUIReady(false);
             this.initiateIndexing();
         }
     }
 
     async initiateIndexing() {
         if (this.indexingPollInterval) clearInterval(this.indexingPollInterval);
+        
         const directoryToIndex = this.selectedDirectory;
         fetch(`/api/index?directory=${encodeURIComponent(directoryToIndex)}`, { method: 'POST' });
-        this.indexingPollInterval = setInterval(() => this.pollIndexingStatus(directoryToIndex), 2500);
+        // The poller is now specific to the folder we just requested
+        this.indexingPollInterval = setInterval(() => this.pollIndexingStatus(directoryToIndex), 1500);
     }
 
     async pollIndexingStatus(directoryToPoll) {
-        if (directoryToPoll !== this.selectedDirectory) return;
+        // If the user has selected a different folder, this poller is obsolete. Stop it.
+        if (directoryToPoll !== this.selectedDirectory) {
+            clearInterval(this.indexingPollInterval);
+            return;
+        }
+
         try {
             const response = await fetch(`/api/index/status?directory=${encodeURIComponent(directoryToPoll)}`);
-            if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
             const data = await response.json();
+
             if (data.success && directoryToPoll === this.selectedDirectory) {
-                 if (data.status.status === 'complete') {
+                 if (data.status.status === 'complete' || data.status.status === 'idle') {
                     this.setSearchUIReady(true);
                     clearInterval(this.indexingPollInterval);
-                } else if (data.status.status === 'indexing') {
+                } else { // 'starting' or 'indexing'
+                    this.setSearchUIReady(false);
                     this.updateIndexingProgress(data.status);
                 }
             }
@@ -112,10 +130,14 @@ class FileSearcher {
     }
 
     updateIndexingProgress(status) {
-        if (status.totalFiles > 0) {
-            this.indexingProgressBar.max = status.totalFiles;
-            this.indexingProgressBar.value = status.indexedCount;
-            this.indexingStatusText.textContent = `Indexing ${status.indexedCount.toLocaleString()} of ${status.totalFiles.toLocaleString()}...`;
+        if (status.folder === this.pathValue.title) {
+            if (status.totalFiles > 0) {
+                this.indexingProgressBar.max = status.totalFiles;
+                this.indexingProgressBar.value = status.indexedCount;
+                this.indexingStatusText.textContent = `Indexing ${status.indexedCount.toLocaleString()} of ${status.totalFiles.toLocaleString()}...`;
+            } else {
+                 this.indexingStatusText.textContent = `Discovering files in folder...`;
+            }
         }
     }
 
@@ -165,19 +187,16 @@ class FileSearcher {
             <td class="actions-cell"></td>
         `;
         const actionsCell = row.querySelector('.actions-cell');
-        
         const previewBtn = document.createElement('button');
         previewBtn.className = 'preview-btn';
         previewBtn.textContent = 'Preview';
         previewBtn.addEventListener('click', () => this.showPreview(file));
         actionsCell.appendChild(previewBtn);
-
         const openBtn = document.createElement('button');
         openBtn.className = 'open-btn';
         openBtn.textContent = 'Open';
         openBtn.addEventListener('click', () => this.openFileInSystem(file.path));
         actionsCell.appendChild(openBtn);
-        
         return row;
     }
 
@@ -264,4 +283,6 @@ class FileSearcher {
     }
 }
 
-document.addEventListener('DOMContentLoaded', () => { window.fileSearcher = new FileSearcher(); });
+document.addEventListener('DOMContentLoaded', () => {
+    window.fileSearcher = new FileSearcher();
+});

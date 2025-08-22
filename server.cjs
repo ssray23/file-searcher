@@ -2,7 +2,6 @@ const express = require('express');
 const path = require('path');
 const open = require('open');
 const os = require('os');
-const fs = require('fs').promises;
 const indexer = require('./indexer.cjs');
 const { previewFile } = require('./previewer.js');
 
@@ -11,36 +10,24 @@ const app = express();
 
 app.use(express.json());
 
-// --- *** THE FINAL, CORRECTED, NO-LIBRARY FOLDER RESOLVER *** ---
 function resolveDirectory(directory) {
     if (!directory || directory === 'current') return process.cwd();
-
-    // This robust method works for standard and OneDrive-managed folders.
     const homedir = os.homedir();
-    
-    // 1. Check for OneDrive for Business environment variables first.
     const oneDriveCommercial = process.env.OneDriveCommercial || process.env['OneDrive-Commercial'];
-    // 2. Then check for personal OneDrive.
     const oneDrivePersonal = process.env.OneDriveConsumer || process.env.OneDrive;
-    // 3. Determine the correct base path.
     const basePath = oneDriveCommercial || oneDrivePersonal || homedir;
-
     const specialDirs = {
-        'home': homedir, // Home is always the user profile
+        'home': homedir,
         'desktop': path.join(basePath, 'Desktop'),
         'documents': path.join(basePath, 'Documents'),
         'downloads': path.join(basePath, 'Downloads')
     };
-
     if (specialDirs[directory]) {
-        console.log(`[RESOLVER] Resolved '${directory}' to '${specialDirs[directory]}'`);
         return specialDirs[directory];
     }
-    
     if (path.isAbsolute(directory)) return directory;
     return path.resolve(directory);
 }
-// --- *** END OF FIX *** ---
 
 // --- API Endpoints ---
 app.get('/api/search', async (req, res) => {
@@ -98,21 +85,24 @@ app.get('/api/file-content/:fileId', (req, res) => {
 });
 
 app.post('/api/index', (req, res) => {
+    // Immediately cancel any job that might be running.
+    indexer.cancelCurrentIndexing();
+
+    // Start the new job.
     const { directory } = req.query;
     const folder = resolveDirectory(directory);
-    indexer.indexFolder(folder);
+    indexer.indexFolder(folder); // This is non-blocking
     res.json({ success: true, message: 'Indexing initiated.' });
 });
 
-app.get('/api/index/status', async (req, res) => {
+app.get('/api/index/status', (req, res) => {
     const { directory } = req.query;
     const folder = resolveDirectory(directory);
-    const isReady = await indexer.isIndexAvailable(folder);
     const status = indexer.getIndexingStatus(folder);
-    res.json({ success: true, isReady, status });
+    res.json({ success: true, status });
 });
 
-app.get('/api/resolve-directory', async (req, res) => {
+app.get('/api/resolve-directory', (req, res) => {
     const { directory } = req.query;
     const resolvedPath = resolveDirectory(directory);
     res.json({ success: true, path: resolvedPath });

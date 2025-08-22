@@ -1,19 +1,22 @@
 const path = require('path');
-const fs = require('fs').promises;
+const fsp = require('fs').promises;
 const crypto = require('crypto');
 const sqlite3 = require('sqlite3').verbose();
 const mammoth = require('mammoth');
 const XLSX = require('xlsx');
 const { glob } = require('glob');
 const pdfParse = require('pdf-parse');
+const JSZip = require('jszip');
 
 const activeIndexingProcesses = new Map();
 const INDEXES_DIR = path.join(__dirname, '.indexes');
 
-// --- *** FIX: Define a timeout for file processing *** ---
-const FILE_PROCESSING_TIMEOUT_MS = 15000; // 15 seconds
+const FILE_PROCESSING_TIMEOUT_MS = 15000;
+const BATCH_SIZE = 100;
 
-fs.mkdir(INDEXES_DIR, { recursive: true }).catch(console.error);
+let currentIndexingToken = null;
+
+fsp.mkdir(INDEXES_DIR, { recursive: true }).catch(console.error);
 
 function getDbPath(folder) {
     const hash = crypto.createHash('md5').update(folder).digest('hex');
@@ -34,10 +37,23 @@ function initDb(folder) {
     });
 }
 
+async function extractPptxText(filePath) {
+    const content = await fsp.readFile(filePath);
+    const zip = await JSZip.loadAsync(content);
+    const slideFiles = Object.keys(zip.files).filter(name => name.startsWith('ppt/slides/slide'));
+    let fullText = '';
+    for (const slideFile of slideFiles) {
+        const slideContent = await zip.file(slideFile).async('string');
+        const textNodes = slideContent.match(/<a:t>.*?<\/a:t>/g) || [];
+        fullText += textNodes.map(node => node.replace(/<.*?>/g, '')).join(' ') + '\n';
+    }
+    return fullText;
+}
+
 async function extractContent(fullpath, extension) {
     const MAX_SIZE = 500 * 1024;
     try {
-        const supportedExts = new Set(['txt', 'md', 'js', 'ts', 'html', 'css', 'py', 'java', 'json', 'xml', 'docx', 'xlsx', 'pdf']);
+        const supportedExts = new Set(['txt', 'md', 'js', 'ts', 'html', 'css', 'py', 'java', 'json', 'xml', 'docx', 'xlsx', 'pdf', 'pptx']);
         if (!supportedExts.has(extension)) return null;
         if (extension === 'docx') return (await mammoth.extractRawText({ path: fullpath })).value.substring(0, MAX_SIZE);
         if (extension === 'xlsx') {
@@ -47,26 +63,21 @@ async function extractContent(fullpath, extension) {
             return allText.substring(0, MAX_SIZE);
         }
         if (extension === 'pdf') return (await pdfParse(fullpath)).text.substring(0, MAX_SIZE);
-        return (await fs.readFile(fullpath, 'utf8')).substring(0, MAX_SIZE);
+        if (extension === 'pptx') return (await extractPptxText(fullpath)).substring(0, MAX_SIZE);
+        return (await fsp.readFile(fullpath, 'utf8')).substring(0, MAX_SIZE);
     } catch (error) {
         console.error(`Error extracting content from ${fullpath}:`, error.message);
         return null;
     }
 }
 
-// --- *** FIX: Rewritten to be more robust with logging and a timeout *** ---
 async function indexFile(db, file) {
-    // 1. Add logging to see which file is being processed.
     console.log(`[Indexer] Processing: ${file.name}`);
-
-    // 2. Create a timeout promise.
     const timeoutPromise = new Promise((_, reject) =>
         setTimeout(() => reject(new Error('File processing timed out')), FILE_PROCESSING_TIMEOUT_MS)
     );
-
-    // 3. Create the actual file processing promise.
     const processPromise = (async () => {
-        const stat = await fs.stat(file.fullpath);
+        const stat = await fsp.stat(file.fullpath);
         const mtime = Math.floor(stat.mtime.getTime() / 1000);
         await new Promise((resolve, reject) => {
             db.get('SELECT mtime FROM files WHERE fullpath = ?', [file.fullpath], (err, row) => {
@@ -83,24 +94,21 @@ async function indexFile(db, file) {
                         }
                     );
                 } else {
-                    resolve(); // File is already up-to-date.
+                    resolve();
                 }
             });
         });
     })();
-
-    // 4. Race the processing against the timeout.
     try {
         await Promise.race([processPromise, timeoutPromise]);
     } catch (error) {
-        // This will catch the timeout error or any other error during processing.
         console.error(`[Indexer] Skipping file "${file.name}" due to error: ${error.message}`);
     }
 }
 
 async function getAllFiles(dirPath) {
     try {
-        await fs.access(dirPath);
+        await fsp.access(dirPath);
         return await glob('**/*', {
             cwd: dirPath,
             nodir: true,
@@ -115,31 +123,51 @@ async function getAllFiles(dirPath) {
 }
 
 async function indexFolder(folder) {
-    if (activeIndexingProcesses.has(folder)) return;
+    const localToken = { cancelled: false };
+    currentIndexingToken = localToken;
+
+    // Immediately clear any previous status for this folder
+    activeIndexingProcesses.delete(folder);
     const indexingState = { folder, status: 'starting', indexedCount: 0, totalFiles: 0 };
     activeIndexingProcesses.set(folder, indexingState);
+    
     try {
         const allFilePaths = await getAllFiles(folder);
-        if (allFilePaths.length === 0) {
-            indexingState.status = 'complete';
-            return;
-        }
+        if (allFilePaths.length === 0) { indexingState.status = 'complete'; return; }
+        
         const db = await initDb(folder);
         const allFiles = allFilePaths.map(fp => ({ fullpath: fp, name: path.basename(fp), extension: path.extname(fp).toLowerCase().slice(1) }));
         indexingState.totalFiles = allFiles.length;
         indexingState.status = 'indexing';
 
-        // Process files sequentially to avoid overwhelming the system
-        for (const file of allFiles) {
-            await indexFile(db, file);
-            indexingState.indexedCount++;
+        await new Promise((resolve) => db.run('BEGIN TRANSACTION', resolve));
+
+        for (let i = 0; i < allFiles.length; i += BATCH_SIZE) {
+            if (localToken.cancelled) {
+                console.log(`[Indexer] Indexing for ${folder} was cancelled.`);
+                db.run('ROLLBACK'); // Rollback changes if cancelled
+                return;
+            }
+            const batch = allFiles.slice(i, i + BATCH_SIZE);
+            const promises = batch.map(file => indexFile(db, file));
+            await Promise.all(promises);
+            indexingState.indexedCount += batch.length;
         }
+        
+        await new Promise((resolve) => db.run('COMMIT', resolve));
         await new Promise((resolve) => db.close(resolve));
     } catch (err) {
         console.error(`Error indexing folder ${folder}:`, err.message);
     } finally {
         indexingState.status = 'complete';
-        setTimeout(() => activeIndexingProcesses.delete(folder), 5000);
+        setTimeout(() => {
+            if (activeIndexingProcesses.get(folder) === indexingState) {
+                activeIndexingProcesses.delete(folder);
+            }
+        }, 5000);
+        if (currentIndexingToken === localToken) {
+            currentIndexingToken = null;
+        }
     }
 }
 
@@ -176,12 +204,9 @@ function searchContent(folder, query) {
     });
 }
 
-async function isIndexAvailable(folder) {
-    try {
-        await fs.access(getDbPath(folder));
-        return !activeIndexingProcesses.has(folder);
-    } catch {
-        return false;
+function cancelCurrentIndexing() {
+    if (currentIndexingToken) {
+        currentIndexingToken.cancelled = true;
     }
 }
 
@@ -189,5 +214,5 @@ module.exports = {
     indexFolder,
     searchContent,
     getIndexingStatus: (folder) => activeIndexingProcesses.get(folder) || { status: 'idle' },
-    isIndexAvailable
+    cancelCurrentIndexing
 };
