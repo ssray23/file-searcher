@@ -1,0 +1,28 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install:*)",
+      "Bash(node:*)",
+      "Bash(npm start)",
+      "Bash(taskkill:*)",
+      "Bash(npx:*)",
+      "Bash(curl:*)",
+      "Bash(grep:*)",
+      "Bash(find:*)",
+      "Bash(PORT=3001 npm start)",
+      "Bash(.node_modules.binnodemon.cmd server.js)",
+      "Bash(wmic:*)",
+      "WebFetch(domain:localhost)",
+      "Bash(.node_modules.binnodemon.cmd --kill-others --signal SIGTERM server.js)",
+      "Bash(dir:*)",
+      "Bash(:)",
+      "Bash(PORT=3002 node server.js)",
+      "Bash(set PORT=3002)",
+      "Bash(timeout:*)"
+    ],
+    "deny": [],
+    "additionalDirectories": [
+      "C:\\Users\\su.ray\\OneDrive - Reply\\Suddha\\Fonts"
+    ]
+  }
+}

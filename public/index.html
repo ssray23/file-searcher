@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Searcher</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="title"><span class="title-icon">🔍</span> File Searcher</h1>
+            <p class="subtitle">Find your files with lightning speed</p>
+        </header>
+
+        <main class="main-content">
+            <div class="search-section">
+                <div class="search-container">
+                    <!-- Search inputs -->
+                    <div class="search-input-wrapper">
+                        <input type="text" id="searchInput" class="search-input" placeholder="Search for files..." autocomplete="off">
+                        <button id="cancelBtn" class="cancel-btn" style="display: none;">✕</button>
+                    </div>
+                    <div class="folder-selection">
+                        <label for="folderSelect">Search in:</label>
+                        <!-- *** REVERTED TO STANDARD DROPDOWN *** -->
+                        <div class="select-wrapper">
+                            <select id="folderSelect">
+                                <option value="current">📁 Current Directory</option>
+                                <option value="home">🏠 Home Directory</option>
+                                <option value="desktop">🖥️ Desktop</option>
+                                <option value="documents">📄 Documents</option>
+                                <option value="downloads">⬇️ Downloads</option>
+                                <option value="custom">📂 Custom Path...</option>
+                            </select>
+                        </div>
+                        <!-- *** END OF REVERT *** -->
+                        <input type="text" id="customPathInput" class="custom-path-input" placeholder="Enter folder path..." style="display: none;">
+                        <div class="current-path">
+                            <span class="path-label">Current path:</span>
+                            <span class="path-value" id="pathValue">...</span>
+                        </div>
+                    </div>
+                    <!-- Indexing progress -->
+                    <div class="indexing-progress-container" id="indexingProgressContainer" style="display: none;">
+                        <p id="indexingStatusText">Indexing...</p>
+                        <progress id="indexingProgressBar" max="100" value="0"></progress>
+                    </div>
+                </div>
+
+                <!-- Search Results -->
+                <div class="results-section" id="resultsSection">
+                    <div class="results-header">
+                        <h2>Search Results</h2>
+                        <div class="results-stats">
+                            <span id="resultCount">0</span> files found in <span id="searchTime">0</span> ms
+                        </div>
+                    </div>
+                    <div class="results-table-container">
+                        <table class="results-table">
+                            <thead><tr><th>File Name</th><th>Type</th><th>Size</th><th>Last Modified</th><th>Actions</th></tr></thead>
+                            <tbody id="resultsTableBody"></tbody>
+                        </table>
+                    </div>
+                    <div class="no-results" id="noResults">
+                        <h3>No files found</h3>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Preview Modal -->
+    <div class="preview-modal" id="previewModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">File Preview</h3>
+                <button class="close-btn" id="closeModal">×</button>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <!-- Preview content will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

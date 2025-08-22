@@ -1,0 +1,10 @@
+Navigated to http://localhost:3000/
+script.js:1292 File Searcher initialized with real file system
+script.js:1297 [DEBUG] updateCurrentPath called. selectedDirectory: current
+script.js:1315 [DEBUG] pathValue updated to: Current Directory
+script.js:1297 [DEBUG] updateCurrentPath called. selectedDirectory: documents
+script.js:1315 [DEBUG] pathValue updated to: Documents
+script.js:70 Content search toggled: true
+script.js:205 performSearch called. contentSearchEnabled: true
+script.js:205 performSearch called. contentSearchEnabled: true
+script.js:205 performSearch called. contentSearchEnabled: true

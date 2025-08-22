@@ -1,0 +1,8 @@
+# Dependencies
+node_modules/
+
+# Indexing databases
+.indexes/
+
+# Environment variables (if you ever add them)
+# .env

@@ -1,0 +1,8 @@
+
+> file-searcher@1.0.0 start
+> node server.cjs
+
+File Searcher server running on http://localhost:3001
+Skipping file: C:\Users\su.ray\Documents\My Pictures ENOENT: no such file or directory, stat 'C:\Users\su.ray\Documents\My Pictures'
+Terminate batch job (Y/N)? 
+^CThe system cannot open the device or file specified.
