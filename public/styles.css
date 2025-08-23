@@ -76,3 +76,93 @@ body { font-family: var(--font-family); background: var(--background-gradient); 
 .modal-body { padding: 1.5rem; overflow-y: auto; line-height: 1.5; }
 .modal-body pre { white-space: pre-wrap; font-family: monospace; }
 .modal-body mark { background-color: #fef08a; padding: 2px; border-radius: 3px; }
+
+/* Add these styles to your styles.css file after the existing modal styles */
+
+/* Enhanced modal header with path display */
+.modal-title-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    flex: 1;
+    min-width: 0; /* Allow text to truncate */
+}
+
+.modal-title-content .file-name {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.modal-title-content .file-path {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    font-family: monospace;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 100%;
+    cursor: help; /* Show that there's a tooltip */
+}
+
+/* Path highlighting styles */
+.file-path mark.path-highlight {
+    background-color: #e3f2fd;
+    border: 1px solid #2196f3;
+    border-radius: 3px;
+    padding: 1px 3px;
+    color: #1565c0;
+    font-weight: 600;
+}
+
+/* Update modal header to accommodate the new layout */
+.modal-header {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* Changed from center to flex-start */
+    gap: 1rem;
+    min-height: 60px; /* Ensure consistent height */
+}
+
+.modal-header h3 {
+    margin: 0;
+    flex: 1;
+    min-width: 0;
+}
+
+/* Ensure close button stays at top right */
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-secondary);
+    flex-shrink: 0;
+    line-height: 1;
+    padding: 0;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Enhanced highlighting for different match types */
+.modal-body mark {
+    background-color: #fef08a;
+    padding: 2px 4px;
+    border-radius: 3px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+/* Animation for path highlights */
+.file-path mark.path-highlight {
+    transition: all 0.3s ease;
+}
+
+.file-path mark.path-highlight:hover {
+    background-color: #bbdefb;
+    transform: scale(1.05);
+}

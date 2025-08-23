@@ -15,15 +15,16 @@
   "author": "You",
   "license": "MIT",
   "dependencies": {
+    "exceljs": "^4.4.0",
     "express": "^4.19.2",
     "glob": "^10.3.10",
+    "jszip": "^3.10.1",
     "mammoth": "^1.7.0",
     "open": "^8.4.2",
     "pdf-parse": "^1.1.1",
+    "psd": "^3.4.0",
     "sqlite3": "^5.1.7",
-    "xlsx": "^0.18.5",
-    "exceljs": "^4.4.0",
-    "psd": "^3.4.0"
+    "xlsx": "^0.18.5"
   },
   "devDependencies": {
     "nodemon": "^3.1.0"

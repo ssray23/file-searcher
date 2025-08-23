@@ -22,6 +22,8 @@ async function extractPptxText(filePath) {
     return fullText;
 }
 
+// Replace the DOCX handling in previewer.js with this:
+
 async function previewFile(filePath) {
     const ext = path.extname(filePath).toLowerCase();
     const timeoutPromise = new Promise((_, reject) =>
@@ -30,31 +32,38 @@ async function previewFile(filePath) {
 
     const doPreview = async () => {
         if (ext === '.docx') {
+            // Extract HTML with formatting instead of raw text
             const result = await mammoth.convertToHtml({ path: filePath });
-            return result.value;
+            return { type: 'html', content: result.value };
         } else if (ext === '.xlsx') {
             const workbook = new exceljs.Workbook();
             await workbook.xlsx.readFile(filePath);
-            let html = '<table border="1">';
+            let html = '<table border="1" style="border-collapse: collapse; width: 100%;">';
             workbook.eachSheet((sheet) => {
-                html += `<tr><th colspan="${sheet.columnCount}">${sheet.name}</th></tr>`;
-                sheet.eachRow((row) => {
-                    html += '<tr>' + row.values.map(v => `<td>${v || ''}</td>`).join('') + '</tr>';
+                html += `<tr><th colspan="${sheet.columnCount}" style="background-color: #f0f0f0; padding: 8px; text-align: center; font-weight: bold;">${sheet.name}</th></tr>`;
+                sheet.eachRow((row, rowIndex) => {
+                    const style = rowIndex === 1 ? 'background-color: #f8f8f8; font-weight: bold;' : '';
+                    html += `<tr style="${style}">` + 
+                           row.values.slice(1).map(v => `<td style="padding: 4px; border: 1px solid #ddd;">${v || ''}</td>`).join('') + 
+                           '</tr>';
                 });
             });
             html += '</table>';
-            return html;
+            return { type: 'html', content: html };
         } else if (ext === '.pptx') {
-            return await extractPptxText(filePath);
+            const text = await extractPptxText(filePath);
+            return { type: 'text', content: text };
         } else if (ext === '.psd') {
             const psd = await PSD.open(filePath);
-            return psd.tree().export();
+            const exported = psd.tree().export();
+            return { type: 'text', content: JSON.stringify(exported, null, 2) };
         } else if (ext === '.pdf') {
             const dataBuffer = fs.readFileSync(filePath);
             const data = await pdfParse(dataBuffer);
-            return data.text;
+            return { type: 'text', content: data.text };
         } else {
-            return fs.readFileSync(filePath, 'utf8');
+            const content = fs.readFileSync(filePath, 'utf8');
+            return { type: 'text', content: content };
         }
     };
 
@@ -68,5 +77,4 @@ async function previewFile(filePath) {
         throw new Error("Could not generate a preview for this file. It may be corrupted or too complex.");
     }
 }
-
 module.exports = { previewFile };

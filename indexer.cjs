@@ -1,10 +1,10 @@
 const path = require('path');
 const fsp = require('fs').promises;
+const fs = require('fs');
 const crypto = require('crypto');
 const sqlite3 = require('sqlite3').verbose();
 const mammoth = require('mammoth');
 const XLSX = require('xlsx');
-const { glob } = require('glob');
 const pdfParse = require('pdf-parse');
 const JSZip = require('jszip');
 
@@ -28,10 +28,91 @@ function initDb(folder) {
     const db = new sqlite3.Database(dbPath);
     return new Promise((resolve, reject) => {
         db.serialize(() => {
-            db.run(`CREATE TABLE IF NOT EXISTS files (id INTEGER PRIMARY KEY, name TEXT, fullpath TEXT UNIQUE, extension TEXT, mtime INTEGER, size INTEGER)`, (err) => { if (err) return reject(err); });
-            db.run(`CREATE VIRTUAL TABLE IF NOT EXISTS content USING fts5(fullpath UNINDEXED, filename, filepath, filecontent, tokenize = 'porter ascii')`, (err) => {
-                if (err) console.warn('FTS5 not available:', err.message);
-                resolve(db);
+            // Check if files table exists and has the correct schema
+            db.get("SELECT sql FROM sqlite_master WHERE type='table' AND name='files'", (err, row) => {
+                if (err) {
+                    console.error('Error checking table schema:', err);
+                    return reject(err);
+                }
+                
+                let needsSchemaUpdate = false;
+                
+                if (row) {
+                    // Table exists, check if it has fullpath column
+                    if (!row.sql.includes('fullpath')) {
+                        console.log('[Indexer] Updating database schema to add fullpath column');
+                        needsSchemaUpdate = true;
+                    }
+                } else {
+                    // Table doesn't exist, will be created with correct schema
+                    needsSchemaUpdate = false;
+                }
+                
+                if (needsSchemaUpdate) {
+                    // Drop and recreate tables with correct schema
+                    db.run("DROP TABLE IF EXISTS files", (dropErr) => {
+                        if (dropErr) {
+                            console.error('Error dropping files table:', dropErr);
+                            return reject(dropErr);
+                        }
+                        
+                        db.run("DROP TABLE IF EXISTS content", (dropContentErr) => {
+                            if (dropContentErr) {
+                                console.warn('Error dropping content table:', dropContentErr);
+                                // Continue anyway, as content table might be virtual
+                            }
+                            
+                            createTables();
+                        });
+                    });
+                } else {
+                    createTables();
+                }
+                
+                function createTables() {
+                    // Create files table with correct schema
+                    db.run(`CREATE TABLE IF NOT EXISTS files (
+                        id INTEGER PRIMARY KEY, 
+                        name TEXT, 
+                        fullpath TEXT UNIQUE, 
+                        extension TEXT, 
+                        mtime INTEGER, 
+                        size INTEGER
+                    )`, (err) => {
+                        if (err) {
+                            console.error('Error creating files table:', err);
+                            return reject(err);
+                        }
+                        
+                        // Create content table (try FTS5 first, fallback to regular table)
+                        db.run(`CREATE VIRTUAL TABLE IF NOT EXISTS content USING fts5(
+                            fullpath UNINDEXED, 
+                            filename, 
+                            filepath, 
+                            filecontent, 
+                            tokenize = 'porter ascii'
+                        )`, (err) => {
+                            if (err) {
+                                console.warn('FTS5 not available, falling back to regular table:', err.message);
+                                // Create a regular table as fallback
+                                db.run(`CREATE TABLE IF NOT EXISTS content (
+                                    fullpath TEXT PRIMARY KEY,
+                                    filename TEXT,
+                                    filepath TEXT,
+                                    filecontent TEXT
+                                )`, (fallbackErr) => {
+                                    if (fallbackErr) {
+                                        console.error('Error creating fallback content table:', fallbackErr);
+                                        return reject(fallbackErr);
+                                    }
+                                    resolve(db);
+                                });
+                            } else {
+                                resolve(db);
+                            }
+                        });
+                    });
+                }
             });
         });
     });
@@ -55,15 +136,25 @@ async function extractContent(fullpath, extension) {
     try {
         const supportedExts = new Set(['txt', 'md', 'js', 'ts', 'html', 'css', 'py', 'java', 'json', 'xml', 'docx', 'xlsx', 'pdf', 'pptx']);
         if (!supportedExts.has(extension)) return null;
-        if (extension === 'docx') return (await mammoth.extractRawText({ path: fullpath })).value.substring(0, MAX_SIZE);
+        
+        if (extension === 'docx') {
+            return (await mammoth.extractRawText({ path: fullpath })).value.substring(0, MAX_SIZE);
+        }
         if (extension === 'xlsx') {
             const workbook = XLSX.readFile(fullpath);
             let allText = '';
-            workbook.SheetNames.forEach(sheetName => { allText += XLSX.utils.sheet_to_txt(workbook.Sheets[sheetName]); });
+            workbook.SheetNames.forEach(sheetName => {
+                allText += XLSX.utils.sheet_to_txt(workbook.Sheets[sheetName]);
+            });
             return allText.substring(0, MAX_SIZE);
         }
-        if (extension === 'pdf') return (await pdfParse(fullpath)).text.substring(0, MAX_SIZE);
-        if (extension === 'pptx') return (await extractPptxText(fullpath)).substring(0, MAX_SIZE);
+        if (extension === 'pdf') {
+            const dataBuffer = await fsp.readFile(fullpath);
+            return (await pdfParse(dataBuffer)).text.substring(0, MAX_SIZE);
+        }
+        if (extension === 'pptx') {
+            return (await extractPptxText(fullpath)).substring(0, MAX_SIZE);
+        }
         return (await fsp.readFile(fullpath, 'utf8')).substring(0, MAX_SIZE);
     } catch (error) {
         console.error(`Error extracting content from ${fullpath}:`, error.message);
@@ -76,16 +167,19 @@ async function indexFile(db, file) {
     const timeoutPromise = new Promise((_, reject) =>
         setTimeout(() => reject(new Error('File processing timed out')), FILE_PROCESSING_TIMEOUT_MS)
     );
+    
     const processPromise = (async () => {
         const stat = await fsp.stat(file.fullpath);
         const mtime = Math.floor(stat.mtime.getTime() / 1000);
+        
         await new Promise((resolve, reject) => {
-            db.get('SELECT mtime FROM files WHERE fullpath = ?', [file.fullpath], (err, row) => {
+            db.get('SELECT mtime FROM files WHERE fullpath = ?', [file.fullpath], async (err, row) => {
                 if (err || !row || row.mtime !== mtime) {
                     db.run(`INSERT OR REPLACE INTO files (name, fullpath, extension, mtime, size) VALUES (?, ?, ?, ?, ?)`,
                         [file.name, file.fullpath, file.extension, mtime, stat.size],
                         async (err) => {
                             if (err) return reject(err);
+                            
                             const content = await extractContent(file.fullpath, file.extension);
                             db.run(`INSERT OR REPLACE INTO content (fullpath, filename, filepath, filecontent) VALUES (?, ?, ?, ?)`,
                                 [file.fullpath, file.name, file.fullpath, content],
@@ -99,6 +193,7 @@ async function indexFile(db, file) {
             });
         });
     })();
+    
     try {
         await Promise.race([processPromise, timeoutPromise]);
     } catch (error) {
@@ -106,18 +201,43 @@ async function indexFile(db, file) {
     }
 }
 
+// Use Node.js built-in recursive directory reading instead of glob
 async function getAllFiles(dirPath) {
     try {
         await fsp.access(dirPath);
-        return await glob('**/*', {
-            cwd: dirPath,
-            nodir: true,
-            ignore: ['**/.git/**', '**/.indexes/**', '**/node_modules/**'],
-            dot: false,
-            absolute: true
-        });
+        console.log(`[Indexer] Scanning directory: ${dirPath}`);
+        
+        const files = [];
+        
+        async function scanDirectory(currentPath) {
+            const entries = await fsp.readdir(currentPath, { withFileTypes: true });
+            
+            for (const entry of entries) {
+                const fullPath = path.join(currentPath, entry.name);
+                
+                // Skip ignored directories
+                const relativePath = path.relative(dirPath, fullPath);
+                if (relativePath.includes('.git') || 
+                    relativePath.includes('.indexes') || 
+                    relativePath.includes('node_modules') ||
+                    entry.name.startsWith('.')) {
+                    continue;
+                }
+                
+                if (entry.isDirectory()) {
+                    await scanDirectory(fullPath);
+                } else if (entry.isFile()) {
+                    files.push(fullPath);
+                }
+            }
+        }
+        
+        await scanDirectory(dirPath);
+        console.log(`[Indexer] Found ${files.length} files`);
+        return files;
+        
     } catch (err) {
-        console.error(`Could not access or glob directory ${dirPath}:`, err.message);
+        console.error(`Could not access directory ${dirPath}:`, err.message);
         return [];
     }
 }
@@ -126,45 +246,80 @@ async function indexFolder(folder) {
     const localToken = { cancelled: false };
     currentIndexingToken = localToken;
 
-    // Immediately clear any previous status for this folder
+    console.log(`[Indexer] Starting indexing for: ${folder}`);
+    
+    // Clear any previous status for this folder
     activeIndexingProcesses.delete(folder);
     const indexingState = { folder, status: 'starting', indexedCount: 0, totalFiles: 0 };
     activeIndexingProcesses.set(folder, indexingState);
     
     try {
         const allFilePaths = await getAllFiles(folder);
-        if (allFilePaths.length === 0) { indexingState.status = 'complete'; return; }
+        if (allFilePaths.length === 0) {
+            console.log(`[Indexer] No files found in ${folder}`);
+            indexingState.status = 'complete';
+            return;
+        }
         
+        console.log(`[Indexer] Initializing database for ${folder}`);
         const db = await initDb(folder);
-        const allFiles = allFilePaths.map(fp => ({ fullpath: fp, name: path.basename(fp), extension: path.extname(fp).toLowerCase().slice(1) }));
+        const allFiles = allFilePaths.map(fp => ({
+            fullpath: fp,
+            name: path.basename(fp),
+            extension: path.extname(fp).toLowerCase().slice(1)
+        }));
+        
         indexingState.totalFiles = allFiles.length;
         indexingState.status = 'indexing';
+        console.log(`[Indexer] Processing ${allFiles.length} files`);
 
-        await new Promise((resolve) => db.run('BEGIN TRANSACTION', resolve));
+        await new Promise((resolve, reject) => {
+            db.run('BEGIN TRANSACTION', (err) => {
+                if (err) reject(err);
+                else resolve();
+            });
+        });
 
         for (let i = 0; i < allFiles.length; i += BATCH_SIZE) {
             if (localToken.cancelled) {
                 console.log(`[Indexer] Indexing for ${folder} was cancelled.`);
-                db.run('ROLLBACK'); // Rollback changes if cancelled
+                await new Promise((resolve) => db.run('ROLLBACK', resolve));
+                await new Promise((resolve) => db.close(resolve));
                 return;
             }
+            
             const batch = allFiles.slice(i, i + BATCH_SIZE);
             const promises = batch.map(file => indexFile(db, file));
             await Promise.all(promises);
             indexingState.indexedCount += batch.length;
+            console.log(`[Indexer] Processed ${indexingState.indexedCount}/${allFiles.length} files`);
         }
         
-        await new Promise((resolve) => db.run('COMMIT', resolve));
+        await new Promise((resolve, reject) => {
+            db.run('COMMIT', (err) => {
+                if (err) reject(err);
+                else resolve();
+            });
+        });
+        
         await new Promise((resolve) => db.close(resolve));
+        console.log(`[Indexer] Successfully indexed ${allFiles.length} files in ${folder}`);
+        
     } catch (err) {
         console.error(`Error indexing folder ${folder}:`, err.message);
+        console.error(err.stack);
+        indexingState.status = 'error';
     } finally {
-        indexingState.status = 'complete';
+        if (indexingState.status !== 'error') {
+            indexingState.status = 'complete';
+        }
+        
         setTimeout(() => {
             if (activeIndexingProcesses.get(folder) === indexingState) {
                 activeIndexingProcesses.delete(folder);
             }
         }, 5000);
+        
         if (currentIndexingToken === localToken) {
             currentIndexingToken = null;
         }
@@ -173,39 +328,130 @@ async function indexFolder(folder) {
 
 function searchContent(folder, query) {
     const dbPath = getDbPath(folder);
-    const db = new sqlite3.Database(dbPath, sqlite3.OPEN_READONLY);
+    console.log(`[Indexer] Searching in database: ${dbPath}`);
+    
+    // Check if database file exists
+    if (!fs.existsSync(dbPath)) {
+        console.log(`[Indexer] Database not found: ${dbPath}`);
+        return Promise.resolve([]);
+    }
+    
+    const db = new sqlite3.Database(dbPath, sqlite3.OPEN_READONLY, (err) => {
+        if (err) {
+            console.error('Error opening database:', err);
+        }
+    });
+    
     return new Promise((resolve, reject) => {
         let searchQuery = query.trim();
-        if (!searchQuery) { db.close(); return resolve([]); }
-        if (!(searchQuery.startsWith('"') && searchQuery.endsWith('"'))) {
-            searchQuery = searchQuery.split(/\s+/).filter(Boolean).map(term => `"${term}"*`).join(' AND ');
-        }
-        const sql = `
-            SELECT f.*, results.priority, results.rank FROM (
-                SELECT fullpath, 1 AS priority, rank FROM content WHERE filename MATCH ?
-                UNION ALL
-                SELECT fullpath, 2 AS priority, rank FROM content WHERE filepath MATCH ?
-                UNION ALL
-                SELECT fullpath, 3 AS priority, rank FROM content WHERE filecontent MATCH ?
-            ) AS results
-            JOIN files f ON f.fullpath = results.fullpath
-            GROUP BY f.fullpath
-            ORDER BY MIN(results.priority) ASC, results.rank DESC LIMIT 100;
-        `;
-        db.all(sql, [searchQuery, searchQuery, searchQuery], (err, rows) => {
+        if (!searchQuery) {
             db.close();
-            if (err) return reject(err);
-            const results = rows.map(row => ({
-                id: Buffer.from(row.fullpath).toString('base64'), name: row.name, path: row.fullpath,
-                extension: row.extension, size: row.size, modified: new Date(row.mtime * 1000).toISOString()
-            }));
-            resolve(results);
+            return resolve([]);
+        }
+        
+        // Check if content table exists first
+        db.get("SELECT name FROM sqlite_master WHERE type='table' AND name='content'", (err, row) => {
+            if (err) {
+                db.close();
+                return reject(err);
+            }
+            
+            if (!row) {
+                console.log('No content table found - database may not be indexed yet');
+                db.close();
+                return resolve([]);
+            }
+            
+            // Check if files table has fullpath column
+            db.get("SELECT sql FROM sqlite_master WHERE type='table' AND name='files'", (err, filesTableInfo) => {
+                if (err) {
+                    db.close();
+                    return reject(err);
+                }
+                
+                if (!filesTableInfo || !filesTableInfo.sql.includes('fullpath')) {
+                    console.log('Files table missing fullpath column - database needs to be re-indexed');
+                    db.close();
+                    return resolve([]);
+                }
+                
+                // Check if it's an FTS table
+                db.get("SELECT sql FROM sqlite_master WHERE type='table' AND name='content'", (err, tableInfo) => {
+                    if (err) {
+                        db.close();
+                        return reject(err);
+                    }
+                    
+                    const isFTS = tableInfo.sql.includes('VIRTUAL TABLE') && tableInfo.sql.includes('fts5');
+                    
+                    let sql;
+                    let params;
+                    
+                    if (isFTS) {
+                        // Use FTS search
+                        if (!(searchQuery.startsWith('"') && searchQuery.endsWith('"'))) {
+                            searchQuery = searchQuery.split(/\s+/).filter(Boolean).map(term => `"${term}"*`).join(' AND ');
+                        }
+                        
+                        sql = `
+                            SELECT f.*, results.priority, results.rank FROM (
+                                SELECT fullpath, 1 AS priority, rank FROM content WHERE filename MATCH ?
+                                UNION ALL
+                                SELECT fullpath, 2 AS priority, rank FROM content WHERE filepath MATCH ?
+                                UNION ALL
+                                SELECT fullpath, 3 AS priority, rank FROM content WHERE filecontent MATCH ?
+                            ) AS results
+                            JOIN files f ON f.fullpath = results.fullpath
+                            GROUP BY f.fullpath
+                            ORDER BY MIN(results.priority) ASC, results.rank DESC LIMIT 100;
+                        `;
+                        params = [searchQuery, searchQuery, searchQuery];
+                    } else {
+                        // Use LIKE search for fallback table
+                        const likeQuery = `%${searchQuery}%`;
+                        sql = `
+                            SELECT f.*, results.priority FROM (
+                                SELECT fullpath, 1 AS priority FROM content WHERE filename LIKE ?
+                                UNION ALL
+                                SELECT fullpath, 2 AS priority FROM content WHERE filepath LIKE ?
+                                UNION ALL
+                                SELECT fullpath, 3 AS priority FROM content WHERE filecontent LIKE ?
+                            ) AS results
+                            JOIN files f ON f.fullpath = results.fullpath
+                            GROUP BY f.fullpath
+                            ORDER BY MIN(results.priority) ASC LIMIT 100;
+                        `;
+                        params = [likeQuery, likeQuery, likeQuery];
+                    }
+                    
+                    db.all(sql, params, (err, rows) => {
+                        db.close();
+                        if (err) {
+                            console.error('Search query error:', err);
+                            return reject(err);
+                        }
+                        
+                        const results = rows.map(row => ({
+                            id: Buffer.from(row.fullpath).toString('base64'),
+                            name: row.name,
+                            path: row.fullpath,
+                            extension: row.extension,
+                            size: row.size,
+                            modified: new Date(row.mtime * 1000).toISOString()
+                        }));
+                        
+                        console.log(`[Indexer] Found ${results.length} search results`);
+                        resolve(results);
+                    });
+                });
+            });
         });
     });
 }
 
 function cancelCurrentIndexing() {
     if (currentIndexingToken) {
+        console.log('[Indexer] Cancelling current indexing operation');
         currentIndexingToken.cancelled = true;
     }
 }

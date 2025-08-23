@@ -40,6 +40,17 @@
                             <span class="path-label">Current path:</span>
                             <span class="path-value" id="pathValue">...</span>
                         </div>
+                        <!-- Added File Type Filter -->
+                        <label for="fileTypeFilter" style="margin-left: 1rem;">Type:</label>
+                        <div class="select-wrapper">
+                            <select id="fileTypeFilter">
+                                <option value="all">All Types</option>
+                                <option value="documents">Documents</option>
+                                <option value="images">Images</option>
+                                <option value="text">Text & Code</option>
+                                <option value="archives">Archives</option>
+                            </select>
+                        </div>
                     </div>
                     <!-- Indexing progress -->
                     <div class="indexing-progress-container" id="indexingProgressContainer" style="display: none;">

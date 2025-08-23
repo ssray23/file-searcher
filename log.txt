@@ -3,6 +3,3633 @@
 > node server.cjs
 
 File Searcher server running on http://localhost:3001
-Skipping file: C:\Users\su.ray\Documents\My Pictures ENOENT: no such file or directory, stat 'C:\Users\su.ray\Documents\My Pictures'
-Terminate batch job (Y/N)? 
-^CThe system cannot open the device or file specified.
+Current working directory: C:\Users\su.ray\OneDrive - Reply\Suddha\Personal Projects\file-searcher
+Home directory: C:\Users\su.ray
+GET /
+GET /.well-known/appspecific/com.chrome.devtools.json
+GET /styles.css
+GET /script.js
+GET /api/resolve-directory?directory=current
+Resolve directory request: { directory: 'current' }
+Resolved path: C:\Users\su.ray\OneDrive - Reply\Suddha\Personal Projects\file-searcher
+POST /api/index?directory=current
+Index request received: { directory: 'current' }
+Starting indexing for folder: C:\Users\su.ray\OneDrive - Reply\Suddha\Personal Projects\file-searcher
+[Indexer] Starting indexing for: C:\Users\su.ray\OneDrive - Reply\Suddha\Personal Projects\file-searcher
+[Indexer] Scanning directory: C:\Users\su.ray\OneDrive - Reply\Suddha\Personal Projects\file-searcher
+[Indexer] Found 18 files
+[Indexer] Initializing database for C:\Users\su.ray\OneDrive - Reply\Suddha\Personal Projects\file-searcher
+[Indexer] Processing 18 files
+[Indexer] Processing: database_fix.js
+[Indexer] Processing: f12.txt
+[Indexer] Processing: GenSummary.bat
+[Indexer] Processing: indexer.cjs
+[Indexer] Processing: log.txt
+[Indexer] Processing: nodemon.js
+[Indexer] Processing: package-lock.json
+[Indexer] Processing: package.json
+[Indexer] Processing: pic.jpg
+[Indexer] Processing: prd.md
+[Indexer] Processing: previewer.js
+[Indexer] Processing: index.html
+[Indexer] Processing: script.js
+[Indexer] Processing: styles.css
+[Indexer] Processing: README.md
+[Indexer] Processing: server.cjs
+[Indexer] Processing: startFileSearch.bat
+[Indexer] Processing: summary_file-searcher.txt
+[Indexer] Processed 18/18 files
+[Indexer] Successfully indexed 18 files in C:\Users\su.ray\OneDrive - Reply\Suddha\Personal Projects\file-searcher
+GET /api/index/status?directory=current
+Status request: { directory: 'current' }
+Status response: {
+  folder: 'C:\\Users\\su.ray\\OneDrive - Reply\\Suddha\\Personal Projects\\file-searcher',
+  status: 'complete',
+  indexedCount: 18,
+  totalFiles: 18
+}
+GET /api/resolve-directory?directory=documents
+Resolve directory request: { directory: 'documents' }
+Resolved path: C:\Users\su.ray\OneDrive - Reply\Documents
+POST /api/index?directory=documents
+Index request received: { directory: 'documents' }
+Starting indexing for folder: C:\Users\su.ray\OneDrive - Reply\Documents
+[Indexer] Starting indexing for: C:\Users\su.ray\OneDrive - Reply\Documents
+[Indexer] Scanning directory: C:\Users\su.ray\OneDrive - Reply\Documents
+[Indexer] Found 339 files
+[Indexer] Initializing database for C:\Users\su.ray\OneDrive - Reply\Documents
+[Indexer] Processing 339 files
+[Indexer] Processing: A3.NovaPrinter.A (A3 Only).vbs
+[Indexer] Processing: Add5.py
+[Indexer] Processing: AEM Oct 2022.pdf
+[Indexer] Processing: All Season Reconcilliation DB.accdb
+[Indexer] Processing: Application-form-EN.pdf
+[Indexer] Processing: arc_recovery_packet (1).txt
+[Indexer] Processing: arc_recovery_packet.txt
+[Indexer] Processing: BASIC CONCEPT.docx
+[Indexer] Processing: BasierCircle-BoldItalic.ttf
+[Indexer] Processing: Best cheap laptop in 2024 (UK) _ Mashable.pdf
+[Indexer] Processing: Book1.xlsx
+[Indexer] Processing: brkfast.jpeg
+[Indexer] Processing: Cage Consolidation.pdf
+[Indexer] Processing: CopilotAnswers-20240523-201537.xlsx
+[Indexer] Processing: CopilotAnswers-20240523-202550.xlsx
+[Indexer] Processing: Book1.xltm
+[Indexer] Processing: Book1.xltx
+[Indexer] Processing: Suddha_Stencil.vstm
+[Indexer] Processing: Dan - extension of remote working.docx
+[Indexer] Processing: Default - Copy.rdp
+[Indexer] Processing: Default.rdp
+[Indexer] Processing: SupportAssistChatBot - Copy.dat
+[Indexer] Processing: SupportAssistChatBot.dat
+[Indexer] Processing: desktop.ini
+[Indexer] Processing: ActorFilmLabelReport.rdb
+[Indexer] Processing: CrossTabCustomerPaymentReport.rdb
+[Indexer] Processing: CustomerMailMergeReport.rdb
+[Indexer] Processing: CustomerMasterDetailReport.rdb
+[Indexer] Processing: even.repss
+[Indexer] Processing: even_info.repss
+[Indexer] Processing: FilmTableReport.rdb
+[Indexer] Processing: MultiColumnReport.rdb
+[Indexer] Processing: odd.repss
+[Indexer] Processing: odd_info.repss
+[Indexer] Processing: SakilaChartsReport.rdb
+[Indexer] Processing: SakilaFilmsCatalogReport.rdb
+[Indexer] Processing: StaticReport.rdb
+[Indexer] Processing: SakilaDiagram.dbd
+[Indexer] Processing: get_customer_balance.Functions.sql
+[Indexer] Processing: inventory_held_by_customer.Functions.sql
+[Indexer] Processing: inventory_in_stock.Functions.sql
+[Indexer] Processing: Select_data_for_PivotGrid.sql
+[Indexer] Processing: Select_data_for_PivotGrid.sql.Design
+[Indexer] Processing: PostDeployment.sql
+[Indexer] Processing: PreDeployment.sql
+[Indexer] Processing: film_in_stock.Procedures.sql
+[Indexer] Processing: film_not_in_stock.Procedures.sql
+[Indexer] Processing: rewards_report.Procedures.sql
+[Indexer] Processing: Actor_Info.sql
+[Indexer] Processing: Actor_Info.sql.Design
+[Indexer] Processing: Customer_List.sql
+[Indexer] Processing: Customer_List.sql.Design
+[Indexer] Processing: Film_List.sql
+[Indexer] Processing: Film_List.sql.Design
+[Indexer] Processing: Nicer_But_Slower_Film_List.sql
+[Indexer] Processing: Nicer_But_Slower_Film_List.sql.Design
+[Indexer] Processing: Sales_By_Film_Category.sql
+[Indexer] Processing: Sales_By_Film_Category.sql.Design
+[Indexer] Processing: Sales_By_Store.sql
+[Indexer] Processing: Sales_By_Store.sql.Design
+[Indexer] Processing: Staff_List.sql
+[Indexer] Processing: Staff_List.sql.Design
+[Indexer] Processing: Sakila.mydev
+[Indexer] Processing: actor.Tables.sql
+[Indexer] Processing: address.Tables.sql
+[Indexer] Processing: category.Tables.sql
+[Indexer] Processing: city.Tables.sql
+[Indexer] Processing: country.Tables.sql
+[Indexer] Processing: customer.Tables.sql
+[Indexer] Processing: film.Tables.sql
+[Indexer] Processing: film_actor.Tables.sql
+[Indexer] Processing: film_category.Tables.sql
+[Indexer] Processing: film_text.Tables.sql
+[Indexer] Processing: inventory.Tables.sql
+[Indexer] Processing: language.Tables.sql
+[Indexer] Processing: payment.Tables.sql
+[Indexer] Processing: rental.Tables.sql
+[Indexer] Processing: staff.Tables.sql
+[Indexer] Processing: store.Tables.sql
+[Indexer] Processing: customer_create_date.Triggers.sql
+[Indexer] Processing: del_film.Triggers.sql
+[Indexer] Processing: ins_film.Triggers.sql
+[Indexer] Processing: payment_date.Triggers.sql
+[Indexer] Processing: rental_date.Triggers.sql
+[Indexer] Processing: upd_film.Triggers.sql
+[Indexer] Processing: actor_info.Views.sql
+[Indexer] Processing: customer_list.Views.sql
+[Indexer] Processing: film_list.Views.sql
+[Indexer] Processing: nicer_but_slower_film_list.Views.sql
+[Indexer] Processing: sales_by_film_category.Views.sql
+[Indexer] Processing: sales_by_store.Views.sql
+[Indexer] Processing: staff_list.Views.sql
+[Indexer] Processing: doc-1.docx
+[Indexer] Processing: doc-1.pdf
+[Indexer] Processing: eJh Sales 11DEC23.xlsx
+[Indexer] Processing: EJHBookingsT1.xlsx
+[Indexer] Processing: EJHBookingsT7.xlsx
+[Indexer] Processing: Export From Word.pdf
+[Indexer] Processing: EZY419 Accommodation Only Sales FS V1.0.pdf
+[Indexer] Processing: Fx.xlsx
+[Indexer] Processed 100/339 files
+[Indexer] Processing: GMI Phase 3 Solution Blueprint v0.7.docx
+[Indexer] Processing: henry note.txt
+[Indexer] Processing: Hi Doctor Viswanath.pdf
+[Indexer] Processing: Hi Henry.docx
+[Indexer] Processing: Hi Henry.pdf
+[Indexer] Processing: How can I use SAML to integrate PING with a SaaS application.pdf
+[Indexer] Processing: How to Get Airport Lounge Access - 8 Smart Methods - Nomad Paradise.pdf
+[Indexer] Processing: I need to take a pic out of that chain but that means we need somewhere to capture the proper quality of data so that.pdf
+[Indexer] Processing: Inventory Costing Methods - principlesofaccounting.com.pdf
+[Indexer] Processing: ISD_ R1012_Shipment_Issues_RDC_NDC_To_RMS R1.3.pdf
+[Indexer] Processing: KEEPING SCORE.docx
+[Indexer] Processing: Landed Costs.pdf
+[Indexer] Processing: Letter to Bank Manager (17-July-2022).pdf
+[Indexer] Processing: Line vs Item (Line as Txn Level).pdf
+[Indexer] Processing: SCHENGEN VISA 2019.jpg
+[Indexer] Processing: Microsoft Edge Passwords.csv
+[Indexer] Processing: Document3.pdf
+[Indexer] Processing: Incident Description.pdf
+[Indexer] Processing: Text.pdf
+[Indexer] Processing: Model and Serial.txt
+[Indexer] Processing: +Connect to New Data Source - Copy.odc
+[Indexer] Processing: +Connect to New Data Source.odc
+[Indexer] Processing: +NewSQLServerConnection - Copy.odc
+[Indexer] Processing: +NewSQLServerConnection.odc
+[Indexer] Processing: FOLDER - Copy.ICO
+[Indexer] Processing: FOLDER.ICO
+[Indexer] Processing: borrowed.xml
+[Indexer] Processing: purchased.xml
+[Indexer] Processing: B003ODIZL6_EBOK.azw
+[Indexer] Processing: B003ODIZL6_EBOK.mbpV2
+[Indexer] Processing: B003ODIZL6_EBOK.phl
+[Indexer] Processing: B003WUYRGI_EBOK.azw
+[Indexer] Processing: B003WUYRGI_EBOK.mbpV2
+[Indexer] Processing: B003WUYRGI_EBOK.phl
+[Indexer] Processing: B003WUYRGI_EBOK.xray
+[Indexer] Processing: amzn1.drm-voucher.v1.ec09eac9-b5c0-457d-be3b-b51c307810d7.voucher
+[Indexer] Processing: B007U8LUWW_EBOK.azw
+[Indexer] Processing: B007U8LUWW_EBOK.lpr
+[Indexer] Processing: B007U8LUWW_EBOK.mbpV2
+[Indexer] Processing: B007U8LUWW_EBOK.phl
+[Indexer] Processing: CR!NWD4HZE2XN6ANDTB1NEA5QGMF3QC.azw.res
+[Indexer] Processing: CR!RZT5HAP16H4CX1HEVXGNBW85FEJ8.azw.md
+[Indexer] Processing: amzn1.drm-voucher.v1.b22bd520-d30f-4a40-a435-bdab7bfd6338.voucher
+[Indexer] Processing: B00SMDT4O0_EBOK.azw
+[Indexer] Processing: B00SMDT4O0_EBOK.mbpV2
+[Indexer] Processing: B00SMDT4O0_EBOK.phl
+[Indexer] Processing: CR!1K258Y9Z854JQ6VQ6GGCA8XM2CN3.azw.res
+[Indexer] Processing: CR!FNEXS3GNK51SZ74MRCMZNFNZYAAS.azw.md
+[Indexer] Processing: amzn1.drm-voucher.v1.6fee8625-9040-4032-92fe-f1639cc006a9.voucher
+[Indexer] Processing: B015RI7RN2_EBOK.azw
+[Indexer] Processing: B015RI7RN2_EBOK.mbpV2
+[Indexer] Processing: B015RI7RN2_EBOK.phl
+[Indexer] Processing: CR!EQE3XQ3W912P51B7QXSEKKFQ7HZ7.azw.res
+[Indexer] Processing: CR!ZCEMCNKW856F1A0ST7912B917BK4.azw.md
+[Indexer] Processing: amzn1.drm-voucher.v1.7cb20f7a-fd2c-4f10-8721-d503acd386fe.voucher
+[Indexer] Processing: B01DIVGLUK_EBOK.azw
+[Indexer] Processing: B01DIVGLUK_EBOK.mbpV2
+[Indexer] Processing: B01DIVGLUK_EBOK.phl
+[Indexer] Processing: CR!5Z768DGGFX7VBEM0DDBZZ7BHKDQ5.azw.res
+[Indexer] Processing: CR!KB5H7ZWD5929F0NZX5MFH040PXKQ.azw.md
+[Indexer] Processing: amzn1.drm-voucher.v1.b1738b33-fa25-45b2-8933-13e78629ba48.voucher
+[Indexer] Processing: B07KGC9QK3_EBOK.azw
+[Indexer] Processing: B07KGC9QK3_EBOK.lpr
+[Indexer] Processing: B07KGC9QK3_EBOK.mbpV2
+[Indexer] Processing: B07KGC9QK3_EBOK.phl
+[Indexer] Processing: CR!404RVT9XND60571RFWVCPSK7CHX9.azw.res
+[Indexer] Processing: CR!Z70SYP3DFX01B9RQS7EC4X8XSAXT.azw.md
+[Indexer] Processing: amzn1.drm-voucher.v1.b38221a3-e8af-4bd8-87e9-9a0e3f0e483d.voucher
+[Indexer] Processing: B07MKNP2RL_EBOK.azw
+[Indexer] Processing: B07MKNP2RL_EBOK.mbpV2
+[Indexer] Processing: CR!93TWWT6XAX5XKA5XYCX0JWGT4TGN.azw.md
+[Indexer] Processing: CR!MRABCM0JH902K41ZF9D910HSGRDN.azw.res
+[Indexer] Processing: amzn1.drm-voucher.v1.b84c68e1-75c9-4fdd-b4ca-e0628980008f.voucher
+[Indexer] Processing: B07NTTQVM3_EBOK.azw
+[Indexer] Processing: B07NTTQVM3_EBOK.xray
+[Indexer] Processing: CR!EBBDFWZNBS619CRC6WAY9YSTMHW6.azw.res
+[Indexer] Processing: CR!YHEQHKYN8D61939SJRG9Y1BAY88C.azw.md
+[Indexer] Processing: amzn1.drm-voucher.v1.7e73f4ef-c5c8-4c80-8e83-6d4242e031c9.voucher
+[Indexer] Processing: B07QW6K7X3_EBOK.azw
+[Indexer] Processing: B07QW6K7X3_EBOK.mbpV2
+[Indexer] Processing: B07QW6K7X3_EBOK.phl
+[Indexer] Processing: B07QW6K7X3_EBOK.xray
+[Indexer] Processing: CR!2X0XCPXSEH4J500YMX93GC9XQNFD.azw.md
+[Indexer] Processing: CR!GY602TT00S2JSD1JTPPFZ5S3KS1B.azw.res
+[Indexer] Processing: amzn1.drm-voucher.v1.59dcdb33-8593-431e-9770-a3678082665e.voucher
+[Indexer] Processing: B07W4Z3XPY_EBOK.azw
+[Indexer] Processing: B07W4Z3XPY_EBOK.mbpV2
+[Indexer] Processing: B07W4Z3XPY_EBOK.phl
+[Indexer] Processing: CR!6H0QDSHJKH7JXC9MY15T09Z3CWNG.azw.res
+[Indexer] Processing: CR!9CBBBE86K937ZCEZJZ5CC8MHEGF5.azw.res
+[Indexer] Processing: CR!BNFX3EAQG92C7A7NT24NP64NPPVS.azw.res
+[Indexer] Processing: CR!CGDPW46KRX41VA19E4HEAD4EDERS.azw.res
+[Indexer] Processing: CR!DBM9ZF5ZEH6VVBXTEK5EPY8SK4JP.azw.res
+[Indexer] Processing: CR!FVD1TB7KJH0P762A2ZV0H2QD5NMV.azw.res
+[Indexer] Processing: CR!M5CFAASEZ13EB79KQER8QJ83XSCY.azw.md
+[Indexer] Processing: CR!MES7YW1WYS47F6MHT06MVFGYYKTD.azw.res
+[Indexer] Processing: CR!QNREFYSK352W158JDTQHJQGJYSRM.azw.res
+[Indexer] Processing: amzn1.drm-voucher.v1.85e3ed6f-7627-4ede-a9bf-c2c6154089cf.voucher
+[Indexer] Processing: B0874FPVM5_EBOK.azw
+[Indexer] Processing: B0874FPVM5_EBOK.mbpV2
+[Indexer] Processed 200/339 files
+[Indexer] Processing: B0874FPVM5_EBOK.phl
+[Indexer] Processing: CR!9KHJMSP5W16Z90SM7CT988HPRBWA.azw.md
+[Indexer] Processing: CR!BQ2B33S0HS6E9BWH6M9J1EZ91RBE.azw.res
+[Indexer] Processing: amzn1.drm-voucher.v1.6985379b-2df1-4e2c-98f2-151518562dcd.voucher
+[Indexer] Processing: B08F5HYJJB_EBOK.azw
+[Indexer] Processing: B08F5HYJJB_EBOK.lpr
+[Indexer] Processing: B08F5HYJJB_EBOK.mbpV2
+[Indexer] Processing: CR!8CPSJB5N5D2Y14BFAY1BQRGCCCGF.azw.res
+[Indexer] Processing: CR!WB0TSN7EZN5FFA6RW26FT11H6TNR.azw.md
+[Indexer] Processing: amzn1.drm-voucher.v1.26142108-dc02-4b0a-b48b-66812b20f6e8.voucher
+[Indexer] Processing: B08P9D8XHL_EBOK.azw
+[Indexer] Processing: B08P9D8XHL_EBOK.mbpV2
+[Indexer] Processing: B08P9D8XHL_EBOK.phl
+[Indexer] Processing: CR!7P7M3F517X5N19XD665767ABRG59.azw.md
+[Indexer] Processing: CR!8AYDWJV3Q13QN1DYZX74807530M0.azw.res
+[Indexer] Processing: CR!ANX1K1KKVD4R7945ANHMSAS7P7NN.azw.res
+[Indexer] Processing: CR!NRPF5MPRWD4MK0AQGR6XSNQK19MV.azw.res
+[Indexer] Processing: amzn1.drm-voucher.v1.98385bfc-b259-4015-9270-76437e90f2b9.voucher
+[Indexer] Processing: B098MHBF23_EBOK.azw
+[Indexer] Processing: B098MHBF23_EBOK.lpr
+[Indexer] Processing: B098MHBF23_EBOK.mbpV2
+[Indexer] Processing: B098MHBF23_EBOK.phl
+[Indexer] Processing: B098MHBF23_EBOK.xray
+[Indexer] Processing: CR!B9MKWT78MH20X36YHTN5NPDMZ67H.azw.res
+[Indexer] Processing: CR!BKC4VKMV0513B1PX687SAYP6853P.azw.md
+[Indexer] Processing: amzn1.drm-voucher.v1.7ecc04c4-680d-46f9-8b52-db3f2b1cac18.voucher
+[Indexer] Processing: B09T66MSLN_EBOK.azw
+[Indexer] Processing: B09T66MSLN_EBOK.lpr
+[Indexer] Processing: B09T66MSLN_EBOK.mbpV2
+[Indexer] Processing: B09T66MSLN_EBOK.phl
+[Indexer] Processing: CR!SHPW1BKBED4615T6TG7XXPDZPKTD.azw.md
+[Indexer] Processing: CR!VA19VA4WV90TVB4JBMC7CPYZN3JW.azw.res
+[Indexer] Processing: amzn1.drm-voucher.v1.362c1e91-d8c3-4177-8510-478960ac3eec.voucher
+[Indexer] Processing: B0C6WD2CT9_EBOK.azw
+[Indexer] Processing: B0C6WD2CT9_EBOK.mbpV2
+[Indexer] Processing: CR!6D8BSG99Z51W34BMYJR5QPKNWJ6R.azw.md
+[Indexer] Processing: CR!9PSVZP7ZV14EK0GE3283GFX68A47.azw.res
+[Indexer] Processing: amzn1.drm-voucher.v1.691025b0-4194-4912-b20e-24adfd95d4f5.voucher
+[Indexer] Processing: B0CBW278NC_EBOK.azw
+[Indexer] Processing: B0CBW278NC_EBOK.mbpV2
+[Indexer] Processing: B0CBW278NC_EBOK.phl
+[Indexer] Processing: CR!94D8KNBY35379CZ93W7J20TY68JK.azw.res
+[Indexer] Processing: CR!DDG8SBDR494RQ34S7MQGMX5A8XMQ.azw.res
+[Indexer] Processing: CR!FTQX2V4NBX54704MH8KNQFBF16QT.azw.res
+[Indexer] Processing: CR!KH5N7MPPZH1RZE4GV1PS6YZ6935T.azw.res
+[Indexer] Processing: CR!KN3FP6395N3P9EWCHZ4BAAFCBSXJ.azw.res
+[Indexer] Processing: CR!WS371NTWN15KHFRSZFGPCR4BJQJX.azw.md
+[Indexer] Processing: amzn1.drm-voucher.v1.99fbbedf-dbdc-4f73-8fda-1662058cccdf.voucher
+[Indexer] Processing: B0CG6869CJ_EBOK.azw
+[Indexer] Processing: B0CG6869CJ_EBOK.mbpV2
+[Indexer] Processing: B0CG6869CJ_EBOK.phl
+[Indexer] Processing: CR!HJEMVRYHS91R7313A393B26FHE0J.azw.res
+[Indexer] Processing: CR!TJVZ9PNFVD2EQ6H9ASS87NXPP67Z.azw.res
+[Indexer] Processing: CR!TKNBADFH790495EZWM4N1B62HH64.azw.md
+[Indexer] Processing: CR!XXJW9N68GH6472YTGSD06SB6C7NK.azw.res
+[Indexer] Processing: book_asset - Copy.db
+[Indexer] Processing: book_asset.db
+[Indexer] Processing: eMovies.erwin
+[Indexer] Processing: PublicationSystemSample.erwin
+[Indexer] Processing: Favorites - Copy.vssx
+[Indexer] Processing: Favorites.vssx
+[Indexer] Processing: Analytical Geometry.vssx
+[Indexer] Processing: folder - Copy.ico
+[Indexer] Processing: folder.ico
+[Indexer] Processing: hyperd.log
+[Indexer] Processing: log.txt
+[Indexer] Processing: log_bk.txt
+[Indexer] Processing: tableau-error.marker
+[Indexer] Processing: tabprotosrv_2023_03_20_05_23_20.txt
+[Indexer] Processing: tabprotosrv_2023_03_21_10_04_09.txt
+[Indexer] Processing: tabprotosrv_2023_03_21_10_04_17.txt
+[Indexer] Processing: tabprotosrv_2023_03_21_10_04_20.txt
+[Indexer] Processing: tabprotosrv_2023_04_06_11_16_15.txt
+[Indexer] Processing: tabprotosrv_2023_04_06_11_16_24.txt
+[Indexer] Processing: tabprotosrv_2023_04_06_13_08_11.txt
+[Indexer] Processing: tabprotosrv_2023_04_06_13_08_49.txt
+[Indexer] Processing: tabprotosrv_2023_04_07_12_44_13.txt
+[Indexer] Processing: tabprotosrv_2023_04_07_12_44_18.txt
+[Indexer] Processing: tabprotosrv_2023_04_07_12_44_20.txt
+[Indexer] Processing: yaxcatd_20230320T052505Z.log
+[Indexer] Processing: Preferences.tps
+[Indexer] Processing: Script 9e08a6.osts
+[Indexer] Processing: On December 20.docx
+[Indexer] Processing: Opinion Paper - Retail Demand Forecasting (AI vs Traditional) -FINAL (1).pdf
+[Indexer] Processing: Oracle retail - Solution architect - JD.docx
+[Indexer] Processing: oracle1.pdf
+[Indexer] Processing: Outlook.pst
+[Indexer] Processing: Outlook1.pst
+[Indexer] Processing: PARNA RAY COVERING LETTER.pdf
+[Indexer] Processing: PASSPORT_SUDDHA.pdf
+[Indexer] Processing: StoreManagerChatBot-Demo Slides.pdf
+[Indexer] Processing: What Are AI Agents.pdf
+[Indexer] Processing: BRP - Suddha (2022).pdf
+[Indexer] Processing: frame.html
+[Indexer] Processing: frame_home.html
+[Indexer] Processing: frame_Index.html
+[Indexer] Processing: index.html
+[Indexer] Processing: plsqldoc.css
+[Indexer] Processing: PNB Corporation Tax Reimbursement.docx
+[Indexer] Processing: PO-BO-Flow.pdf
+[Indexer] Processed 300/339 files
+[Indexer] Processing: Police investigating rape claims in England believe victim-blaming myths, study finds _ Police _ The Guardian.pdf
+[Indexer] Processing: POS Meeting with ANdrew Polan (1-Dec) - Copy.pdf
+[Indexer] Processing: Radioactive Iodine.pdf
+[Indexer] Processing: Rear of Monitor.jpg
+[Indexer] Processing: receipt-3774737346.pdf
+[Indexer] Processing: Request for Leave (8-15 Dec).pdf
+[Indexer] Processing: said-oxford-diploma-strategy-innovation-brochure.pdf
+[Indexer] Processing: SAMSUNG 32 INCH UHD MONITOR - USER MANUAL.pdf
+[Indexer] Processing: SCHENGEN.txt
+[Indexer] Processing: Shrimoyee in Sari.jpg
+[Indexer] Processing: Recording.m4a
+[Indexer] Processing: Student.docx
+[Indexer] Processing: Student.pdf
+[Indexer] Processing: Suddha_Test.accdb
+[Indexer] Processing: SurfacePro_Win11_22000_24.010.4410.0.msi
+[Indexer] Processing: TaxInvoice_UK221119-55513486.pdf
+[Indexer] Processing: Text.docx
+[Indexer] Processing: The destructive new logic that threatens globalisation _ The Economist.pdf
+[Indexer] Processing: The Role of AI Chatbots and Agents in UK and European Retail (Perplexity).pdf
+[Indexer] Processing: The world of open source ESBs.pdf
+[Indexer] Processing: This is a test doc.docx
+[Indexer] Processing: Sample vis -Schengen-WORD.docx
+[Indexer] Processing: ttt.txt
+[Indexer] Processing: HistoryConfig.ini
+[Indexer] Processing: historyfiles.json
+[Indexer] Processing: C_Users_su.ray_OneDrive - Reply_Suddha_Suddha_Moon_Reading.png
+[Indexer] Processing: UPDF.ini
+[Indexer] Processing: UPI Routes.pdf
+[Indexer] Processing: Use Event.pdf
+[Indexer] Processing: Visio-Alternative Flows UPI - FLOWCHART.pdf
+[Indexer] Processing: Visio-Line vs Item (Line as Txn Level).pdf
+[Indexer] Processing: visumantrag-schen-2020-en-de.pdf
+[Indexer] Processing: What Are AI Agents.pdf
+[Indexer] Processing: What is Wave in Warehouse Management System _ AC2 Group.pdf
+[Indexer] Processing: WM_UPI_20221102155635.a.0001587793
+[Indexer] Processing: Worksheet in Reply_Response_City_Plumbing_v1.pdf
+[Indexer] Processing: Worrying Trends in Retail.docx
+[Indexer] Processing: Worrying Trends in Retail.pdf
+[Indexer] Processing: XYZ18722627883.pdf
+[Indexer] Processed 339/339 files
+[Indexer] Successfully indexed 339 files in C:\Users\su.ray\OneDrive - Reply\Documents
+GET /api/index/status?directory=documents
+Status request: { directory: 'documents' }
+Status response: {
+  folder: 'C:\\Users\\su.ray\\OneDrive - Reply\\Documents',
+  status: 'complete',
+  indexedCount: 339,
+  totalFiles: 339
+}
+GET /api/search?query=r&directory=documents&fileType=all
+Search request: { query: 'r', directory: 'documents', fileType: 'all' }
+Searching in folder: C:\Users\su.ray\OneDrive - Reply\Documents
+[Indexer] Searching in database: C:\Users\su.ray\OneDrive - Reply\Suddha\Personal Projects\file-searcher\.indexes\b51e0133474ef47b846365ffea4ce422.db
+[Indexer] Found 100 search results
+GET /api/search?query=ra&directory=documents&fileType=all
+Search request: { query: 'ra', directory: 'documents', fileType: 'all' }
+Searching in folder: C:\Users\su.ray\OneDrive - Reply\Documents
+[Indexer] Searching in database: C:\Users\su.ray\OneDrive - Reply\Suddha\Personal Projects\file-searcher\.indexes\b51e0133474ef47b846365ffea4ce422.db
+[Indexer] Found 100 search results
+GET /api/search?query=ram&directory=documents&fileType=all
+Search request: { query: 'ram', directory: 'documents', fileType: 'all' }
+Searching in folder: C:\Users\su.ray\OneDrive - Reply\Documents
+[Indexer] Searching in database: C:\Users\su.ray\OneDrive - Reply\Suddha\Personal Projects\file-searcher\.indexes\b51e0133474ef47b846365ffea4ce422.db
+[Indexer] Found 4 search results
+GET /api/search?query=ramya&directory=documents&fileType=all
+Search request: { query: 'ramya', directory: 'documents', fileType: 'all' }
+Searching in folder: C:\Users\su.ray\OneDrive - Reply\Documents
+[Indexer] Searching in database: C:\Users\su.ray\OneDrive - Reply\Suddha\Personal Projects\file-searcher\.indexes\b51e0133474ef47b846365ffea4ce422.db
+[Indexer] Found 3 search results
+GET /api/preview/QzpcVXNlcnNcc3UucmF5XE9uZURyaXZlIC0gUmVwbHlcRG9jdW1lbnRzXFN0dWRlbnQucGRm
+Preview request for fileId: QzpcVXNlcnNcc3UucmF5XE9uZURyaXZlIC0gUmVwbHlcRG9jdW1lbnRzXFN0dWRlbnQucGRm
+Decoded file path: C:\Users\su.ray\OneDrive - Reply\Documents\Student.pdf
+File extension: .pdf
+Generating text/document preview
+Preview result type: text
+Content length: 395
+GET /api/preview/QzpcVXNlcnNcc3UucmF5XE9uZURyaXZlIC0gUmVwbHlcRG9jdW1lbnRzXEFFTSBPY3QgMjAyMi5wZGY=
+Preview request for fileId: QzpcVXNlcnNcc3UucmF5XE9uZURyaXZlIC0gUmVwbHlcRG9jdW1lbnRzXEFFTSBPY3QgMjAyMi5wZGY=
+Decoded file path: C:\Users\su.ray\OneDrive - Reply\Documents\AEM Oct 2022.pdf
+File extension: .pdf
+Generating text/document preview
+Preview result type: text
+Content length: 395
+GET /api/resolve-directory?directory=C%3A%5CUsers%5Csu.ray%5COneDrive%20-%20Reply%5CSuddha
+Resolve directory request: { directory: 'C:\\Users\\su.ray\\OneDrive - Reply\\Suddha' }
+Resolved path: C:\Users\su.ray\OneDrive - Reply\Suddha
+POST /api/index?directory=C%3A%5CUsers%5Csu.ray%5COneDrive%20-%20Reply%5CSuddha
+Index request received: { directory: 'C:\\Users\\su.ray\\OneDrive - Reply\\Suddha' }
+Starting indexing for folder: C:\Users\su.ray\OneDrive - Reply\Suddha
+[Indexer] Starting indexing for: C:\Users\su.ray\OneDrive - Reply\Suddha
+[Indexer] Scanning directory: C:\Users\su.ray\OneDrive - Reply\Suddha
+[Indexer] Found 2592 files
+[Indexer] Initializing database for C:\Users\su.ray\OneDrive - Reply\Suddha
+[Indexer] Processing 2592 files
+[Indexer] Processing: ATH to LHR.pdf
+[Indexer] Processing: ATH=LHR boardingPass.pdf
+[Indexer] Processing: AUH to ATH.pdf
+[Indexer] Processing: BLR to BOM.pdf
+[Indexer] Processing: BLR-BOM-JEJPNB-SUDDHA SATTA-RAY.pdf
+[Indexer] Processing: BOARDING PASS_MR_RAY_SUDDHASATTA_AUH_ATH.png
+[Indexer] Processing: BOM to AUH.pdf
+[Indexer] Processing: return to london.xlsx
+[Indexer] Processing: Apr2025_Billedstatements_3174_18-08-25_13-12.pdf
+[Indexer] Processing: 12 Obvious Signs a Virgo Woman Likes You - Numerologysign.com.pdf
+[Indexer] Processing: 2020 Career Report.pdf
+[Indexer] Processing: Aspects and Orbs in Astrology – Lesson 9 (ASTROLIB).pdf
+[Indexer] Processing: ASTRO-BASICS.png
+[Indexer] Processing: Astrosage_50_page_Birth_report.pdf
+[Indexer] Processing: Astrotheme - Suddha Chart.pdf
+[Indexer] Processing: astro_w2gw_suddha_ray.48216.9508.png
+[Indexer] Processing: Birth Chart - Free Astrology Calculator, Natal Chart.pdf
+[Indexer] Processing: Compatibility_ With Birth Times.pdf
+[Indexer] Processing: Free Birth Chart and Report Astrolibrary.pdf
+[Indexer] Processing: Free Birth Chart Calculator, Natal Chart Online Astrology Reading _ Astro-Seek.com.pdf
+[Indexer] Processing: Gmail - How to Love Each Sign 💖.pdf
+[Indexer] Processing: horoscope_natal_23-7-1978_07-30_astroseek_v4.png
+[Indexer] Processing: indastro-free-report-suddha-satta-ray.pdf
+[Indexer] Processing: IndAstro.url
+[Indexer] Processing: Kundli_Click_Horoscope_SUDDHA_23-07-197...00_Kolkata.pdf
+[Indexer] Processing: Linda-Goodman-Love-Signs.pdf
+[Indexer] Processing: Love Compatibility Horoscope Calculator, Match by Date of Birth, Astrology Chart _ Astro-Seek.com.pdf
+[Indexer] Processing: match-making.pdf
+[Indexer] Processing: Mulank Bhagyank Nemerology Compatibility.docx
+[Indexer] Processing: Hi there.docx
+[Indexer] Processing: Natal Chart Report.docx
+[Indexer] Processing: Suddha-CafeAstrology.pdf
+[Indexer] Processing: Suddha.pdf
+[Indexer] Processing: Natal Chart Report - Parna.pdf
+[Indexer] Processing: Natal Chart Report - Suddha.pdf
+[Indexer] Processing: Natal Chart SParna.pdf
+[Indexer] Processing: Natal Compatibility Report - Horoscope.pdf
+[Indexer] Processing: Short Report - Personal Portrait - Astrodienst.pdf
+[Indexer] Processing: Soulmate compatibility report.pdf
+[Indexer] Processing: Suddha (horoscope.co.uk).docx
+[Indexer] Processing: Suddha (horoscope.co.uk).pdf
+[Indexer] Processing: Suddha Career Report 2020.pdf
+[Indexer] Processing: Suddha Kundli 2.jpg
+[Indexer] Processing: Suddha KUNDLI LAGNA Chart.png
+[Indexer] Processing: Suddha Kundli.jpg
+[Indexer] Processing: Suddha-Astrotheme.pdf
+[Indexer] Processing: Suddha-Sreeparna-Kundali-Match-By-Drik-Panchang.pdf
+[Indexer] Processing: suddha_ray_23014320250629_english_cosmic_code.pdf
+[Indexer] Processing: Suddha_Vedic_Chart_2025.pdf
+[Indexer] Processing: Sun Signs.pdf
+[Indexer] Processing: The_Only_Astrology_Book_You_39_ll_Ever_Need.pdf
+[Indexer] Processing: VedicReport3-19-201711-14-59PM.pdf
+[Indexer] Processing: VedicReport6-13-20255-29-11PM.pdf
+[Indexer] Processing: Architecture Principles_ The Cornerstones of Enterprise Architecture ( PDFDrive ).pdf
+[Indexer] Processing: Beginning Progressive Web App Development_ Creating a Native App Experience on the Web ( PDFDrive ).pdf
+[Indexer] Processing: build-web-application-with-golang-en.pdf
+[Indexer] Processing: Building Digital Ecosystem Architectures_ A Guide to Enterprise Architecting Digital Technologies in the Digital Enterprise ( PDFDrive ).pdf
+[Indexer] Processing: Enterprise Architecture As Strategy_ Creating a Foundation for Business Execution ( PDFDrive ).pdf
+[Indexer] Processing: Enterprise Architecture at Work_ Modelling, Communication and Analysis ( PDFDrive ).pdf
+[Indexer] Processing: Enterprise Architecture for Global Companies in a Digital IT Era_ Adaptive Integrated Digital Architecture Framework (AIDAF) ( PDFDrive ).pdf
+[Indexer] Processing: Enterprise Architecture Patterns_ Practical Solutions for Recurring IT-Architecture Problems ( PDFDrive ).pdf
+[Indexer] Processing: Flask Web Development_ Developing Web Applications with Python ( PDFDrive ).pdf
+[Indexer] Processing: Generative AI Apps with LangChain and Python_ A -- Rabi Jay -- 1, 2024 -- Apress L_ P_ -- 9788868808815 -- 594507e0055dbcebf28c9c33037d0e23 -- Anna’s Archive.pdf
+[Indexer] Processing: Go Web Programming ( PDFDrive ).pdf
+[Indexer] Processing: LangChain in your Pocket_ LangChain Essentials_ From Basic -- Mehul Gupta -- 2024 -- Packt Publishing -- 9781836201250 -- 320b76294cb49ba2f0b5675e57a6c502 -- Anna’s Archive.pdf
+[Indexer] Processing: Learning LangChain (for Raymond Rhine) -- Mayo Oshin & Nuno Campos -- 2024 -- O'Reilly Media, Incorporated -- 9781098167226 -- cd2f24e173e10f9984b015a9fa544631 -- Anna’s Archive.pdf
+[Indexer] Processing: Learning LangChain -- Mayo Oshin & Nuno Campos -- 2025 -- O'Reilly Media, Inc_ -- a0cb7ba260509816bf7a19e9597b748d -- Anna’s Archive.pdf
+[Indexer] Processing: OReilly Oracle PL-SQL Programming 6th ( PDFDrive ).pdf
+[Indexer] Processing: TOGAF The Open Group Architecture Framework 100 Success Secrets - 100 Most Asked Questions_ The Missing TOGAF Guide on How to achieve and then sustain superior Enterprise Architecture execution.pdf
+[Indexer] Processing: TOGAF® 9 Foundation and Certified. ( PDFDrive ).pdf
+[Indexer] Processing: Clutch replacement - OBD scan.png
+[Indexer] Processing: D&C Transmissions Bill and Warranty.JPEG
+[Indexer] Processing: Dave D&C Transmissions Greenford Perivale.png
+[Indexer] Processing: I had my car's clutch replaced yesterday.txt
+[Indexer] Processing: desktop.ini
+[Indexer] Processing: ProductTable.xlsx
+[Indexer] Processing: IBM date correction confirmation - raised on 8-Mar-2025.txt
+[Indexer] Processing: ibmJD.pdf
+[Indexer] Processing: JDIBM.docx
+[Indexer] Processing: JDIBM.pdf
+[Indexer] Processing: KMC ASSESSEE NUMBER (PNB GARIA BRANCH).jpeg
+[Indexer] Processing: KNBOME202431287 (raised on 23-Dec).txt
+[Indexer] Processing: Oracle JD Status.png
+[Indexer] Processing: OracleJD.pdf
+[Indexer] Processing: SROWFE202455047 (raised on 23-Dec-24).txt
+[Indexer] Processing: Suddha EPF.docx
+[Indexer] Processing: Suddha EPF.pdf
+[Indexer] Processing: Feb2025_Billedstatements_3174_18-08-25_13-15.pdf
+[Indexer] Processing: 10644728_fiat-500.pdf
+[Indexer] Processing: FIAT_500_603.99.486_EN_01_03.14_L_LG.pdf
+[Indexer] Processing: Vehicle Tax and MOT status LA12URL.pdf
+[Indexer] Processing: Best day to use credit cards.jpg
+[Indexer] Processing: Best day to use credit cards.png
+[Indexer] Processing: Credit Card Best Time to Use.html
+[Indexer] Processing: CreditCard-Transactions-30-1-23.xlsx
+[Indexer] Processing: Gold Card Txns 24 Jun 2023.pdf
+[Indexer] Processing: HDFC Credit Card_3378_04-09-23_16.18.pdf
+[Indexer] Processing: HSBC Credit Card Agreement 1651454914_encrypted_.pdf
+[Indexer] Processing: PF full claim rejection - Grievance Registration Number.txt
+[Indexer] Processing: Product School-CertificateBrochure-Apr-2023.pdf
+[Indexer] Processed 100/2592 files
+[Indexer] Processing: Santander All In One Credit Card - Credit Limit (10-Oct-23).png
+[Indexer] Processing: UK work allocation.docx
+[Indexer] Processing: AFUPR6040Q-Prefill-2022-31_91_2022_13_56.json
+[Indexer] Processing: FORM_26AS_AFUPR6040Q-2023_1596115.zip
+[Indexer] Processing: 2023_August_Statement.pdf
+[Indexer] Processing: 2023_July_Statement.pdf
+[Indexer] Processing: 2023_June_Statement.pdf
+[Indexer] Processing: 3rd quarter payment.pdf
+[Indexer] Processing: DBS-Certificate.pdf
+[Indexer] Processing: expense-receipt_13_June.pdf
+[Indexer] Processing: expense-receipt_15_June.pdf
+[Indexer] Processing: expense_receipt_14_June.pdf
+[Indexer] Processing: How to ensure that correct service hist...ension under EPS_ - The Economic Times.pdf
+[Indexer] Processing: Important letter to view about changes to your account_ Read it carefully.pdf
+[Indexer] Processing: India must H11N.pdf
+[Indexer] Processing: India must use G20 to push for weaker dollar.docx
+[Indexer] Processing: India must use G20 to push for weaker dollar.pdf
+[Indexer] Processing: NEW_FLAT_AGREEMENT_15072023 TS.doc
+[Indexer] Processing: owis.myglobalschool.org_fees_ConfirmFstPayReceiptPrint.aspx2.pdf
+[Indexer] Processing: Reconciliation_2024-01-15 (cleaned).pdf
+[Indexer] Processing: Stock Ledger.pdf
+[Indexer] Processing: __ BillDesk Payment Gateway __.pdf
+[Indexer] Processing: aadhaar address change.pdf
+[Indexer] Processing: CreditCard-Transactions-30-1-23.csv
+[Indexer] Processing: expense-receipt_June_bracknell.pdf
+[Indexer] Processing: owis.myglobalschool.org_fees_ConfirmFstPayReceiptPrint.aspx.pdf
+[Indexer] Processing: owis.myglobalschool.org_fees_ConfirmFstPayReceiptPrint.aspx3.pdf
+[Indexer] Processing: Aadhaar Card - PVC (Order Ack).pdf
+[Indexer] Processing: AIS_TIS_Password.txt
+[Indexer] Processing: Payslip-Feb 2023.pdf
+[Indexer] Processing: Turkey India and UK Return v1.xlsx
+[Indexer] Processing: XXXPR6040X_2022-23_AIS.pdf
+[Indexer] Processing: XXXPR6040X_2022-23_TIS.pdf
+[Indexer] Processing: invoice.pdf
+[Indexer] Processing: LoanRepaymentReceipt_LN1966049400012223_.pdf
+[Indexer] Processing: AKhata .jpg
+[Indexer] Processing: Maintainence Receipt-Block-2 (Front Block)-1109.pdf
+[Indexer] Processing: OneWorld Bangalore School - Campus Vist.docx
+[Indexer] Processing: Properties Seen.pdf
+[Indexer] Processing: REQ-Bengaluru 7 Block7B-Twr A-10626667-5302467.pdf
+[Indexer] Processing: 9833636396 - Disha (PF Withdrawl Ag.txt
+[Indexer] Processing: Rent.pdf
+[Indexer] Processing: TRACES Registration.pdf
+[Indexer] Processing: Airtel_Bill_April_2023.pdf
+[Indexer] Processing: Airtel_Bill_April_2023_compressed.pdf
+[Indexer] Processing: Airtel_Bill_April_2023_SELF_ATTESTED.pdf
+[Indexer] Processing: Airtel_Bill_Mar_2023.pdf
+[Indexer] Processing: Airtel_Bill_Mar_2023_compressed.pdf
+[Indexer] Processing: BESCOM_PaymentReceipt_43550703.pdf
+[Indexer] Processing: MONEY.xlsx
+[Indexer] Processing: NOTICE OF CHANGE OF NOMINATION (FORM NO. 3750) LIC.pdf
+[Indexer] Processing: PNB UBI RENTAL AGREEMENT 2 (Ground Floor Main space).pdf
+[Indexer] Processing: Properties Seen.xlsx
+[Indexer] Processing: SCB Joint to Sole Ownership Request.docx
+[Indexer] Processing: Full Stack Swift Developer.pdf
+[Indexer] Processing: Swift Programming Language 57.pdf
+[Indexer] Processing: HOW TO TRACK DUE DATE IN HOURS TRELLO.png
+[Indexer] Processing: IT Tax - 051008007022303466_1675759765547.pdf
+[Indexer] Processing: Letter for se-assessment.docx
+[Indexer] Processing: Mastering DynamoDB -- Tanmay Deshpande -- 2014 -- Packt Publishing.pdf
+[Indexer] Processing: PNB Corporation Tax Reimbursement.pdf
+[Indexer] Processing: Request for waiver of tax.docx
+[Indexer] Processing: Request for waiver of tax.pdf
+[Indexer] Processing: UK Income Tax Calculation.xlsx
+[Indexer] Processing: Wastage POC.pdf
+[Indexer] Processing: 0143XXXXXX025501-08-2022.pdf
+[Indexer] Processing: MHBAN00456650000115435_new.pdf
+[Indexer] Processing: CareSupreme_CashlessCard.pdf
+[Indexer] Processing: Philips Blender 5000 invoice (1).pdf
+[Indexer] Processing: F16_FY2022-23_10626667(Gratuity)_AFUPR23071978.pdf
+[Indexer] Processing: F16_FY2022-23_10626667_AFUPR23071978.pdf
+[Indexer] Processing: Rent.xlsx
+[Indexer] Processing: Tenancy Deposit scheme details.pdf
+[Indexer] Processing: 2021 Google Sans Text.zip
+[Indexer] Processing: MT_eBook_Legibility-HelevticaNow_040419.pdf
+[Indexer] Processing: 10 Italian cooking secrets 2024 updated.pdf
+[Indexer] Processing: Eating fewer calories can ward off ageing.docx
+[Indexer] Processing: Eating fewer calories can ward off ageing.pdf
+[Indexer] Processing: Food Ideas.pdf
+[Indexer] Processing: Mortar and Pestle.docx
+[Indexer] Processing: Mortar and Pestle.pdf
+[Indexer] Processing: Recipes to Try.docx
+[Indexer] Processing: Recipes to Make.docx
+[Indexer] Processing: Recipes to Try.pdf
+[Indexer] Processing: recipes.docx
+[Indexer] Processing: thakurbarir-ranna-banna.pdf
+[Indexer] Processing: Thank Amit for your compliment. Cre.txt
+[Indexer] Processing: The Absolute Best Ways To Reheat Rotisserie Chicken.pdf
+[Indexer] Processing: The Best Sri Lankan Chicken Curry - The Flavor Bender.pdf
+[Indexer] Processing: UK Food Ideas - Google Docs.pdf
+[Indexer] Processing: What food is best for brain function_ _ Patient.pdf
+[Indexer] Processing: FORM_26AS_AFUPR6040Q-2023_1596115.pdf
+[Indexer] Processing: Best Practices for Managing Grocery Retail Supply Chains.pdf
+[Indexer] Processing: Job description of a junior chef commis chef.docx
+[Indexer] Processing: Lose Weight after 5 Kg Gain - Google Docs.pdf
+[Indexer] Processing: Love Calculator. 100% Accurate Results (BEST CHOICE).pdf
+[Indexer] Processing: Primark Notes.docx
+[Indexer] Processing: rightmove api.txt
+[Indexer] Processing: Solving the Toffee Problem.docx
+[Indexer] Processing: Solving the Toffee Problem.pdf
+[Indexer] Processed 200/2592 files
+[Indexer] Processing: thisa is being typed on the pop key.txt
+[Indexer] Processing: 2023_July_Statement.pdf
+[Indexer] Processing: 2023_June_Statement.pdf
+[Indexer] Processing: 2023_May_Statement.pdf
+[Indexer] Processing: BRP - Suddha (2022).pdf
+[Indexer] Processing: Ealing-Council-Tax-Bill-15053133.pdf
+[Indexer] Processing: Payslip-RAY0000000832-20230531.pdf
+[Indexer] Processing: Payslip-RAY0000000832-20230630.pdf
+[Indexer] Processing: Payslip-RAY0000000832-20230731.pdf
+[Indexer] Processing: Right to Rent.pdf
+[Indexer] Processing: Sharecode.txt
+[Indexer] Processing: Current Bill.pdf
+[Indexer] Processing: June 2023.pdf
+[Indexer] Processing: May 2023.pdf
+[Indexer] Processing: Aadhaar Suddha.jpg
+[Indexer] Processing: B.A. (Edu) Part 1 Marksheet.jpeg
+[Indexer] Processing: B.A. (Education) Degree Certificate.jpeg
+[Indexer] Processing: BRP Suddha Ray Back Side.jpeg
+[Indexer] Processing: BRP Suddha Ray Front Side.jpeg
+[Indexer] Processing: eVisa Suddha Ray (post extension).pdf
+[Indexer] Processing: HS Marksheet (Pinki Dutta).jpeg
+[Indexer] Processing: KYC Aaadhar (back).jpg
+[Indexer] Processing: Marriage Certificate.pdf
+[Indexer] Processing: Parna Ray - Passport Renewal Docs (June 2025).pdf
+[Indexer] Processing: Parna Ray Aadhaar.jpeg
+[Indexer] Processing: PARNA RAY NAME CHANGE NEWSPAPER CLIP-1.jpeg
+[Indexer] Processing: PARNA RAY NAME CHANGE NEWSPAPER CLIP-2.jpeg
+[Indexer] Processing: Parna Ray Photo.jpg
+[Indexer] Processing: PASSPORT-3-SUDDHA (back).jpg
+[Indexer] Processing: PASSPORT-3-SUDDHA.jpg
+[Indexer] Processing: Pinki Dutta Higher Seconday Marksheet-2003.jpeg
+[Indexer] Processing: PINKI RAY 2ND PASSPORT - PDF.pdf
+[Indexer] Processing: Pinki to Parna Name Change Annexure E Page 1.jpg
+[Indexer] Processing: Pinki to Parna Name Change Annexure E Page 2.jpg
+[Indexer] Processing: Secondary Certificate (Pinki Dutta).jpeg
+[Indexer] Processing: Secondary Marksheet (Pinki Dutta).jpeg
+[Indexer] Processing: Shrimoyee Photo.jpg
+[Indexer] Processing: SHRIMOYEE RAY 3RD PASSPORT.jpg
+[Indexer] Processing: Shrimoyee_Birth_Cert.jpg
+[Indexer] Processing: Suddha Photo.jpg
+[Indexer] Processing: UK Driving License (Front).jpeg
+[Indexer] Processing: antalya-bus-map.jpg
+[Indexer] Processing: antalya-tourist-map.jpg
+[Indexer] Processing: Antalya_Railway_Network_Map.svg
+[Indexer] Processing: Day Planner.pdf
+[Indexer] Processing: Day Planner.xlsx
+[Indexer] Processing: fethiye-area-tourist-map.jpg
+[Indexer] Processing: fethiye-tourist-map.jpg
+[Indexer] Processing: ALL FLIGHT BOOKINGS.pdf
+[Indexer] Processing: BoardingPass (SREEPARNA) LTN TO DALAMAN.pdf
+[Indexer] Processing: BoardingPass (SUDDHA) LTN TO DALAMAN.pdf
+[Indexer] Processing: Istanbul to Delhi (SREEPARNA).pdf
+[Indexer] Processing: Istanbul to Delhi (SUDDHA).pdf
+[Indexer] Processing: Izmir to Kayseri (SREEPARNA) FLIGHT.pdf
+[Indexer] Processing: Izmir to Kayseri (SUDDHA) FLIGHT.pdf
+[Indexer] Processing: Kayseri to Istanbul - Turkish Airlines (SREEPARNA)®.pdf
+[Indexer] Processing: Kayseri to Istanbul - Turkish Airlines (SUDDHA)®.pdf
+[Indexer] Processing: 10-11 DEC.pdf
+[Indexer] Processing: 11-12 DEC.pdf
+[Indexer] Processing: 12-13 DEC.pdf
+[Indexer] Processing: 13-14 DEC.pdf
+[Indexer] Processing: 14-15 DEC.pdf
+[Indexer] Processing: 15-16 DEC.pdf
+[Indexer] Processing: 16-17 DEC.pdf
+[Indexer] Processing: 17-18 DEC.pdf
+[Indexer] Processing: 18-19 DEC.pdf
+[Indexer] Processing: 19-20 DEC.pdf
+[Indexer] Processing: 20-21 DEC.pdf
+[Indexer] Processing: ALL HOTEL BOOKINGS.pdf
+[Indexer] Processing: hotels-list.png
+[Indexer] Processing: Hotels.docx
+[Indexer] Processing: Hotels.pdf
+[Indexer] Processing: ERGO_IDOL_Leisure_Element_0920.pdf
+[Indexer] Processing: ERGO_IDOL_PW_04_20200915.pdf
+[Indexer] Processing: TRAVEL INSURANCE.pdf
+[Indexer] Processing: istanbul hotels.txt
+[Indexer] Processing: istanbul-metro-tram-map.jpg
+[Indexer] Processing: istanbul-top-tourist-attractions-map-03-metro-metrosu-railway-train-station-tram-ist-ulasim-rapid-transit-net-syst-diag-ferry-air-high-resolution.jpg
+[Indexer] Processing: Istanbul-Tourist-Attractions-Map.webp
+[Indexer] Processing: istanbul-tourist-map.jpg
+[Indexer] Processing: istanbul-transport-map.jpg
+[Indexer] Processing: izmir-tourist-map.jpg
+[Indexer] Processing: Jio Prepaid IR Plan Costing.xlsx
+[Indexer] Processing: 23 Dec Cover 1.PNG
+[Indexer] Processing: 23 Dec Emigran to Best Point.PNG
+[Indexer] Processing: 24 Dec Back to H.PNG
+[Indexer] Processing: 24 Dec Cover 1.PNG
+[Indexer] Processing: 24 Dec Cover 2.PNG
+[Indexer] Processing: attractions.pdf
+[Indexer] Processing: bus map.pdf
+[Indexer] Processing: Caleici Broader.PNG
+[Indexer] Processing: Ephesus Map.PNG
+[Indexer] Processing: hop on hop off.pdf
+[Indexer] Processing: Izmir Cover 2.PNG
+[Indexer] Processing: Izmir Cover Optional.PNG
+[Indexer] Processing: IZMIR ingoogle map.PNG
+[Indexer] Processing: Kaleici Details.PNG
+[Indexer] Processing: Kaleici in google map.PNG
+[Indexer] Processing: map ist.pdf
+[Indexer] Processing: Selcuk and Ephesus in google map.PNG
+[Indexer] Processed 300/2592 files
+[Indexer] Processing: Selcuk and Ephesus.PNG
+[Indexer] Processing: walking 1.pdf
+[Indexer] Processing: Walking.pdf
+[Indexer] Processing: Booking.pdf
+[Indexer] Processing: Ticket 1.pdf
+[Indexer] Processing: Ticket 2.pdf
+[Indexer] Processing: TRAIN BOOKING.pdf
+[Indexer] Processing: tickets.pdf
+[Indexer] Processing: tickets.xlsx
+[Indexer] Processing: 22-Dec New Delhi to Sealdha.pdf
+[Indexer] Processing: Turkey - Google Sheets.pdf
+[Indexer] Processing: Turkey v1.xlsx
+[Indexer] Processing: turkey-travel-map.jpg
+[Indexer] Processing: turkey.png
+[Indexer] Processing: TR_EVisa_596983091231.pdf
+[Indexer] Processing: Antalya - Wikitravel.pdf
+[Indexer] Processing: Fethiye - Wikitravel.pdf
+[Indexer] Processing: Istanbul - Wikitravel.pdf
+[Indexer] Processing: Izmir - Wikitravel.pdf
+[Indexer] Processing: Pamukkale - Wikitravel.pdf
+[Indexer] Processing: Selçuk - Wikitravel.pdf
+[Indexer] Processing: İstanbul (METRO).pdf
+[Indexer] Processing: İstanbul RAILWAY MAP.pdf
+[Indexer] Processing: İstanbul TRAM.pdf
+[Indexer] Processing: ITDe-Filing-2022 Setup 1.1.18.exe
+[Indexer] Processing: ITDe-Filing-2022 Setup 1.1.18.exe.blockmap
+[Indexer] Processing: Form_pdf_723683570300622.pdf
+[Indexer] Processing: Gmail - Confirmation on e-Verification of Income Tax Return.pdf
+[Indexer] Processing: UPDATED_RETURN_Pdf_949790750070223.pdf
+[Indexer] Processing: latest.json
+[Indexer] Processing: July 12 Bracknell.pdf
+[Indexer] Processing: July 12 Bus.png
+[Indexer] Processing: July 18 Bus.png
+[Indexer] Processing: July 18.png
+[Indexer] Processing: July 25.png
+[Indexer] Processing: July 3 Bus.png
+[Indexer] Processing: July 3.png
+[Indexer] Processing: July 4 Bus.png
+[Indexer] Processing: July 4.png
+[Indexer] Processing: AR-copy.pdf
+[Indexer] Processing: Declaration_Unoccupied_KMC_SAF_SuddhaRay.pdf
+[Indexer] Processing: Letter for re-assessment.pdf
+[Indexer] Processing: KMC Tax Bill (Lena Ray)-311101000349.jpg
+[Indexer] Processing: KMC Tax Bill (Suddha Ray)-311101001263.jpeg
+[Indexer] Processing: Seema Aunty Calculations June 2025.docx
+[Indexer] Processing: 05 Working with connectors.pdf
+[Indexer] Processing: 1. DATA AND THE ENTERPRISE _ Principles of Data Management, 3rd Edition.pdf
+[Indexer] Processing: 1. Data Ingestion _ Understanding ETL.pdf
+[Indexer] Processing: 2. A Gentle Introduction to Spark _ Spark_ The Definitive Guide.pdf
+[Indexer] Processing: 2. Data Transformation _ Understanding ETL.pdf
+[Indexer] Processing: 2019.openintro.statistics.pdf
+[Indexer] Processing: 20220802-EB-Practical_Data_Mesh.pdf
+[Indexer] Processing: 3. Data Orchestration _ Understanding ETL.pdf
+[Indexer] Processing: 4 Ways To Measure The ROI Of Online Training.docx
+[Indexer] Processing: 4 Ways To Measure The ROI Of Online Training.pdf
+[Indexer] Processing: A practice domain within a company can offer several benefits.docx
+[Indexer] Processing: advanced-architecting-on-aws.pdf
+[Indexer] Processing: AJAX Hello World Example.pdf
+[Indexer] Processing: aligning-digital-business-and-digital-supply-chain.pdf
+[Indexer] Processing: Amazon DocumentDB vs. Amazon DynamoDB vs. MongoDB Comparison.pdf
+[Indexer] Processing: Amazon DynamoDB can now import Amazon S...a into a new table _ AWS Database Blog.pdf
+[Indexer] Processing: amazon web services - Using AWS lambda to run query on Athena - Stack Overflow.pdf
+[Indexer] Processing: Analytical Skills for AI and Data Science_ Building Skills for an AI-Driven Enterprise -- Daniel Vaughan.pdf
+[Indexer] Processing: Android Phones in 2023.pdf
+[Indexer] Processing: REST API Design Rulebook -- Mark Masse -- 2011 -- O'Reilly Media - Copy.pdf
+[Indexer] Processing: REST API Design Rulebook -- Mark Masse -- 2011 -- O'Reilly Media.pdf
+[Indexer] Processing: How to Use an API.pdf
+[Indexer] Processing: aptos_fulfilling-the-modern-retail-customer-experience_ebook_final.pdf
+[Indexer] Processing: architecting-on-aws.pdf
+[Indexer] Processing: Architectural patterns in enterprise architecture refer to high.docx
+[Indexer] Processing: Architecture_Basics_Guide_Dataiku.pdf
+[Indexer] Processing: Architecture Patterns with Python_ Enabling Test-Driven Development, Domain-Driven Design.pdf
+[Indexer] Processing: Ardoq-The-New-Rules-of-Enterprise-Architecture.pdf
+[Indexer] Processing: Asynchronous Messaging _ Foundations of Scalable Systems.pdf
+[Indexer] Processing: Attribute-level LDM and DDC overview for PDA Mon 29 Nov 2021.pptx
+[Indexer] Processing: AWS Lambda Under the Hood - InfoQ.pdf
+[Indexer] Processing: AWS Networking - Friendly Introduction.pdf
+[Indexer] Processing: AWS.docx
+[Indexer] Processing: colorschememapping.xml
+[Indexer] Processing: filelist.xml
+[Indexer] Processing: themedata.thmx
+[Indexer] Processing: Best Practices Guide for MongoDB Performance.docx
+[Indexer] Processing: Best Practices Guide for MongoDB Performance.pdf
+[Indexer] Processing: big-book-of-data-engineering-2nd-edition-final - Copy.pdf
+[Indexer] Processing: big-book-of-data-engineering-2nd-edition-final.pdf
+[Indexer] Processing: Big-Book-of-Data-Engineering-Final.pdf
+[Indexer] Processing: BOA10 - Reconciling Series Seats ATCOM eRes Automated Reporting.pptx
+[Indexer] Processing: brighttalk-viewing-certificate-how-trello-can-save-your-team--hours-a-week.pdf
+[Indexer] Processing: Building a Data Pipeline with AWS Glue ...S S3 _ by Christopher Adamson _ Medium.pdf
+[Indexer] Processing: Building Cloud Data Architecture -- Sahil Jhangiani -- 2021 -- O'Reilly Media, Inc. -- 9781098103897 -- 31c0c6f0c602ccd080213d7d29c09833 -- Anna’s Archive.epub
+[Indexer] Processing: Building Microservices_ Designing Fine-Grained Systems -- Newman, Sam -- 2015 -- O'Reilly.pdf
+[Indexer] Processing: Cambridge IGCSE first language English. Workbook -- Cox, Marian, author -- 2014 -- Cambridge_ Cambridge University Press - Copy.pdf
+[Indexer] Processing: Cambridge IGCSE first language English. Workbook -- Cox, Marian, author -- 2014 -- Cambridge_ Cambridge University Press.pdf
+[Indexer] Processing: Chapter 1_ Java Primer _ Data Structures and Algorithms in Java, 6th Edition.pdf
+[Indexer] Processing: Chapter 2. The Forecasting Process.pdf
+[Indexer] Processing: Chapter 2_ Introduction to Important AW...erless ETL and Analytics with AWS Glue.pdf
+[Indexer] Processing: Chapter 3_ Data Ingestion _ Serverless ETL and Analytics with AWS Glue.pdf
+[Indexer] Processing: chapter1.pdf
+[Indexer] Processing: Cloud Native Transformation_2023.pdf
+[Indexer] Processing: Comparison_ JMS Message Queue vs. Apache Kafka - Kai Waehner.pdf
+[Indexer] Processed 400/2592 files
+[Indexer] Processing: Content-CheatsheetAWSLambda.pdf
+[Indexer] Processing: Masala_Lab_Art_of_Cooking_Kris_Ashok.pdf
+[Indexer] Processing: Creating a training and development strategy -- Mayo, Andrew; Institute of Personnel and Development -- 1998 -- London_ Institute of Personnel and -- 9780852927328 -- 64d2759558f1da909e76f63dfd6c5efe -- Anna’s Arc.pdf.crdownload
+[Indexer] Processing: Data Architecture __ Data Architecture_ A High-Level Perspective -- Inmon, W.H. -- pages 225-229, 2019 -- Elsevier -- 10.1016_B978-0-12-816916-2.00029-2 -- d5984a318a5e426992ca0cc0ff5c5eec -- Anna’s Archive.pdf
+[Indexer] Processing: Oreilly-Report-High-Performance-Data-Architectures - Copy.pdf
+[Indexer] Processing: Data Ingestion _ Serverless ETL and Analytics with AWS Glue.pdf
+[Indexer] Processing: Data Knowledge and Skills _ Data Curious.pdf
+[Indexer] Processing: Data Management at Scale_ Best Practices for Enterprise Architecture.pdf
+[Indexer] Processing: Data Management – Introducti...erless ETL and Analytics with AWS Glue.pdf
+[Indexer] Processing: Data Pipeline in AWS.docx
+[Indexer] Processing: Data Quality Fundamentals_ A Practitioner's Guide to Building Trustworthy Data Pipelines -- Barr Moses, Lior Gavish, Molly Vorwerck -- 1, 2022 -- O'Reilly Media -- 9781098112042 -- 2cf7216e4957c7a89ff795c70a379631.pdf
+[Indexer] Processing: Data Science from Scratch.pdf
+[Indexer] Processing: Data strategy -- Adelman, Sid; Abai, Majid; Moss, Larissa Terpeluk.pdf
+[Indexer] Processing: Data Structures and Algorithms with JavaScript -- Michael McMillan -- 1, 2014 -- OReilly Media, Inc.;O'Reilly Media -- 9781449364939 -- 9e66b34922fffad1aa51f1d350a3766d -- Anna’s Archive.pdf
+[Indexer] Processing: data-hub-guide-for-architects.pdf
+[Indexer] Processing: data-management-101-on-databricks-ebook-v6-0891421.pdf
+[Indexer] Processing: Data-maturity-model.pdf
+[Indexer] Processing: data-modeling-drive-business-value-and-underpin-governance-with-an-enterprise-data-model-white-paper-28202.pdf
+[Indexer] Processing: RDBMS to MongoDB Migration White Paper.pdf
+[Indexer] Processing: Deep dive in LangChain for Relational DB interactions.docx
+[Indexer] Processing: Deep Learning_ Foundations and Concepts -- Christopher M_ Bishop, Hugh Bishop -- 2023 -- Springer International Publishing AG -- 9783031454677 -- 6d1f851e90bf7847ad9999efadc56d5b -- Anna’s Archive.pdf
+[Indexer] Processing: Delta Phase 2 - Overview.pdf
+[Indexer] Processing: Design Patterns for Cloud Native Applications_ Patterns in Practice Using APIs, Data, Events, and -- Kasun Indrasiri, Sriskandarajah Suhothayan -- 1, 2021 -- O'Reilly Media -- 9781492090717 -- 6828bbd21b4626f80f68.pdf
+[Indexer] Processing: Design Patterns for Cloud Native Applications_ Patterns in Practice Using APIs, Data, Events.pdf
+[Indexer] Processing: DevOps-and-Business.pdf
+[Indexer] Processing: Difference between AWS DynamoDB vs AWS ...vs MongoDB.pdf
+[Indexer] Processing: Difference between AWS Glue and Athena.pdf
+[Indexer] Processing: Difference between Document Database VS Key Value - DatabaseTown.pdf
+[Indexer] Processing: Differences between Demand Forecasting and Sales Forecasting for Inventory.doc
+[Indexer] Processing: Differences between Demand Forecasting and Sales Forecasting for Inventory.pdf
+[Indexer] Processing: DIGITAL FIRST ECONOMY.pdf
+[Indexer] Processing: 739178-top-trends-in-retail-digital-transformation-and-innovation-for-2021.pdf
+[Indexer] Processing: Domain Driven Design.pdf
+[Indexer] Processing: eAssessment (Supriya Menon).docx
+[Indexer] Processing: Economic Impact of Generative AI.pdf
+[Indexer] Processing: Enterprise Architecture for Sustainability.docx
+[Indexer] Processing: Enterprise Architecture for Sustainability.pdf
+[Indexer] Processing: Enterprise Architecture Questions and Answers.docx
+[Indexer] Processing: Enterprise Architecture Questions and Answers.pdf
+[Indexer] Processing: Enterprise Integration Patterns - Designing, Building, and Deploying Messaging Solutions.pdf
+[Indexer] Processing: Event-Driven Architecture_ Future Research - Google Docs.pdf
+[Indexer] Processing: EffectiveFeatureManagement_LaunchDarkly.pdf
+[Indexer] Processing: Full Stack Serverless_ Modern Application Development with -- Nader Dabit -- 1, 2020 -- O'Reilly - Copy.pdf
+[Indexer] Processing: Full Stack Serverless_ Modern Application Development with -- Nader Dabit -- 1, 2020 -- O'Reilly.pdf
+[Indexer] Processing: Fundamentals of Software Architecture- Mark Richards and Neal Ford.pdf
+[Indexer] Processing: colorschememapping.xml
+[Indexer] Processing: filelist.xml
+[Indexer] Processing: themedata.thmx
+[Indexer] Processing: Getting-DataOps-Right.pdf
+[Indexer] Processing: Gitops-cookbook-ebook-Red-Hat-Developer.pdf
+[Indexer] Processing: GraphQL in Action -- Samer Buna -- 1, 2021 -- Manning Publications.pdf
+[Indexer] Processing: Hands-On Data Visualization_ Interactive Storytelling From Spreadsheets to Code -- Jack Dougherty, Ilya Ilyankou -- 1, 2021 -- O'Reilly Media -- 9781492086000 -- b0fb0a8c26187c33cd17c4b8847c90b6 -- Anna’s Archive.pdf
+[Indexer] Processing: Hands-On-Machine-Learning-with-Scikit-Learn-Keras-and-Tensorflow.pdf
+[Indexer] Processing: Head first data analysis -- Michael Milton -- Head first series, 2009 -- O'Reilly -- 9780596153939 -- daf31a3f834113790a8a8273471320ed -- Anna’s Archive.pdf
+[Indexer] Processing: Head_First_Swift_2022.pdf
+[Indexer] Processing: Hello! I am a software architect wo.txt
+[Indexer] Processing: How do APIs communicate across systems.docx
+[Indexer] Processing: How do APIs communicate across systems.pdf
+[Indexer] Processing: How does Inventory Adjustment in stores impact stock ledger in a merchandising system.docx
+[Indexer] Processing: How to Call an External REST API from A... _ Intelliconnect Engineering _ Medium.pdf
+[Indexer] Processing: How To Design Schema For NoSQL Data Models.docx
+[Indexer] Processing: How to factor a quadratic expression.pdf
+[Indexer] Processing: How to index on Amazon DocumentDB.pdf
+[Indexer] Processing: I&S MYP 4-5 Topic list, Book List, Summer Tasks.pdf
+[Indexer] Processing: India must HN.pdf
+[Indexer] Processing: Industry Specific Architecture Patterns.pdf
+[Indexer] Processing: SequenceDiagram.org - Instructions and Examples.pdf
+[Indexer] Processing: Integration Architecture Guide for Cloud and Hybrid Landscapes Based on SAP® Integration Solution Advisory Methodology.pdf
+[Indexer] Processing: Introducing ML Ops OReilly.pdf
+[Indexer] Processing: Introduction to data modeling with Amaz...nal database users _ AWS Database Blog.pdf
+[Indexer] Processing: Introduction to JavaScript Object Notation_ A To-the-Point Guide to JSON -- Lindsay Bassett -- 2015.pdf
+[Indexer] Processing: Introduction to Machine Learning.pdf
+[Indexer] Processing: Introduction to Solution Architecture -- Alan McSweeney.pdf
+[Indexer] Processing: Inventory Costing Methods - principlesofaccounting.com.doc
+[Indexer] Processing: colorschememapping.xml
+[Indexer] Processing: filelist.xml
+[Indexer] Processing: themedata.thmx
+[Indexer] Processing: JMS vs. Kafka_ Technology Smackdown df.pdf
+[Indexer] Processing: JSON Quick Syntax Reference -- Wallace Jackson -- 2016.pdf
+[Indexer] Processing: JSON at work_ practical data integration for the web -- Marrs Tom -- 2017 -- O'Reilly.pdf
+[Indexer] Processing: Juul2 vs C.xlsx
+[Indexer] Processing: Are Onions Keto_ Carbs In Onions.doc
+[Indexer] Processing: KeyboardShortcuts Mac OS Ventura.pdf
+[Indexer] Processing: LA MYP 4-5 Topic list, Book List, Summer Tasks.pdf
+[Indexer] Processing: launchdarkly-oreilly-ci-vs-cd.pdf
+[Indexer] Processing: Leading-Lean.pdf
+[Indexer] Processing: leading-the-future-supply-chain.pdf
+[Indexer] Processing: Learn AWS Serverless Computing_ A beginner’s guide to using -- Scott Patterson.pdf
+[Indexer] Processing: Learning GraphQL (2018) -- Eve Porcello and Alex Banks.pdf
+[Indexer] Processing: Learning Spark_ Lightning-Fast Data Analytics -- Jules S. Damji, Brooke Wenig, Tathagata Das, Denny Lee -- O'Reilly Media.pdf
+[Indexer] Processing: LearningBrew_LeadingQuestions.pdf
+[Indexer] Processing: Linux-Commands-cheat-sheet-Red-Hat-Developer.pdf
+[Indexer] Processing: Real-Time Logistics, Shipping, and Transportation with Apache Kafka - Kai Waehner.pdf
+[Indexer] Processing: M3_ MOCK TEST  1[1030].pdf
+[Indexer] Processing: M3_ MOCK TEST  1_Answers[1031].pdf
+[Indexer] Processing: MacMostKeyboardShortcutsVentura.pdf
+[Indexer] Processing: Making Sense of NoSQL -- Dan McCreary, Ann Kelly -- 2013 -- Manning -- 9781617291074 -- 5fb45ab6a5aeec2e405b214983f9a04b -- Anna’s Archive.pdf
+[Indexer] Processing: Mashup Patterns_ Designs and Examples for the Modern Enterprise -- Ogrinz, Michael -- 2009 -- Addison-Wesley Professional -- 9780321579478 -- 2f73c3bde6798d1a2ec7b78e317297ff -- Anna’s Archive.pdf
+[Indexer] Processing: Mastering API Architecture_A2.pdf
+[Indexer] Processing: Mastering_Kafka_Streams_and_ksqlDB-oreilly.pdf
+[Indexer] Processed 500/2592 files
+[Indexer] Processing: Mathematics of retail merchandising -- Corbman, Bernard P; Krieger, Murray, 1912- joint author; Krieger, Murray, 1912- joint author -- 1971 -- New York, Ronald Press Co -- 823fa6cbbb9eda5b278a0451080f34c0 -- Anna’.pdf
+[Indexer] Processing: Meet Kafka.pdf
+[Indexer] Processing: Microservice Architecture.pdf
+[Indexer] Processing: Decoding-Microservices-Best-Practices-Handbook-for-Developers-2022 (1).pdf
+[Indexer] Processing: Microservices Database Management Patterns and Principles.pdf
+[Indexer] Processing: Microservices Up and Running_ A Step-by-step Guide to -- Ronnie Mitra, Irakli Nadareishvili -- 1, 2020 -- O'Reilly.pdf
+[Indexer] Processing: MongoDB Performance Tuning_ Optimizing MongoDB Databases and -- Guy Harrison,Michael Harrison.pdf
+[Indexer] Processing: MongoDB Topology Design_ Scalability, Security, and -- Nicholas Cottrell.pdf
+[Indexer] Processing: MongoDB applied design patterns -- Copeland, Richard D -- 2013 -- O'Reilly.pdf
+[Indexer] Processing: MongoDB_ the definite guide -- Chodorow, Kristina;Dirolf, Michael -- 2010 -- O'Reilly.pdf
+[Indexer] Processing: MYP 4-5 Math Topic List, Book List, Summer Task.pdf
+[Indexer] Processing: Navigating the Future of Demand Forecasting.docx
+[Indexer] Processing: Navigating the Future of Demand Forecasting.pdf
+[Indexer] Processing: NoSQL Data Modeling Techniques – Highly Scalable Blog.pdf
+[Indexer] Processing: NoSQL for Dummies - Wiley -- Fowler A., (2015).pdf
+[Indexer] Processing: NoSQL for Mere Mortals -- Dan Sullivan -- 2015.epub
+[Indexer] Processing: NoSQL_ The Big Picture _ NoSQL For Dummies.pdf
+[Indexer] Processing: o-reilly-dg-delta-lake-8-2.pdf
+[Indexer] Processing: drawio_whitepaper_5_onboarding_with_diagrams_2020.pdf
+[Indexer] Processing: OReilly - 97 things every data engineer should know [Final Copy] .pdf
+[Indexer] Processing: Oreilly-Report-High-Performance-Data-Architectures.pdf
+[Indexer] Processing: Oreilly_Data_Pipelines_Reference.pdf
+[Indexer] Processing: OReilly_Graph_Databases_2nd_edition.pdf
+[Indexer] Processing: Catch_Weight_Overview_Reference_Paper.pdf
+[Indexer] Processing: Practical Statistics for Data Scientists_ 50+ Essential Concepts Using R and Python -- Peter Bruce, Andrew Bruce, Peter Gedeck -- 2, 2020 -- O'Reilly Media -- 9781492072942 -- 1cdb0825a5b4f1107352859f311a55ab -- A.pdf
+[Indexer] Processing: Probability Examples.docx
+[Indexer] Processing: Probability Examples.pdf
+[Indexer] Processing: Programming AWS Lambda_ Build and Deploy Serverless -- John Chapin, Mike Roberts -- 1, 2020 -- O'Reilly.pdf
+[Indexer] Processing: Programming AWS Lambda_ Build and Deploy Serverless Applications with Java -- John Chapin, Mike Roberts -- 1, 2020 -- O'Reilly Media -- 9781492041054 -- cc7dfbe091de2840bae6741d1d35b8ba -- Anna’s Archive.pdf
+[Indexer] Processing: Python and C Plus Plus.pdf
+[Indexer] Processing: rabbitmq - What is difference between a Message Queue and ESB_ - Stack Overflow.pdf
+[Indexer] Processing: Reactive Microservices Architecture -- Jonas Bon -- 2016 -- O'Reilly.pdf
+[Indexer] Processing: Regression Analysis.xlsx
+[Indexer] Processing: resilience-high-level-ppt.pptx
+[Indexer] Processing: resilience-high-level.pdf
+[Indexer] Processing: RESTful Web Services Cookbook.pdf
+[Indexer] Processing: RESTful_Web_APIs_(2013).pdf
+[Indexer] Processing: Retail Math.docx
+[Indexer] Processing: Retail Math.pdf
+[Indexer] Processing: rfc-types-in-abap.pdf
+[Indexer] Processing: Salesforce B2C Solution Architect's Handbook_ Design scalable and cohesive business-to-consumer -- Mike King.epub
+[Indexer] Processing: SAP Business Technology Platform.pdf
+[Indexer] Processing: SAP-ABAP-Basics.pdf
+[Indexer] Processing: SAP-ABAP-Internal_Tables.pdf
+[Indexer] Processing: SAP-ABAP-Programming Basics.pdf
+[Indexer] Processing: SAP-ABAP-Understanding Data.pdf
+[Indexer] Processing: Security-as-Code-eBook.pdf
+[Indexer] Processing: Serverless Architectures on AWS_ With examples using AWS -- Peter Sbarski -- 1, 2017 -- Manning Publications.pdf
+[Indexer] Processing: Serverless ETL and Analytics with AWS Glue_ Your -- Vishal Pathak, Subramanya Vajiraya, Noritaka Sekiyama, -- 1st, 2022 -- Packt Publishing -- 9781800564985 -- 7deaaedb68e4cd3a5edf40e15dd97046 -- Anna’s Archive.pdf
+[Indexer] Processing: Single vs Dedicated Tenancy - SaaS.pdf
+[Indexer] Processing: Situational interview questions are a common type of interview question that is used to assess a candidate.docx
+[Indexer] Processing: Situational interview questions are a common type of interview question that is used to assess a candidate.pdf
+[Indexer] Processing: skills_analysis_1_20240318.xlsx
+[Indexer] Processing: Microservices_ flexible software architecture -- Wolff, Eberhard, 1972- author -- 2017 -- Boston_ Addison-Wesley.pdf
+[Indexer] Processing: Software-Architecture-Patterns.pdf
+[Indexer] Processing: software-architecture-a-comprehensive-framework-an.pdf
+[Indexer] Processing: Software_Architecture_Fundamentals_Pt1_Neal_Ford_and_Mark_Richards.pdf
+[Indexer] Processing: Solution Architecture Foundations -- Lovatt, Mark -- 2021 -- BCS Learning & Development Limited; BCS, The Chartered Institute for IT -- 9781780175652 -- 7eb958142df531f70b63f6804f30faa3 -- Anna’s Archive.epub
+[Indexer] Processing: Spark_ The Definitive Guide_ Big Data Processing Made Simple -- Bill (B.) Chambers, Matei (M.) Zaharia -- 1, 2018 -- O'Reilly Media, OReilly -- 9781491912218 -- f40daaaf98f2a0a7b3a3fff748a0f13a -- Anna’s Archive.pdf
+[Indexer] Processing: SQL and NoSQL Databases_ Modeling, Languages, Security and Architectures for Big Data Management-Springer (2023).pdf
+[Indexer] Processing: SQL for Data Analysis_ Advanced Techniques for Transforming Data into Insights -- Cathy Tanimura -- 1, 2021 -- O'Reilly Media -- 9781492088783 -- 8878f54fff0534bc5847ca6a3d820d10 -- Anna’s Archive.pdf
+[Indexer] Processing: sql_to_nosql_architectur_differences_considerations.pdf
+[Indexer] Processing: stanford-gsb-ee-brochure-lead.pdf
+[Indexer] Processing: State of Enterprise Architecture in 2023.pdf
+[Indexer] Processing: Subject Choice.docx
+[Indexer] Processing: gartner-supply-chain-top-25-for-2023.pdf
+[Indexer] Processing: SYSTEM-DESIGN_2024.pdf
+[Indexer] Processing: Solutions Architects Handbook by Saurabh Shrivastava Neelanjali Srivastav.pdf
+[Indexer] Processing: Test Conditional Formatting.xlsx
+[Indexer] Processing: Test.drawio
+[Indexer] Processing: The anatomy of an API call _ The Uptrends Blog.pdf
+[Indexer] Processing: The Art of Statistics_ Learning From Data (Pelican Books) -- Spiegelhalter, David -- Pelican Books, 2019 -- cj5_1708 -- d538847c79901213d72ebb79d987c3d0 -- Anna’s Archive.epub
+[Indexer] Processing: The Building Blocks of a Data Analysis System _ Data Curious.pdf
+[Indexer] Processing: The Complete Guide to Increasing Retail Profit Margins - Lightspeed.pdf
+[Indexer] Processing: The DynamoDB Book -- Alex DeBrie.pdf
+[Indexer] Processing: The Elements of Style William Strunk Jr., E. B. White, Roger Angell.pdf
+[Indexer] Processing: The Elements of Style, 4e ( PDFDrive ).pdf
+[Indexer] Processing: The Rise and Evolution of Agent Based Architecture v3.0.pptx
+[Indexer] Processing: The Road to GraphQL_ Your journey to master pragmatic -- Robin Wieruch.pdf
+[Indexer] Processing: The world of open source ESBs-2.pdf
+[Indexer] Processing: The world of open source ESBs.docx
+[Indexer] Processing: The world of open source ESBs.pdf
+[Indexer] Processing: The-Managers-Path-ch3.pdf
+[Indexer] Processing: TOGAF Archietcure Book (Online).txt
+[Indexer] Processing: TOGAF Archietcure Delivery Methods (Online).txt
+[Indexer] Processing: TOGAF Version 9.1 -- Open Group (Organization).pdf
+[Indexer] Processing: Training Request Form - 2023.xlsx
+[Indexer] Processing: Trigger AWS Services Using CloudWatch —... by Lahiru Oshara Hinguruduwa _ Medium.pdf
+[Indexer] Processing: Trip Planner v7.xlsx - Planner.pdf
+[Indexer] Processing: understanding-etl-er1 - Copy.pdf
+[Indexer] Processing: understanding-etl-er1.pdf
+[Indexer] Processing: Unix in a Nutshell, 4th Edition -- Arnold Robbins.pdf
+[Indexer] Processing: Updated-Modern_API-Gateway-ebook.pdf
+[Indexer] Processing: urok0pa98sl7-EmbedvsReference (1).pdf
+[Indexer] Processing: What Are AI Agents.pdf
+[Indexer] Processing: What does _Document-oriented_ vs. Key-V...MongoDB vs Cassandra_ - Stack Overflow.pdf
+[Indexer] Processing: What is a Customer Data Platform.pdf
+[Indexer] Processing: What is a web application.docx
+[Indexer] Processing: What is a web application.pdf
+[Indexer] Processing: What is an ESB and what is it good for_ - Stack Overflow.pdf
+[Indexer] Processed 600/2592 files
+[Indexer] Processing: What is Display Scaling on Mac, and why...houldn_t worry about it _ AppleInsider.pdf
+[Indexer] Processing: What questions should systems architects ask.pdf
+[Indexer] Processing: What should I assess in an architectural review for IT.docx
+[Indexer] Processing: What’s the difference between demand forecasting and demand planning_.doc
+[Indexer] Processing: When would you NOT choose DynamoDB where you.docx
+[Indexer] Processing: When would you NOT choose DynamoDB where you.pdf
+[Indexer] Processing: Whitepaper - 4 steps to create a data-driven business.pdf
+[Indexer] Processing: Why-the-Data-Lakehouse-Is-Your-Next-Data-Warehouse-Ebook-2nd Edition.pdf
+[Indexer] Processing: SIM Integration Workshop.pdf
+[Indexer] Processing: Agreement_Car_Parking.docx
+[Indexer] Processing: Garage-Parking-Rental-Lease-Agreement FB-1109.pdf
+[Indexer] Processing: Garage-Parking-Rental-Lease-Agreement.docx
+[Indexer] Processing: Joint_declaration-new_format.pdf
+[Indexer] Processing: law-enforcement-guidelines-us.pdf
+[Indexer] Processing: PARKING LEASE AGREEMENT - REVISED (FB-1109).docx
+[Indexer] Processing: PARKING LEASE AGREEMENT - REVISED (FB-1109).pdf
+[Indexer] Processing: possession letter FB-1109.pdf
+[Indexer] Processing: PRESCRIBED INFORMATION RELATING TO TENANCY DEPOSITS - signed.pdf
+[Indexer] Processing: S DUTTA ADVOCATE - 97480 29995.txt
+[Indexer] Processing: SCB Joint to Sole Ownership Request.pdf
+[Indexer] Processing: Skilled Migrant Visa - Immigration Status.pdf
+[Indexer] Processing: Tenancy Agreement (Flat 5 W55PE) Sept 2023.pdf
+[Indexer] Processing: Tenancy Agreement (Flat 5 W55PE) Sept 2024.pdf
+[Indexer] Processing: Tenancy Agreement 193B.pdf
+[Indexer] Processing: Tenancy Agreement.PDF
+[Indexer] Processing: NOTICE OF CHANGE OF NOMINATION (FORM NO. 3750) LIC.pdf
+[Indexer] Processing: Aadhaar .pdf
+[Indexer] Processing: Fixed line Bill.pdf
+[Indexer] Processing: aadhar.jpg
+[Indexer] Processing: landline_bill.jpg
+[Indexer] Processing: maint_bill.jpg
+[Indexer] Processing: PAN.jpg
+[Indexer] Processing: req_letter.jpg
+[Indexer] Processing: Aadhaar _page-0001.jpg
+[Indexer] Processing: Aadhaar _page-0001_1_11zon-min.jpg
+[Indexer] Processing: Fixed line Bill_pages-to-jpg-0001_2_11zon-min.jpg
+[Indexer] Processing: Maintenance Bill_pages-to-jpg-0001_3_11zon-min.jpg
+[Indexer] Processing: PAN_page-0001_4_11zon-min.jpg
+[Indexer] Processing: Request Letter_pages-to-jpg-0001_5_11zon-min.jpg
+[Indexer] Processing: Fixed line Bill_pages-to-jpg-0001.jpg
+[Indexer] Processing: Maintenance Bill_pages-to-jpg-0001.jpg
+[Indexer] Processing: PAN_page-0001.jpg
+[Indexer] Processing: Request Letter_pages-to-jpg-0001.jpg
+[Indexer] Processing: Maintenance Bill.pdf
+[Indexer] Processing: PAN.pdf
+[Indexer] Processing: Request for Address Change.pdf
+[Indexer] Processing: Request Letter.pdf
+[Indexer] Processing: Bold Italic.ttf
+[Indexer] Processing: Bold.ttf
+[Indexer] Processing: Italic.ttf
+[Indexer] Processing: Medium Italic.ttf
+[Indexer] Processing: Medium.ttf
+[Indexer] Processing: Regular.ttf
+[Indexer] Processing: A3101_Soundcore Mini_Manual.pdf
+[Indexer] Processing: BEKO Washing Machine Manual.pdf
+[Indexer] Processing: Beldray Quick Vac Lite Manual.pdf
+[Indexer] Processing: Dreo Warranty Confirmation.pdf
+[Indexer] Processing: Dreo-DR-HSH006_DR-HSH006A User Manual.pdf
+[Indexer] Processing: Driver and Vehicle Standards Agency - Official Highway Code-TSO (2022).pdf
+[Indexer] Processing: FragmentMono-Italic.ttf
+[Indexer] Processing: FragmentMono-Regular.ttf
+[Indexer] Processing: demo.html
+[Indexer] Processing: Helvetica-Bold.woff
+[Indexer] Processing: Helvetica-BoldItalic.woff
+[Indexer] Processing: Helvetica-Italic.woff
+[Indexer] Processing: Helvetica-Regular.woff
+[Indexer] Processing: HelveticaLTStd-Bold.woff2
+[Indexer] Processing: HelveticaLTStd-BoldObl.woff2
+[Indexer] Processing: HelveticaLTStd-Obl.woff2
+[Indexer] Processing: HelveticaLTStd-Roman.woff2
+[Indexer] Processing: stylesheet.css
+[Indexer] Processing: Helvetica-Bold.ttf
+[Indexer] Processing: Helvetica-BoldItalic.ttf
+[Indexer] Processing: Helvetica-Italic.ttf
+[Indexer] Processing: Helvetica-Regular.ttf
+[Indexer] Processing: Philips Blender 5000 User Manual(1).pdf
+[Indexer] Processing: Logitech pop-keys- Setup Guide.pdf
+[Indexer] Processing: Mar2025_Billedstatements_3174_18-08-25_13-12.pdf
+[Indexer] Processing: B.A. (Edu) Part 1 Marksheet.jpeg
+[Indexer] Processing: B.A. (Education) Degree Certificate.jpeg
+[Indexer] Processing: HS Marksheet (Pinki Dutta).jpeg
+[Indexer] Processing: Pinki Dutta Higher Seconday Marksheet-2002.jpg
+[Indexer] Processing: Pinki Dutta Higher Seconday Marksheet-2003.jpeg
+[Indexer] Processing: Secondary Certificate (Pinki Dutta).jpeg
+[Indexer] Processing: Secondary Marksheet (Pinki Dutta).jpeg
+[Indexer] Processing: B.Sc (Physics) Degree Certificate.jpeg
+[Indexer] Processing: B.Sc (Physics) Final Marksheet.jpeg
+[Indexer] Processing: B.Sc (Physics) Part 1 Guide to Subjects and Grades.jpg
+[Indexer] Processing: B.Sc (Physics) Part 1 Marksheet(1).jpeg
+[Indexer] Processing: B.Sc (Physics) Part 1 Marksheet.jpeg
+[Indexer] Processing: B.Sc (Physics) Part 2 Guide to Subjects and Grades.jpg
+[Indexer] Processing: M.Sc Final Year Consolidated Mrksht.jpg
+[Indexer] Processing: M.Sc. Degree Certificate.jpg
+[Indexer] Processing: Medium of instruction (Bsc).jpg
+[Indexer] Processing: PGDCA - Computer Society of India Certificate.jpeg
+[Indexer] Processing: 20221005_Verlagsprogramm_2022-23_150dpi.pdf
+[Indexer] Processing: 467779394_8445989772177366_5062385317073899810_n.jpg
+[Indexer] Processing: AXA Travel Insurance.png
+[Indexer] Processing: cannot_edit_din.jpg
+[Indexer] Processing: Car Child Seat Rules (Summary).jpg
+[Indexer] Processed 700/2592 files
+[Indexer] Processing: CESC Dumdum Bill.jpg
+[Indexer] Processing: CESC Raghunath Chatterjee st Bill.jpg
+[Indexer] Processing: D4830_ProductDesign-vs-DesignThinking.png
+[Indexer] Processing: Discharge Summary - 1.jpeg
+[Indexer] Processing: Discharge Summary - 2.jpeg
+[Indexer] Processing: Ealing CPZ Car Parking Permit.png
+[Indexer] Processing: east Ham.jpg
+[Indexer] Processing: east Ham.png
+[Indexer] Processing: electricity card- front .jpeg
+[Indexer] Processing: epfo claim rejection.png
+[Indexer] Processing: EPFO OFFICE NUMBERS BANGALORE HOSUR RD.png
+[Indexer] Processing: EPFO PF Greivenance Status.png
+[Indexer] Processing: Experian_Credit_Score_12_May_2023.png
+[Indexer] Processing: Experian_Credit_Score_19_Apr_2023.png
+[Indexer] Processing: Experience Letter - IBM (1).jpeg
+[Indexer] Processing: Experience Letter - IBM.jpeg
+[Indexer] Processing: fiat500 tow eye cover front.JPEG
+[Indexer] Processing: First Floor Plan.jpg
+[Indexer] Processing: GF Floor Plan.jpg
+[Indexer] Processing: Greggs Pesto Pasta Salad.jpg
+[Indexer] Processing: GROUPON_PATISSERIE_VALERIE.jpg
+[Indexer] Processing: Hari Om.jpg
+[Indexer] Processing: Hari Om.png
+[Indexer] Processing: HDFC STATEMENT - STAMPED BY BANK.jpeg
+[Indexer] Processing: HW-1.jpeg
+[Indexer] Processing: HW-2.jpeg
+[Indexer] Processing: India 2024 July Budget.jpeg
+[Indexer] Processing: juul2 may subscription.png
+[Indexer] Processing: juul2 subscription.png
+[Indexer] Processing: juul_7_may.png
+[Indexer] Processing: Loshu Grid.png
+[Indexer] Processing: M.Sc Final Year Consolidated Mrksht.jpg
+[Indexer] Processing: M.Sc. Degree Certificate.jpg
+[Indexer] Processing: MM.png
+[Indexer] Processing: Nuclear Medicine Specialist Prescription for RAI (1).jpg
+[Indexer] Processing: Oakridge Fees Payment (17-May-2023) 1st Installment.png
+[Indexer] Processing: Oakridge Fees Payment 30-Jan-23 (3rd installment).png
+[Indexer] Processing: PAN - Lena Ray.jpg
+[Indexer] Processing: paris hotel.PNG
+[Indexer] Processing: PE School Order.png
+[Indexer] Processing: Priority Pass.jpg
+[Indexer] Processing: Properties Seen.png
+[Indexer] Processing: request.png
+[Indexer] Processing: Retail Lowdown January 2023 Inside Retail_ State of the Industry Quarterly Report
+[Indexer] Processing: Retail_Gazette_Whitepaper_May_2023.pdf
+[Indexer] Processing: saavari car booking .png
+[Indexer] Processing: sanaton Romford - schedule .jpg
+[Indexer] Processing: sanaton Romford .jpg
+[Indexer] Processing: Satyajit Ray Movies - Google Sheets.pdf
+[Indexer] Processing: SBI DEMAT ACCOUNT CLOSURE.png
+[Indexer] Processing: sbi error.png
+[Indexer] Processing: schengen history_2017.JPEG
+[Indexer] Processing: schengen history_2019.JPEG
+[Indexer] Processing: scrollbar does not dissapper automatically.png
+[Indexer] Processing: Subrata Ray Death Certificate.jpg
+[Indexer] Processing: The worst coder in the world tries an AI sidekick - Stack Overflow Blog.pdf
+[Indexer] Processing: Tissot.jpg
+[Indexer] Processing: Top 10 Retail Innovations for 2023 _ Progressive Grocer.pdf
+[Indexer] Processing: traces password.png
+[Indexer] Processing: translate hover.jpg
+[Indexer] Processing: TransUnion Credit Report (25-Sep).png
+[Indexer] Processing: UK DRIVING LICENCE  - ADDRESS CHANGE APPLICATION.jpg
+[Indexer] Processing: UPI.jpg
+[Indexer] Processing: upton park.jpg
+[Indexer] Processing: utsav ilford schedule.jpg
+[Indexer] Processing: Utsav Ilford.jpg
+[Indexer] Processing: uwell_purchase.png
+[Indexer] Processing: V5C image.jpg
+[Indexer] Processing: 1677683626957.jfif
+[Indexer] Processing: 17 Dec  to  20.docx
+[Indexer] Processing: 2020_application_form.pdf
+[Indexer] Processing: 26157649.pdf
+[Indexer] Processing: 311101000337-AR.pdf
+[Indexer] Processing: 311101000349-AR.pdf
+[Indexer] Processing: 311101001263-AR.pdf
+[Indexer] Processing: 555.pdf
+[Indexer] Processing: 6cc8076f-aed4-4e05-a8cb-0c09145143b0.ics
+[Indexer] Processing: 9013377828_901335044245_13-09-2023.pdf
+[Indexer] Processing: a96b43e5-5c46-4bce-a2fd-d9ee41ac80ba.pdf
+[Indexer] Processing: AC.docx
+[Indexer] Processing: annas-archive-secret-key.txt
+[Indexer] Processing: application-form-new-malta.pdf
+[Indexer] Processing: axs ticket.docx
+[Indexer] Processing: FD_HDFC_26095466_1707854423512.pdf
+[Indexer] Processing: HalifaxCurrent Account Statement_06102023.pdf
+[Indexer] Processing: HDFC CANCELLED CHEQUE.docx
+[Indexer] Processing: HDFC CANCELLED CHEQUE.pdf
+[Indexer] Processing: HDFC KYC Name Change.docx
+[Indexer] Processing: hdfc_26095466_1665053425312.pdf
+[Indexer] Processing: Letter to Bank (1).docx
+[Indexer] Processing: Letter to Bank Manager (17-July-2022).pdf
+[Indexer] Processing: prashanta paul account details.txt
+[Indexer] Processing: Print Statement - Online Account Manager _ Pulse.pdf
+[Indexer] Processing: Biopsy O140001808586654833180N.PDF
+[Indexer] Processing: BIOPSY- O140001808586654833180N.PDF
+[Indexer] Processing: Book1.xlsx
+[Indexer] Processing: Brochure IMP PCMLAI 06-04-2023 V51.pdf
+[Indexer] Processing: BSN (ASN Out) DC Shipment MVP Format.pdf
+[Indexer] Processing: C-O140001735916653556370N.PDF
+[Indexer] Processing: Canary Wharf.docx
+[Indexer] Processed 800/2592 files
+[Indexer] Processing: churchfield rd.pdf
+[Indexer] Processing: Closure of Locker 252.docx
+[Indexer] Processing: Closure of Locker 252.pdf
+[Indexer] Processing: Copy of UPI Data Flow-A. NDC_RDC to Branch.pdf
+[Indexer] Processing: Copy of UPI Data Flow-B. 3PL DC to Branch.pdf
+[Indexer] Processing: Copy of UPI Data Flow-C. Pick at 3PL DC.pdf
+[Indexer] Processing: Cost Price Discussion.pdf
+[Indexer] Processing: Could you describe the sequence and date of events.docx
+[Indexer] Processing: DAG.docx
+[Indexer] Processing: Dan.docx
+[Indexer] Processing: desktop.ini
+[Indexer] Processing: dfdf.txt
+[Indexer] Processing: Digital Revolution 3 - Virtual event - ical.ics
+[Indexer] Processing: Doc1.docx
+[Indexer] Processing: doc138226186_633195707.htm
+[Indexer] Processing: Document2.pdf
+[Indexer] Processing: Drawing.vsdx
+[Indexer] Processing: Dreo Heater Order.pdf
+[Indexer] Processing: DVLA-ADDRESS CHANGE.pdf
+[Indexer] Processing: edate and chart example.xlsx
+[Indexer] Processing: Email.pdf
+[Indexer] Processing: ENT Sunday.pdf
+[Indexer] Processing: ent.xlsx
+[Indexer] Processing: ePub-Reader.txt
+[Indexer] Processing: Event_564777.ics
+[Indexer] Processing: FINAL-WASH-Bread-Survey-All-Data.pdf
+[Indexer] Processing: FINAL-WASH-Bread-Survey-All-Data.xlsx
+[Indexer] Processing: Full Body Radioactive Scan.pdf
+[Indexer] Processing: Gartner Reprint EA First 100 days.pdf
+[Indexer] Processing: H-O140001729606653363268M.PDF
+[Indexer] Processing: HDFC Acct Statement_XX7243_23082024 (1).xls
+[Indexer] Processing: HealthCard_63054754 .pdf
+[Indexer] Processing: Hi.docx
+[Indexer] Processing: I am trying to access iCloud.docx
+[Indexer] Processing: I need to take a pic out of that chain but that means we need somewhere to capture the proper quality of data so that.docx
+[Indexer] Processing: Care Health Insurance.pdf
+[Indexer] Processing: CARE_HEALTH_INSURANCE_63054754_12032023_20230328184426.pdf
+[Indexer] Processing: LIC - Address Change Request Letter.pdf
+[Indexer] Processing: Max Life Policy Wealth Plus SU230778.pdf
+[Indexer] Processing: Tata AIA Cancelled Term Life.txt
+[Indexer] Processing: TRAVEL_INSURANCE_VASUK0000010019.pdf
+[Indexer] Processing: Investment by Resource_202405091315.xlsx
+[Indexer] Processing: Joe Biden’s chances do not look good. The Democrats have no plan B.pdf
+[Indexer] Processing: Landed Costs.pdf
+[Indexer] Processing: Letter to SHopkeppers.docx
+[Indexer] Processing: Letter to SHopkeppers.pdf
+[Indexer] Processing: LE_REGENT.pdf
+[Indexer] Processing: Locker Rental - Name change.docx
+[Indexer] Processing: Locker Rental - Name change.pdf
+[Indexer] Processing: LOI-311101001263.pdf
+[Indexer] Processing: LW Theatres E-Ticket (1)[1086].pdf
+[Indexer] Processing: MAGAZINESUBSCRIPTION_WEEK_FREE6WEEKS.pdf
+[Indexer] Processing: manh-forecasting-replenishment-brochure-en.pdf
+[Indexer] Processing: My Money Health Check - free Which_ tool.pdf
+[Indexer] Processing: Never shirk from.docx
+[Indexer] Processing: NEW OFFER FORM (Blank)2022_SR.docx
+[Indexer] Processing: NOC-311101000337.pdf
+[Indexer] Processing: NOC-311101001263.pdf
+[Indexer] Processing: On December 20.pdf
+[Indexer] Processing: Order Id #728973 Report Process - GaneshaSpeaks.pdf
+[Indexer] Processing: ORFI (Financial Integration) 190000-impg.pdf
+[Indexer] Processing: Packing.pdf
+[Indexer] Processing: FORM 16 PASSWORD.txt
+[Indexer] Processing: PAN - Lena Ray.pdf
+[Indexer] Processing: PAN_Aadhaar_ALL.pdf
+[Indexer] Processing: PG-Invafresh-waste-reduction-whitepaper.pdf
+[Indexer] Processing: Policy_Certificate_63054754 .pdf
+[Indexer] Processing: Pre Hosp Doctor Prescription_CompressPdf.pdf
+[Indexer] Processing: Presentation1.pptx
+[Indexer] Processing: pUJO 2024.xlsx
+[Indexer] Processing: QTY Curves 17 Oct Current_UPDATED.xlsx
+[Indexer] Processing: Radioactive Iodine.docx
+[Indexer] Processing: Radioactive Iodine.pdf
+[Indexer] Processing: Radiology Report-R5223537.pdf
+[Indexer] Processing: kmc 2nd quarter receipt.pdf
+[Indexer] Processing: ReIM_16.0_White_Paper.pdf
+[Indexer] Processing: Route 18 Bus Matters.docx
+[Indexer] Processing: shakti event - tickets.pdf
+[Indexer] Processing: SheerID-Retail-in-a-recessionary-environment.pdf
+[Indexer] Processing: Signed Inventory.PDF
+[Indexer] Processing: Southern Railway Diagram.pdf
+[Indexer] Processing: starcarslondon.co.uk_car_977870.pdf
+[Indexer] Processing: Subject Choice.pdf
+[Indexer] Processing: SWISS_application_form_original.en.pdf
+[Indexer] Processing: TenantProfile.pdf
+[Indexer] Processing: Test Layout.pdf
+[Indexer] Processing: Test Page.pdf
+[Indexer] Processing: test.pdf
+[Indexer] Processing: test1.pdf
+[Indexer] Processing: TFL_expenses.pdf
+[Indexer] Processing: Thankyou Page.pdf
+[Indexer] Processing: The Thames Riverside.docx
+[Indexer] Processing: The-Data-Lakehouse.pdf
+[Indexer] Processing: Three Plus Registration - Case Number.txt
+[Indexer] Processing: ticketdirect-1.pdf
+[Indexer] Processing: ticketdirect-2.pdf
+[Indexer] Processing: To find the best MTU.docx
+[Indexer] Processing: Transfer Close Solution.docx
+[Indexer] Processing: UKVI - Prove Immigration Status.txt
+[Indexer] Processing: Use Event.docx
+[Indexer] Processed 900/2592 files
+[Indexer] Processing: Use Event.pdf
+[Indexer] Processing: DSL_Bill_080101516853_kk_HT2429I007174290.pdf
+[Indexer] Processing: FIXED_LINE_Bill_08043707336_HT2329I007224046 (1).pdf
+[Indexer] Processing: SSE Energy Services Payment Portal.pdf
+[Indexer] Processing: Uwell caliburn purchase.pdf
+[Indexer] Processing: V5C image (1).heic
+[Indexer] Processing: Webhook - Hello World.pdf
+[Indexer] Processing: Webhook.pdf
+[Indexer] Processing: Webhooks.pdf
+[Indexer] Processing: Why is it so hard to get a GP appointment_ - Which_ News.pdf
+[Indexer] Processing: Words.docx
+[Indexer] Processing: Worrying Trends in Retail.pdf
+[Indexer] Processing: Complete Methodology of Data Modeling.pptx
+[Indexer] Processing: Medical_Claims_MongoDB.json
+[Indexer] Processing: Medical_Claims_RDBMS_ERD.png
+[Indexer] Processing: MongoDB Modernization Scorecard v2.xlsx
+[Indexer] Processing: RDBMS to MongoDB Migration White Paper.pdf
+[Indexer] Processing: READ ME
+[Indexer] Processing: ejhdbdump.sql
+[Indexer] Processing: ExecutedQueries.db
+[Indexer] Processing: mysql-backup.bat
+[Indexer] Processing: mysql-credentials.txt
+[Indexer] Processing: mysql_backup.sh
+[Indexer] Processing: ATCOM.sql
+[Indexer] Processing: atcom_eres_join_using_uniquelookup.sql
+[Indexer] Processing: Bag Syncing - eRes Queries.sql
+[Indexer] Processing: CHECKT7 QUERY.sql
+[Indexer] Processing: CREATE_TABLES.sql
+[Indexer] Processing: DataImport.log
+[Indexer] Processing: emp.sql
+[Indexer] Processing: eRES.sql
+[Indexer] Processing: eRes_Find_Multiple_PNRs.sql
+[Indexer] Processing: ESKEL_FlightTrackerData (MYSQL)-1.sql
+[Indexer] Processing: ESKEL_FlightTrackerData (MYSQL).sql
+[Indexer] Processing: ESKEL_FlightTrackerData.sql
+[Indexer] Processing: HASH.sql
+[Indexer] Processing: HOLIDAY_ANALYSIS.sql
+[Indexer] Processing: import_data_eskel.sql
+[Indexer] Processing: LAST BIT MACRO.sql
+[Indexer] Processing: Queries in Access File.sql
+[Indexer] Processing: queries.sql
+[Indexer] Processing: RoomTypeVariantsRequest_001.sql
+[Indexer] Processing: ROWS TO COLUMNS PIVOT WORKAROUND (STEP BY STEP).sql
+[Indexer] Processing: ROWS TO COLUMNS PIVOT WORKAROUND.sql
+[Indexer] Processing: series_seats.sql
+[Indexer] Processing: SHRIMOYEE_TUITIONS.sql
+[Indexer] Processing: SHRIMOYEE_TUITIONS.sql.design
+[Indexer] Processing: skills_matrix.sql
+[Indexer] Processing: skills_matrix.sql.design
+[Indexer] Processing: skills_matrix_analysis_1.sql
+[Indexer] Processing: skills_matrix_analysis_1a.sql
+[Indexer] Processing: skills_matrix_analysis_2.sql
+[Indexer] Processing: skills_matrix_analysis_3.sql
+[Indexer] Processing: skills_matrix_analysis_4.sql
+[Indexer] Processing: skills_matrix_analysis_4.sql.design
+[Indexer] Processing: SQL1.sql
+[Indexer] Processing: suddha.sql
+[Indexer] Processing: training tracker 2024.sql
+[Indexer] Processing: training tracker 2024.sql.design
+[Indexer] Processing: Training_Investment_By_Resouce.sql
+[Indexer] Processing: UPDATE EXAMPLE.sql
+[Indexer] Processing: 17733-ME_FULL_Warranty_PolicyDocs_PlanC_210623.pdf
+[Indexer] Processing: 2012 Fiat 500 Repair Manual -- Fiat Chrysler Automobiles -- Fiat Chrysler Automobiles -- 68b23c02c00782b73783e5ce991ae5b7 -- Anna’s Archive.pdf
+[Indexer] Processing: 2012-Fiat-500.pdf
+[Indexer] Processing: 2013-Blue_and_Me-1st.pdf
+[Indexer] Processing: 2013-fiat-500-owners-manual.pdf
+[Indexer] Processing: 2023-02-19.jpg
+[Indexer] Processing: 28280017787-claims-overview.pdf
+[Indexer] Processing: AC Operation.jpg
+[Indexer] Processing: AutoExpress Mag Subscription.pdf
+[Indexer] Processing: Fiat 500 Folding Rear Seats.mp4
+[Indexer] Processing: Fiat 500 Headlight Bulb Replacement  Left and Right Headlight 2008 - 2015.mp4
+[Indexer] Processing: Fiat 500 Headlight Bulb Replacement.mp4
+[Indexer] Processing: Fiat 500 Open Hood and Jumpstart.mp4
+[Indexer] Processing: Fiat 500 Petrol Cap How To Open & Close.mp4
+[Indexer] Processing: Fiat 500 _ Windshield Wiper_Washer Operation.mp4
+[Indexer] Processing: Fiat Introduce Stop and Start on the New Fiat 500.pdf
+[Indexer] Processing: GoSkippy Car Insurance Certificate.pdf
+[Indexer] Processing: Head Restraints.png
+[Indexer] Processing: Heated Seats.jpg
+[Indexer] Processing: Lights.png
+[Indexer] Processing: Odometer-11-Oct-2023.jpg
+[Indexer] Processing: Open Hood 1.png
+[Indexer] Processing: Open Hood 2.png
+[Indexer] Processing: Parallel_Parking_infographic.pdf
+[Indexer] Processing: Photo 2.jpg
+[Indexer] Processing: Photo1.jpg
+[Indexer] Processing: Proof of Latest NCB - Admiral policy - P61082406.pdf
+[Indexer] Processing: Sales Receipt (11-Oct-2023).jpg
+[Indexer] Processing: Seats Adjustment.png
+[Indexer] Processing: Spec_guide_master_500_colour_Q4.pdf
+[Indexer] Processing: Sports Mode.jpg
+[Indexer] Processing: Steering Adjustment.jpg
+[Indexer] Processing: Tyre Pressure.png
+[Indexer] Processing: V5C_image.jpg
+[Indexer] Processing: Warning Lights.jpg
+[Indexer] Processing: Wiper (Front).jpg
+[Indexer] Processing: Wiper (Rear).jpg
+[Indexer] Processing: Wiper Fuel Cap and Music.txt
+[Indexer] Processing: atcom_eres_join_using_uniquelookup.sql.design
+[Indexer] Processed 1000/2592 files
+[Indexer] Processing: Big Data.txt
+[Indexer] Processing: DataImport.log
+[Indexer] Processing: Gmail - Suddha, upgrade your WiFi for £3 extra a month while it lasts.pdf
+[Indexer] Processing: Gmail - Your Virgin Media Order-1.pdf
+[Indexer] Processing: HOLIDAY_ANALYSIS.sql.design
+[Indexer] Processing: image (123).png
+[Indexer] Processing: IMAGE-1.jpg
+[Indexer] Processing: metal support not fixed perpendicular.JPEG
+[Indexer] Processing: ejhdbdump.sql
+[Indexer] Processing: ExecutedQueries.db
+[Indexer] Processing: mysql-backup.bat
+[Indexer] Processing: mysql-credentials.txt
+[Indexer] Processing: ATCOM.sql
+[Indexer] Processing: atcom_eres_join_using_uniquelookup.sql
+[Indexer] Processing: CHECKT7 QUERY.sql
+[Indexer] Processing: CREATE_TABLES.sql
+[Indexer] Processing: ejhdbdump.sql
+[Indexer] Processing: emp.sql
+[Indexer] Processing: eRES.sql
+[Indexer] Processing: ESKEL_FlightTrackerData (MYSQL)-1.sql
+[Indexer] Processing: ESKEL_FlightTrackerData (MYSQL).sql
+[Indexer] Processing: ESKEL_FlightTrackerData.sql
+[Indexer] Processing: HASH.sql
+[Indexer] Processing: import_data_eskel.sql
+[Indexer] Processing: LAST BIT MACRO.sql
+[Indexer] Processing: Queries in Access File.sql
+[Indexer] Processing: queries.sql
+[Indexer] Processing: RoomTypeVariantsRequest_001.sql
+[Indexer] Processing: ROWS TO COLUMNS PIVOT WORKAROUND (STEP BY STEP).sql
+[Indexer] Processing: ROWS TO COLUMNS PIVOT WORKAROUND.sql
+[Indexer] Processing: series_seats.sql
+[Indexer] Processing: skills_matrix.sql
+[Indexer] Processing: skills_matrix_analysis_1.sql
+[Indexer] Processing: skills_matrix_analysis_1a.sql
+[Indexer] Processing: skills_matrix_analysis_2.sql
+[Indexer] Processing: skills_matrix_analysis_3.sql
+[Indexer] Processing: skills_matrix_analysis_4.sql
+[Indexer] Processing: SQL1.sql
+[Indexer] Processing: suddha.sql
+[Indexer] Processing: training tracker 2024.sql
+[Indexer] Processing: slats.JPEG
+[Indexer] Processing: Training_Investment_By_Resouce.sql.design
+[Indexer] Processing: USA.txt
+[Indexer] Processing: Virgin media Complaint_code_Jan_11.pdf
+[Indexer] Processing: Windows-Copilot-wallpaper.jpg
+[Indexer] Processing: Cancelled_Cheque.jpg
+[Indexer] Processing: EAadhaar_0000001391355320240113081433_2601202453046.pdf
+[Indexer] Processing: IBM Experience Letter.pdf
+[Indexer] Processing: Cancelled_Cheque.jpg
+[Indexer] Processing: EAadhaar_0000001391355320240113081433_2601202453046.pdf
+[Indexer] Processing: Gmail - Re_ Re_ Re_ Re_ Re_ Re_ _Confid...ing Letter - Suddha Satta Ray (00759G).pdf
+[Indexer] Processing: HDFC CANCELLED CHEQUE.pdf
+[Indexer] Processing: IBM Experience Letter.pdf
+[Indexer] Processing: JD Acknowledgement - SUDDHA .docx
+[Indexer] Processing: Suddha PAN.pdf
+[Indexer] Processing: Suddha Passport 3.pdf
+[Indexer] Processing: SUDDHA_Pre_UAN_Joint_Declaration_IBM.docx
+[Indexer] Processing: IBM PF - Suddha Satta Ray.zip
+[Indexer] Processing: Important_Information__1_.docx
+[Indexer] Processing: Joint_declaration-new_format.pdf
+[Indexer] Processing: All_Docs_Oracle.pdf
+[Indexer] Processing: B.Sc (Physics) Final Marksheet.jpeg
+[Indexer] Processing: Dec 2008 Payslip.pdf
+[Indexer] Processing: EAadhaar_Suddha_Satta_Ray.pdf
+[Indexer] Processing: EPFO Portal - DoJ Error for Oracle SSI.png
+[Indexer] Processing: HDFC CANCELLED CHEQUE.pdf
+[Indexer] Processing: Marriage Certificate.jpeg
+[Indexer] Processing: Nov 2008 Payslip.pdf
+[Indexer] Processing: Offer Letter from Oracle India.pdf
+[Indexer] Processing: Oracle SSI Experience Letter.pdf
+[Indexer] Processing: Requirements for JD.txt
+[Indexer] Processing: Suddha PAN.pdf
+[Indexer] Processing: Suddha Passport 3.pdf
+[Indexer] Processing: SUDDHA SATTA RAY- Joint Declaration-Acknowledgment Copy.pdf
+[Indexer] Processing: SUDDHA SATTA RAY- New JD format.docx
+[Indexer] Processing: SUDDHA SATTA RAY- New JD format.pdf
+[Indexer] Processing: Suddha Voter ID - e-EPIC_SVF9413873.pdf
+[Indexer] Processing: Oracle SSI Experience Letter.pdf
+[Indexer] Processing: pdfDownload.pdf
+[Indexer] Processing: Sample-Pre_UAN_Joint_Declaration.docx
+[Indexer] Processing: Submitting online claims - Withdrawal_Settlement – India Separations Help Center.pdf
+[Indexer] Processing: Suddha EPF - Google Docs.pdf
+[Indexer] Processing: Suddha EPF.docx
+[Indexer] Processing: Suddha EPF.pdf
+[Indexer] Processing: Suddha PAN.pdf
+[Indexer] Processing: Suddha Passport 3.pdf
+[Indexer] Processing: SUDDHA_Pre_UAN_Joint_Declaration_IBM.docx
+[Indexer] Processing: SUDDHA_Pre_UAN_Joint_Declaration_ORACLE.docx
+[Indexer] Processing: 16th April Cab Bill.jpeg
+[Indexer] Processing: 17th April (Starbucks).png
+[Indexer] Processing: 17th April Tiger Noodle.jpg
+[Indexer] Processing: 18th April Chick Filla.jpg
+[Indexer] Processing: 18th April Chipotle.jpg
+[Indexer] Processing: 18th April Moxies.jpg
+[Indexer] Processing: 18th April Moxies_2.jpg
+[Indexer] Processing: 19th April Himalaya.png
+[Indexer] Processing: 20th April Blanco.jpg
+[Indexer] Processing: 20th April Chick Fill-a.jpg
+[Indexer] Processing: 21st April Cheescake Factory.jpg
+[Indexer] Processing: 21st April Joeys.jpg
+[Indexer] Processed 1100/2592 files
+[Indexer] Processing: 21st April Seoulside.jpg
+[Indexer] Processing: 22nd April Cheescake Factory.jpg
+[Indexer] Processing: 22nd April Dimassi.jpg
+[Indexer] Processing: 22nd April Moxies.jpg
+[Indexer] Processing: 23rd April Smashburger.jpg
+[Indexer] Processing: 24th April Caracol.jpg
+[Indexer] Processing: 24th April Honey Baked.jpg
+[Indexer] Processing: 25th April Grand Lux Cafe.jpg
+[Indexer] Processing: 26th April Maggiano.jpg
+[Indexer] Processing: 27th_April_Taco_Bell.docx
+[Indexer] Processing: 27th_April_Taco_Bell.pdf
+[Indexer] Processing: 28th April La Calle.png
+[Indexer] Processing: 29th April The Rustic.png
+[Indexer] Processing: 30th April The Pit.png
+[Indexer] Processing: 1 TEMPLATE_BILL WITH PAPER BACKGROUND.docx
+[Indexer] Processing: 2 Add Paper Texture Background (Online).txt
+[Indexer] Processing: 3 template_bill IMAGE.jpg
+[Indexer] Processing: paper BACKGROUND.jpg
+[Indexer] Processing: 1 restaurant receipt maker online LINK.txt
+[Indexer] Processing: 2 INITIAL DOWNLOAD IMAGE.jpg
+[Indexer] Processing: 3 Add Paper Texture Background to INITIAL DOWNLOAD image.txt
+[Indexer] Processing: 4 FINAL DOWNLOAD IMAGE.jpg
+[Indexer] Processing: Joeys Final Receipt.jpg
+[Indexer] Processing: paper BACKGROUND.jpg
+[Indexer] Processing: Fake Receipt Font Source.txt
+[Indexer] Processing: Fake Receipt.ttf
+[Indexer] Processing: receiptfont (paid).txt
+[Indexer] Processing: MerchantCopy-GOXq.ttf
+[Indexer] Processing: MerchantCopyDoublesize-jE7R.ttf
+[Indexer] Processing: MerchantCopyWide-z8m0.ttf
+[Indexer] Processing: Read Me.txt
+[Indexer] Processing: Food Expenses Houston (FINAL).xlsx
+[Indexer] Processing: 10th June Moxies.jpg
+[Indexer] Processing: 11th June Ichiban.jpg
+[Indexer] Processing: 11th June Monks Pearland.jpg
+[Indexer] Processing: 12th June Himalaya.jpg
+[Indexer] Processing: 13th June Narins (2).jpg
+[Indexer] Processing: 13th June Narins.jpg
+[Indexer] Processing: 13th June Poke Fresh (2).jpg
+[Indexer] Processing: 13th June Poke Fresh.jpg
+[Indexer] Processing: 13th June Starbucks.jpg
+[Indexer] Processing: 14th June Ichiban.jpg
+[Indexer] Processing: 14th June The Rustic.jpg
+[Indexer] Processing: 15th June Ichiban.jpg
+[Indexer] Processing: 1st June Chick Fila.jpg
+[Indexer] Processing: 1st June La Calle (1).jpg
+[Indexer] Processing: 1st June La Calle.jpg
+[Indexer] Processing: 1st June Moxies.jpg
+[Indexer] Processing: 2nd June Starbucks.jpg
+[Indexer] Processing: 2nd June The Spot.jpg
+[Indexer] Processing: 2nd June Velvet Taco.jpg
+[Indexer] Processing: 2nd June WhataBurger.jpg
+[Indexer] Processing: 3rd Jun Ichiban.jpg
+[Indexer] Processing: 3rd June PF Chang.jpg
+[Indexer] Processing: 3rd June Smoothie King (2).jpg
+[Indexer] Processing: 3rd June Smoothie King.jpg
+[Indexer] Processing: 4th June Firehouse Subs.jpg
+[Indexer] Processing: 4th June Maggianos.jpg
+[Indexer] Processing: 5th June Flower Child (1).jpg
+[Indexer] Processing: 5th June Flower Child.jpg
+[Indexer] Processing: 6th June Mod Pizza.jpg
+[Indexer] Processing: 6th June Poke Fresh.jpg
+[Indexer] Processing: 6th June The Pit.jpg
+[Indexer] Processing: 7th June Birrapottes (1).jpg
+[Indexer] Processing: 7th June Birrapottes (2).jpg
+[Indexer] Processing: 7th June Birrapottes (3).jpg
+[Indexer] Processing: 8th June Jack in Box.jpg
+[Indexer] Processing: 8th June Mr Ice Cream.jpg
+[Indexer] Processing: 8th June Starbucks (2).jpg
+[Indexer] Processing: 8th June Starbucks.jpg
+[Indexer] Processing: 8th June Tierra Cafe (2).jpg
+[Indexer] Processing: 8th June Tierra Cafe.jpg
+[Indexer] Processing: 9th June Starbucks.jpg
+[Indexer] Processing: 9th June Vida Mariscos.jpg
+[Indexer] Processing: 10th May The Rustic.png
+[Indexer] Processing: 12th May Moxies.png
+[Indexer] Processing: 13th May The Rustic.png
+[Indexer] Processing: 14th May Chipotle (2).jpg
+[Indexer] Processing: 14th May Chipotle.jpg
+[Indexer] Processing: 14th May The Rustic.png
+[Indexer] Processing: 15th May Velvet Taco.png
+[Indexer] Processing: 16th May Whataburger (2).jpg
+[Indexer] Processing: 16th May Whataburger.jpg
+[Indexer] Processing: 17th May Canes (2).jpg
+[Indexer] Processing: 17th May Canes.jpg
+[Indexer] Processing: 18th May Kenz.jpg
+[Indexer] Processing: 18th_May_Taco_Bell.docx
+[Indexer] Processing: 19th May Mod Pizza.jpg
+[Indexer] Processing: 19th May Whataburger.png
+[Indexer] Processing: 1st May Shake Shack (1).jpeg
+[Indexer] Processing: 1st May Shake Shack.jpeg
+[Indexer] Processing: 20th May El Pollo Loco.jpg
+[Indexer] Processing: 21st May Caracol.png
+[Indexer] Processing: 23rd May Grand Lux Cafe.png
+[Indexer] Processing: 24th May Le Madeleine.jpg
+[Indexer] Processing: 24th May Moxies.png
+[Indexer] Processing: 25th May Grand Lux Cafe.png
+[Indexer] Processing: 25th May Jack in the Box.jpg
+[Indexer] Processing: 26th May Shivas Bar and Grill.jpg
+[Indexer] Processing: 26th May The Rustic.png
+[Indexer] Processed 1200/2592 files
+[Indexer] Processing: 27th May Chipotle.jpg
+[Indexer] Processing: 27th_May_Taco_Bell.docx
+[Indexer] Processing: 28th May Bodegas.jpg
+[Indexer] Processing: 28th May Maggianos.png
+[Indexer] Processing: 29th May Birraporetti.png
+[Indexer] Processing: 29th May Mod Pizza.jpg
+[Indexer] Processing: 2nd May Chick Fill-a.jpeg
+[Indexer] Processing: 30th May Cheescake Factory (2).jpg
+[Indexer] Processing: 30th May Cheescake Factory.jpg
+[Indexer] Processing: 30th May Lucille (2).jpg
+[Indexer] Processing: 30th May Lucille.jpg
+[Indexer] Processing: 31st May Daily Grill.jpg
+[Indexer] Processing: 31st May Sushigami (2).jpeg
+[Indexer] Processing: 31st May Sushigami (2).jpg
+[Indexer] Processing: 31st May Sushigami.jpeg
+[Indexer] Processing: 3rd May Taco Bell.docx
+[Indexer] Processing: 4th May Ruchis.jpg
+[Indexer] Processing: 4th May Taco Bell.docx
+[Indexer] Processing: 5th May Rooster.jpg
+[Indexer] Processing: 5th May Taco Bell.docx
+[Indexer] Processing: 7th May Ekko Greek.jpg
+[Indexer] Processing: 7th May Ekkos Greek.jpg
+[Indexer] Processing: 7th May Velvet Taco.png
+[Indexer] Processing: 8th_May_Taco_Bell.docx
+[Indexer] Processing: 1000029162.jpg
+[Indexer] Processing: 1000029167.jpg
+[Indexer] Processing: 1000029168.jpg
+[Indexer] Processing: 1000029173.jpg
+[Indexer] Processing: 1000029186.jpg
+[Indexer] Processing: 1000029217.jpg
+[Indexer] Processing: 1000029222.jpg
+[Indexer] Processing: 1000029226.jpg
+[Indexer] Processing: 1000029236.jpg
+[Indexer] Processing: 1000029239.jpg
+[Indexer] Processing: 1000029240 (2).jpg
+[Indexer] Processing: 1000029242.jpg
+[Indexer] Processing: 1000029244.jpg
+[Indexer] Processing: 1000029249.jpg
+[Indexer] Processing: 1000029256.jpg
+[Indexer] Processing: 1000029258.jpg
+[Indexer] Processing: 1000029259.jpg
+[Indexer] Processing: 1000029266.jpg
+[Indexer] Processing: 1000029274.jpg
+[Indexer] Processing: 1000029275.jpg
+[Indexer] Processing: 1000029278.jpg
+[Indexer] Processing: 1000029279.jpg
+[Indexer] Processing: pro-1wBMGfX4.jpeg
+[Indexer] Processing: pro-cICrOkOw.jpeg
+[Indexer] Processing: 10th June Shell.pdf
+[Indexer] Processing: 2nd Car rental.pdf
+[Indexer] Processing: 3rd June Shell.pdf
+[Indexer] Processing: 9th June Shell.pdf
+[Indexer] Processing: P60-Ray0000000832-2023.pdf
+[Indexer] Processing: Hrid_Passport.jpg
+[Indexer] Processing: Passports.txt
+[Indexer] Processing: Annexure E (Pinki Ray)-Back.jpg
+[Indexer] Processing: Annexure E (Pinki Ray)-Front.jpg
+[Indexer] Processing: AnnexureE Format.pdf
+[Indexer] Processing: PINKI RAY 2ND PASSPORT (Last Page).jpg
+[Indexer] Processing: PINKI RAY 2ND PASSPORT (Photo Page).jpg
+[Indexer] Processing: PINKI RAY 2ND PASSPORT - PDF.pdf
+[Indexer] Processing: PINKI RAY PASSPORT-First Page.jpg
+[Indexer] Processing: PINKI RAY PASSPORT-Last Page.jpg
+[Indexer] Processing: PINKI RAY PASSPORT-Spouse Endorement.jpg
+[Indexer] Processing: AnnexureH.pdf
+[Indexer] Processing: Appointment Reciept (06-MAY-2016).pdf
+[Indexer] Processing: Documents Required for Passport ReIssue for Shrimoyee (Minor).pdf
+[Indexer] Processing: View_Print Submitted Form_Shrimoyee Ray.pdf
+[Indexer] Processing: Acknowledgement_Slip.pdf
+[Indexer] Processing: Acknowledgement_Slip_FINAL.pdf
+[Indexer] Processing: AnnexureD.pdf
+[Indexer] Processing: Appointment Reciept and Resch App 25-Jan-21.pdf
+[Indexer] Processing: Appointment Reciept.pdf
+[Indexer] Processing: Birth Certificate signed.pdf
+[Indexer] Processing: fB-1109 Utility Bill Airtel Jan 2021.pdf
+[Indexer] Processing: Notes.pdf
+[Indexer] Processing: Receipt.pdf
+[Indexer] Processing: Required Documents.docx
+[Indexer] Processing: View_Print Submitted Form.pdf
+[Indexer] Processing: SHRIMOYEE RAY 1st PASSPORT PDF.pdf
+[Indexer] Processing: SHRIMOYEE RAY 2ND PASSPORT (Last Page).jpg
+[Indexer] Processing: SHRIMOYEE RAY 2ND PASSPORT (Photo Page).jpg
+[Indexer] Processing: SHRIMOYEE RAY 2ND PASSPORT PDF.pdf
+[Indexer] Processing: SHRIMOYEE RAY 3RD PASSPORT (BACK).jpg
+[Indexer] Processing: SHRIMOYEE RAY 3RD PASSPORT (FRONT).jpg
+[Indexer] Processing: SHRIMOYEE RAY PASSPORT - First Page.jpg
+[Indexer] Processing: SHRIMOYEE RAY PASSPORT - Last Page.jpg
+[Indexer] Processing: UK Entry Stamp - 6th Oct 2016 (Shrimoyee).jpg
+[Indexer] Processing: Sreeparna_Passport.jpg
+[Indexer] Processing: Passport 1 - Suddha Satta Ray.pdf
+[Indexer] Processing: PASSPORT 2 - Suddha Satta Ray (PDF).pdf
+[Indexer] Processing: PASSPORT-3-SUDDHA.jpg
+[Indexer] Processing: PASSPORT-3-SUDDHA.png
+[Indexer] Processing: SUDDHA PASSPORT 2 (FIRST AND LAST).pdf
+[Indexer] Processing: SUDDHA PASSPORT 2 - First Page.jpg
+[Indexer] Processing: SUDDHA PASSPORT 2 - Last Page.jpg
+[Indexer] Processing: Suddha Passport 3.pdf
+[Indexer] Processing: SUDDHA PASSPORT.jpg
+[Indexer] Processing: Details to give your landlord or agent – GOV.UK.pdf
+[Indexer] Processing: Hi Dr.docx
+[Indexer] Processed 1300/2592 files
+[Indexer] Processing: leena roy complain letter.docx
+[Indexer] Processing: Lena Ray Aadhaar Card (both sides).jpg
+[Indexer] Processing: Lena Ray Aadhaar Card (both sides).pdf
+[Indexer] Processing: Lena Ray Aadhar.jpg
+[Indexer] Processing: Lena_Ray_PROHLN000134863_5_PolicyDocuments_Policy Kit.pdf
+[Indexer] Processing: Letter to Moloy Gupta.docx
+[Indexer] Processing: Letter to Moloy Gupta.pdf
+[Indexer] Processing: Nisha R _CV.pdf
+[Indexer] Processing: Hi Doctor Viswanath.docx
+[Indexer] Processing: Hi Doctor Viswanath.pdf
+[Indexer] Processing: Parna Covishield Vaccine certificate(New).pdf
+[Indexer] Processing: Parna Ray - Aadhaar.jpeg
+[Indexer] Processing: Parna Ray - PAN.jpg
+[Indexer] Processing: PARNA RAY COVERING LETTER.docx
+[Indexer] Processing: PARNA RAY COVERING LETTER.pdf
+[Indexer] Processing: Parna ray CV (Page 1).pdf
+[Indexer] Processing: Parna ray CV 18-Feb-2023.docx
+[Indexer] Processing: Parna ray CV 18-Feb-2023.pdf
+[Indexer] Processing: Parna ray CV version 2.docx
+[Indexer] Processing: Parna ray CV version 2.pdf
+[Indexer] Processing: Parna ray CV.docx
+[Indexer] Processing: Parna ray CV.pdf
+[Indexer] Processing: ParnaPassport_AppointmentReceipt.pdf
+[Indexer] Processing: Shrimoyee Tuition (1).pdf
+[Indexer] Processing: Shrimoyee Tuition.pdf
+[Indexer] Processing: 6291860475.txt
+[Indexer] Processing: Bechtel Resignation Notice.docx
+[Indexer] Processing: BoardingPass (SREEPARNA) LTN TO DALAMAN.pdf
+[Indexer] Processing: balcony.jpeg
+[Indexer] Processing: bedroom.jpeg
+[Indexer] Processing: bedroom_2.jpeg
+[Indexer] Processing: hall.jpeg
+[Indexer] Processing: kitchen.jpeg
+[Indexer] Processing: SampleRentAgreement-Kolkata (All).doc
+[Indexer] Processing: 16th April Cab Bill.jpeg
+[Indexer] Processing: 17th April (Starbucks).png
+[Indexer] Processing: 17th April Poke Fresh.png
+[Indexer] Processing: 17th April Tiger Noodle.jpg
+[Indexer] Processing: 17th_April_Taco_Bell.docx
+[Indexer] Processing: 17th_April_Taco_Bell.pdf
+[Indexer] Processing: 18th April Chick Filla.jpg
+[Indexer] Processing: 18th April Chipotle.jpg
+[Indexer] Processing: 18th April Moxies.jpg
+[Indexer] Processing: 18th April Moxies_2.jpg
+[Indexer] Processing: 19th April Himalaya.png
+[Indexer] Processing: 20th April Blanco.jpg
+[Indexer] Processing: 20th April Chick Fill-a.jpg
+[Indexer] Processing: 21st April Cheescake Factory.jpg
+[Indexer] Processing: 21st April Joeys.jpg
+[Indexer] Processing: 21st April Seoulside.jpg
+[Indexer] Processing: 22nd April Cheescake Factory.jpg
+[Indexer] Processing: 22nd April Dimassi.jpg
+[Indexer] Processing: 22nd April Moxies.jpg
+[Indexer] Processing: 23rd April Smashburger.jpg
+[Indexer] Processing: 24th April Caracol.jpg
+[Indexer] Processing: 24th April Honey Baked.jpg
+[Indexer] Processing: 25th April Grand Lux Cafe.jpg
+[Indexer] Processing: 26th April Chick Fil-a.png
+[Indexer] Processing: 26th April Maggiano.jpg
+[Indexer] Processing: 27th April Caracol.png
+[Indexer] Processing: 27th April Chick-Fil-A.png
+[Indexer] Processing: 27th_April_Taco_Bell.docx
+[Indexer] Processing: 27th_April_Taco_Bell.pdf
+[Indexer] Processing: 28th April La Calle.png
+[Indexer] Processing: 29th April The Rustic.png
+[Indexer] Processing: 30th April Poke Fresh.png
+[Indexer] Processing: 30th April The Pit.png
+[Indexer] Processing: BARCODE-removebg-preview.png
+[Indexer] Processing: BARCODE.png
+[Indexer] Processing: image-removebg-preview.png
+[Indexer] Processing: 2 Add Paper Texture Background (Online).txt
+[Indexer] Processing: 3 template_bill IMAGE.jpg
+[Indexer] Processing: Bazille.docx
+[Indexer] Processing: blanco 2.docx
+[Indexer] Processing: blanco.docx
+[Indexer] Processing: CARACOL.docx
+[Indexer] Processing: CHEESCAKE FACTORY.docx
+[Indexer] Processing: Chick Filla.docx
+[Indexer] Processing: Flower Child.docx
+[Indexer] Processing: Grand Lux Cafe.docx
+[Indexer] Processing: Grand Lux Cafe.pdf
+[Indexer] Processing: grotto.docx
+[Indexer] Processing: HIMALAYA.docx
+[Indexer] Processing: INSERT RESTAURANT NAME 1.docx
+[Indexer] Processing: INSERT RESTAURANT NAME 2.docx
+[Indexer] Processing: INSERT RESTAURANT NAME 3.docx
+[Indexer] Processing: INSERT RESTAURANT NAME 4.docx
+[Indexer] Processing: INSERT RESTAURANT NAME 5.docx
+[Indexer] Processing: INSERT RESTAURANT NAME 6.docx
+[Indexer] Processing: INSERT RESTAURANT NAME 7.docx
+[Indexer] Processing: JOEY UPTOWN-2.docx
+[Indexer] Processing: JOEY UPTOWN-3.docx
+[Indexer] Processing: JOEY UPTOWN.docx
+[Indexer] Processing: MOXIES 2.docx
+[Indexer] Processing: MOXIES.docx
+[Indexer] Processing: North Italia 16-May.docx
+[Indexer] Processing: North Italia 2.docx
+[Indexer] Processing: North Italia 3.docx
+[Indexer] Processing: North Italia.docx
+[Indexer] Processing: Oceanaire Seafood Room 2.docx
+[Indexer] Processed 1400/2592 files
+[Indexer] Processing: Oceanaire Seafood Room.docx
+[Indexer] Processing: Peli peli 20th May.docx
+[Indexer] Processing: Poke Fresh 1.docx
+[Indexer] Processing: Poke Fresh 2.docx
+[Indexer] Processing: Poke Fresh 2.pdf
+[Indexer] Processing: Poke Fresh.docx
+[Indexer] Processing: PREY.docx
+[Indexer] Processing: SHAKE SHACK-1.docx
+[Indexer] Processing: SHAKE SHACK.docx
+[Indexer] Processing: SHAKE SHACK.pdf
+[Indexer] Processing: SUSHIGAMI 2.docx
+[Indexer] Processing: SUSHIGAMI.docx
+[Indexer] Processing: Taco_Bell.docx
+[Indexer] Processing: THE CAPITAL GRILLE.docx
+[Indexer] Processing: THE CAPITAL GRILLE.pdf
+[Indexer] Processing: The Honey Hole.docx
+[Indexer] Processing: The Honey Hole.pdf
+[Indexer] Processing: The Rustic 2.docx
+[Indexer] Processing: The Rustic.docx
+[Indexer] Processing: The Rustic.pdf
+[Indexer] Processing: TRUE FOOD KITCHEN.docx
+[Indexer] Processing: UP.docx
+[Indexer] Processing: Yard House 2.docx
+[Indexer] Processing: Yard House.docx
+[Indexer] Processing: 1 restaurant receipt maker online LINK.txt
+[Indexer] Processing: 2 INITIAL DOWNLOAD IMAGE.jpg
+[Indexer] Processing: 3 Add Paper Texture Background to INITIAL DOWNLOAD image.txt
+[Indexer] Processing: 4 FINAL DOWNLOAD IMAGE.jpg
+[Indexer] Processing: Joeys Final Receipt.jpg
+[Indexer] Processing: Joeys FReceipt.jpg
+[Indexer] Processing: Joeys IReceipt-removebg-preview.jpg
+[Indexer] Processing: Joeys IReceipt.jpg
+[Indexer] Processing: 360_F_641923515_Gj6b5cOmlILNHVROGAuwyZ54AR8Z3EHZ.jpg
+[Indexer] Processing: 360_F_72484586_R5sVRckjDrojSjUdkv0a67vxGGUx4ADM.jpg
+[Indexer] Processing: crumpled-paper-texture_1048-2259.jpeg
+[Indexer] Processing: IMG_5220_iphone.jpg
+[Indexer] Processing: paper BACKGROUND.jpg
+[Indexer] Processing: pngtree-distressed-white-paper-with-a-creased-overlay-texture-image_13800007.png
+[Indexer] Processing: seamless-texture-crumpled-paper-free-thumb36.jpg
+[Indexer] Processing: thumbnail_IMG_5213.jpg
+[Indexer] Processing: thumbnail_IMG_5214.jpg
+[Indexer] Processing: thumbnail_IMG_5215.jpg
+[Indexer] Processing: white-paper-texture_1194-5416.avif
+[Indexer] Processing: Word-Add-Texture.png
+[Indexer] Processing: Fake Receipt Font Source.txt
+[Indexer] Processing: Fake Receipt.ttf
+[Indexer] Processing: receiptfont (paid).txt
+[Indexer] Processing: MerchantCopy-GOXq.ttf
+[Indexer] Processing: MerchantCopyDoublesize-jE7R.ttf
+[Indexer] Processing: MerchantCopyWide-z8m0.ttf
+[Indexer] Processing: Read Me.txt
+[Indexer] Processing: 35790grotto_smaller.png
+[Indexer] Processing: JOEYS-removebg-preview.png
+[Indexer] Processing: JOEYS.png
+[Indexer] Processing: moxies-logo-black-600x115-1-removebg-preview.png
+[Indexer] Processing: moxies-logo-black-600x115-1.png
+[Indexer] Processing: prey.png
+[Indexer] Processing: the_rustic-removebg-preview.png
+[Indexer] Processing: TRUE FOOD.png
+[Indexer] Processing: Yard_House-removebg-preview.png
+[Indexer] Processing: Food Expenses Houston (FINAL)-1.xlsx
+[Indexer] Processing: Food Expenses Houston (FINAL).xlsx
+[Indexer] Processing: 10th June Moxies.jpg
+[Indexer] Processing: 11th June Ichiban.jpg
+[Indexer] Processing: 11th June Monks Pearland.jpg
+[Indexer] Processing: 12th June Himalaya.jpg
+[Indexer] Processing: 13th June Narins (2).jpg
+[Indexer] Processing: 13th June Narins.jpg
+[Indexer] Processing: 13th June Poke Fresh (2).jpg
+[Indexer] Processing: 13th June Poke Fresh.jpg
+[Indexer] Processing: 13th June Starbucks.jpg
+[Indexer] Processing: 14th June Ichiban.jpg
+[Indexer] Processing: 14th June The Rustic.jpg
+[Indexer] Processing: 15th June Ichiban.jpg
+[Indexer] Processing: 1st June Chick Fila.jpg
+[Indexer] Processing: 1st June La Calle (1).jpg
+[Indexer] Processing: 1st June La Calle.jpg
+[Indexer] Processing: 1st June Moxies.jpg
+[Indexer] Processing: 2nd June Starbucks.jpg
+[Indexer] Processing: 2nd June The Spot.jpg
+[Indexer] Processing: 2nd June Velvet Taco.jpg
+[Indexer] Processing: 2nd June WhataBurger.jpg
+[Indexer] Processing: 3rd Jun Ichiban.jpg
+[Indexer] Processing: 3rd June PF Chang.jpg
+[Indexer] Processing: 3rd June Smoothie King (2).jpg
+[Indexer] Processing: 3rd June Smoothie King.jpg
+[Indexer] Processing: 4th June Firehouse Subs.jpg
+[Indexer] Processing: 4th June Maggianos.jpg
+[Indexer] Processing: 5th June Flower Child (1).jpg
+[Indexer] Processing: 5th June Flower Child (2).jpg
+[Indexer] Processing: 5th June Flower Child.jpg
+[Indexer] Processing: 6th June Mod Pizza.jpg
+[Indexer] Processing: 6th June Poke Fresh.jpg
+[Indexer] Processing: 6th June The Pit.jpg
+[Indexer] Processing: 7th June Birrapottes (1).jpg
+[Indexer] Processing: 7th June Birrapottes (2).jpg
+[Indexer] Processing: 7th June Birrapottes (3).jpg
+[Indexer] Processing: 8th June Jack in Box.jpg
+[Indexer] Processing: 8th June Mr Ice Cream.jpg
+[Indexer] Processing: 8th June Starbucks (2).jpg
+[Indexer] Processed 1500/2592 files
+[Indexer] Processing: 8th June Starbucks.jpg
+[Indexer] Processing: 8th June Tierra Cafe (2).jpg
+[Indexer] Processing: 8th June Tierra Cafe.jpg
+[Indexer] Processing: 9th June Starbucks.jpg
+[Indexer] Processing: 9th June Vida Mariscos.jpg
+[Indexer] Processing: 10th May The Rustic (1).png
+[Indexer] Processing: 10th May The Rustic (2).png
+[Indexer] Processing: 10th May The Rustic.png
+[Indexer] Processing: 11th May Cheescake Factory.png
+[Indexer] Processing: 12th May Moxies (1).png
+[Indexer] Processing: 12th May Moxies.png
+[Indexer] Processing: 13th May Joey Uptown.png
+[Indexer] Processing: 13th May The Rustic.png
+[Indexer] Processing: 14th May Chipotle.jpg
+[Indexer] Processing: 14th May The Rustic.png
+[Indexer] Processing: 15th May Sushigami.png
+[Indexer] Processing: 15th May Velvet Taco.png
+[Indexer] Processing: 16th May North Italia (1).jpg
+[Indexer] Processing: 16th May North Italia.jpg
+[Indexer] Processing: 16th May Whataburger (2).jpg
+[Indexer] Processing: 16th May Whataburger.jpg
+[Indexer] Processing: 17th May Canes (2).jpg
+[Indexer] Processing: 17th May Canes.jpg
+[Indexer] Processing: 17th May Fig and Olive.jpg
+[Indexer] Processing: 18th May Del Frisco.jpg
+[Indexer] Processing: 18th May Kenz.jpg
+[Indexer] Processing: 18th_May_Taco_Bell.docx
+[Indexer] Processing: 19th May Kenny Ziggy.jpg
+[Indexer] Processing: 19th May Mod Pizza.jpg
+[Indexer] Processing: 19th May Whataburger.png
+[Indexer] Processing: 1st May Bazille (p).jpeg
+[Indexer] Processing: 1st May Bazille.png
+[Indexer] Processing: 1st May Shake Shack (2).png
+[Indexer] Processing: 1st May Shake Shack (p).jpeg
+[Indexer] Processing: 20th May El Pollo Loco.jpg
+[Indexer] Processing: 20th May Peli Peli.jpg
+[Indexer] Processing: 21st May Blancos.jpg
+[Indexer] Processing: 21st May Caracol.png
+[Indexer] Processing: 22nd May Oceanaire Seafood.jpg
+[Indexer] Processing: 23rd May Grand Lux Cafe.png
+[Indexer] Processing: 23rd May Grotto.jpg
+[Indexer] Processing: 24th May Le Madeleine.jpg
+[Indexer] Processing: 24th May Moxies.png
+[Indexer] Processing: 24th May Up Restaurant.jpg
+[Indexer] Processing: 25th May Blanco.jpg
+[Indexer] Processing: 25th May Grand Lux Cafe.png
+[Indexer] Processing: 25th May Jack in the Box.jpg
+[Indexer] Processing: 26th May North Italia.jpg
+[Indexer] Processing: 26th May Shivas Bar and Grill.jpg
+[Indexer] Processing: 26th May The Rustic.png
+[Indexer] Processing: 27th May Chipotle.jpg
+[Indexer] Processing: 27th May Oceanaire Seafood.jpg
+[Indexer] Processing: 27th_May_Taco_Bell.docx
+[Indexer] Processing: 28th May Bodegas.jpg
+[Indexer] Processing: 28th May Maggianos.png
+[Indexer] Processing: 28th May Yard House.jpg
+[Indexer] Processing: 29th May Birraporetti.png
+[Indexer] Processing: 29th May Joeys.jpg
+[Indexer] Processing: 29th May Mod Pizza.jpg
+[Indexer] Processing: 2nd May Chick Fill-a.jpeg
+[Indexer] Processing: 2nd May North Italia.png
+[Indexer] Processing: 30th May Cheescake Factory (2).jpg
+[Indexer] Processing: 30th May Cheescake Factory.jpg
+[Indexer] Processing: 30th May Lucille (2).jpg
+[Indexer] Processing: 30th May Lucille.jpg
+[Indexer] Processing: 30th May The Rustic.jpg
+[Indexer] Processing: 31st May Daily Grill.jpg
+[Indexer] Processing: 31st May Sushigami (2).jpeg
+[Indexer] Processing: 31st May Sushigami (2).jpg
+[Indexer] Processing: 31st May Sushigami.jpeg
+[Indexer] Processing: 31st May Sushigami.jpg
+[Indexer] Processing: 3rd May Grand Lux Cafe (p).jpeg
+[Indexer] Processing: 3rd May Grand Lux Cafe.pdf
+[Indexer] Processing: 3rd May Grand Lux Cafe.png
+[Indexer] Processing: 3rd May Taco Bell.docx
+[Indexer] Processing: 4th May Ruchis.jpg
+[Indexer] Processing: 4th May Taco Bell.docx
+[Indexer] Processing: 4th May The Honey Hole.png
+[Indexer] Processing: 5th May Rooster.jpg
+[Indexer] Processing: 5th May Taco Bell.docx
+[Indexer] Processing: 5th May True Food Kitchen (p).jpeg
+[Indexer] Processing: 5th May True Food Kitchen.png
+[Indexer] Processing: 6th May Prey.png
+[Indexer] Processing: 7th May Ekko Greek.jpg
+[Indexer] Processing: 7th May Ekkos Greek.jpg
+[Indexer] Processing: 7th May Velvet Taco.png
+[Indexer] Processing: 7th May Yard House.png
+[Indexer] Processing: 8th May The Capital Grille.png
+[Indexer] Processing: 8th_May_Taco_Bell.docx
+[Indexer] Processing: 9th May Prey.png
+[Indexer] Processing: 9th May Shake Shack.png
+[Indexer] Processing: 11th May Cheescake.JPG
+[Indexer] Processing: 12th May Moxies.JPG
+[Indexer] Processing: 13th May Joey Uptown.JPG
+[Indexer] Processing: 15th May Sushigami.JPG
+[Indexer] Processing: 1st May Bazille.JPG
+[Indexer] Processing: 1st May Shack Shake.JPEG
+[Indexer] Processing: 3rd May Grand Lux.JPEG
+[Indexer] Processing: 5th May True Food Kitchen.JPEG
+[Indexer] Processing: 7th May Yard House.JPG
+[Indexer] Processed 1600/2592 files
+[Indexer] Processing: 8th May Capital Grille.JPG
+[Indexer] Processing: 9th May Shake Shack.JPG
+[Indexer] Processing: 10th May Rustic.JPG
+[Indexer] Processing: 11th May Cheescake Factory.JPEG
+[Indexer] Processing: 11th May Flower Child.png
+[Indexer] Processing: 12th May Moxies.JPG
+[Indexer] Processing: 13th May Joey Uptown.JPG
+[Indexer] Processing: 14th May Rustic.JPG
+[Indexer] Processing: 15th May Sushigami.JPEG
+[Indexer] Processing: 1st May Bazille.JPEG
+[Indexer] Processing: 1st May Shake Shack.JPG
+[Indexer] Processing: 2nd May North Italia.png
+[Indexer] Processing: 3rd May Grand Lux Cafe.JPG
+[Indexer] Processing: 4th May Honey Hole.JPG
+[Indexer] Processing: 5th May True Food.JPG
+[Indexer] Processing: 6th May Prey.JPG
+[Indexer] Processing: 7th May yard House.JPG
+[Indexer] Processing: 8th May Capital Grille.JPG
+[Indexer] Processing: 9th May Prey (1).png
+[Indexer] Processing: 9th May Prey.png
+[Indexer] Processing: 9th May Shake Shack.JPG
+[Indexer] Processing: May 1-15 Word.docx
+[Indexer] Processing: May 1-15 Word.pdf
+[Indexer] Processing: 16th May North Italia.JPG
+[Indexer] Processing: 17th May Fig Olive 1.png
+[Indexer] Processing: 17th May Fig Olive.JPG
+[Indexer] Processing: 18th May Del Frisco 1.jpg
+[Indexer] Processing: 18th May Del Frisco.JPG
+[Indexer] Processing: 19th May Kenny.JPG
+[Indexer] Processing: 20th May Peli Peli 1.jpg
+[Indexer] Processing: 20th May Peli Peli.JPG
+[Indexer] Processing: 21st May Blanco.JPG
+[Indexer] Processing: 22nd May Oceanire.JPG
+[Indexer] Processing: 23rd May Grotto.JPG
+[Indexer] Processing: 24th May Up.JPG
+[Indexer] Processing: 25th May Blanco.JPG
+[Indexer] Processing: 26th May North Italia.JPG
+[Indexer] Processing: 27th May Himalaya.png
+[Indexer] Processing: 27th May Oceanaire.JPG
+[Indexer] Processing: 28th May Yard House.JPG
+[Indexer] Processing: 29th May Birraporetti.png
+[Indexer] Processing: 29th May Moxies.png
+[Indexer] Processing: 30th May Rustic.JPG
+[Indexer] Processing: 31st May Sushigami.JPG
+[Indexer] Processing: May 16-31 Word.docx
+[Indexer] Processing: May 16-31 Word.pdf
+[Indexer] Processing: 03-Jan-2025-Dinner-Navi Mumbai.docx
+[Indexer] Processing: 03-Jan-2025-Dinner-Navi Mumbai.jpg
+[Indexer] Processing: 04-Jan-2025-Lunch-Berry Cafe Panchgani.docx
+[Indexer] Processing: 04-Jan-2025-Lunch-Berry Cafe Panchgani.jpg
+[Indexer] Processing: 05-Jan-2025-Brkfast-Mblshwar.docx
+[Indexer] Processing: 05-Jan-2025-Brkfast-Mblshwar.jpg
+[Indexer] Processing: 05-Jan-2025-Dinner-Mblswar.docx
+[Indexer] Processing: 05-Jan-2025-Dinner-Mblswar.jpg
+[Indexer] Processing: 05-Jan-2025-Lunch-Mblswar.docx
+[Indexer] Processing: 05-Jan-2025-Lunch-Mblswar.jpg
+[Indexer] Processing: 06-Jan-2025-Dinner-Navi Mumbai.docx
+[Indexer] Processing: 06-Jan-2025-Dinner-Navi Mumbai.jpg
+[Indexer] Processing: 09-Jan-2025-Dessert-Navi Mumbai.docx
+[Indexer] Processing: 09-Jan-2025-Dessert-Navi Mumbai.jpg
+[Indexer] Processing: 11-Jan-2025-Lunch-Matheran.docx
+[Indexer] Processing: 11-Jan-2025-Lunch-Matheran.jpg
+[Indexer] Processing: 12-Jan-2025-Breakfast-Kajrat.docx
+[Indexer] Processing: 12-Jan-2025-Breakfast-Kajrat.jpg
+[Indexer] Processing: 12-Jan-2025-Snacks-Kajrat.docx
+[Indexer] Processing: 12-Jan-2025-Snacks-Kajrat.jpg
+[Indexer] Processing: 14-Dec-2024-Dinner-Taste of Punjab.docx
+[Indexer] Processing: 14-Dec-2024-Dinner-Taste of Punjab.jpg
+[Indexer] Processing: 14-Dec-2024-Lunch-Royal Oak.jpg
+[Indexer] Processing: 14-Dec-2024-Lunch-Royal-Oak.docx
+[Indexer] Processing: 15-Dec-2024-Dinner-Rainforest resto.docx
+[Indexer] Processing: 15-Dec-2024-Dinner-Rainforest resto.jpg
+[Indexer] Processing: 17-Dec-2024-Dessert-Navi Mumbai.docx
+[Indexer] Processing: 17-Dec-2024-Dessert-Navi Mumbai.jpg
+[Indexer] Processing: 17-Jan-2025-Dessert-Navi Mumbai.docx
+[Indexer] Processing: 17-Jan-2025-Dessert-Navi Mumbai.jpg
+[Indexer] Processing: 18-Jan-2025-Lunch-Nashik.docx
+[Indexer] Processing: 18-Jan-2025-Lunch-Nashik.jpg
+[Indexer] Processing: 19-Jan-2024-Lunch-Sula .docx
+[Indexer] Processing: 19-Jan-2024-Lunch-Sula.jpg
+[Indexer] Processing: 19-Jan-2025-Breakfast-Nashik.docx
+[Indexer] Processing: 19-Jan-2025-Breakfast-Nashik.jpg
+[Indexer] Processing: 21-Jan-2025-Dinner-Navi Mumbai.docx
+[Indexer] Processing: 21-Jan-2025-Dinner-Navi Mumbai.jpg
+[Indexer] Processing: 22-Dec-2024-Lunch-Villa Lonavala.docx
+[Indexer] Processing: 22-Dec-2024-Lunch-Villa Lonavala.jpg
+[Indexer] Processing: 24-Dec-2024-Snacks-Navi Mumbai.docx
+[Indexer] Processing: 24-Dec-2024-Snacks-Navi Mumbai.jpg
+[Indexer] Processing: 25-Jan-2025-Lunch-Navi Mumbai.docx
+[Indexer] Processing: 25-Jan-2025-Lunch-Navi Mumbai.jpg
+[Indexer] Processing: 26-Jan-2025-Dinner-Navi Mumbai.docx
+[Indexer] Processing: 26-Jan-2025-Dinner-Navi Mumbai.jpg
+[Indexer] Processing: 26-Jan-2025-Lunch-Navi Mumbai.docx
+[Indexer] Processing: 26-Jan-2025-Lunch-Navi Mumbai.jpg
+[Indexer] Processing: 28-Dec-2024-Lunch-Chingari Pune.docx
+[Indexer] Processing: 28-Dec-2024-Lunch-Chingari Pune.jpg
+[Indexer] Processing: 29-Dec-2024-Breakfast-Pune.docx
+[Indexer] Processing: 29-Dec-2024-Breakfast-Pune.jpg
+[Indexer] Processing: 29-Dec-2024-Dinner-Alto Vilo Pune.docx
+[Indexer] Processing: 29-Dec-2024-Dinner-Pune.jpg
+[Indexer] Processed 1700/2592 files
+[Indexer] Processing: 30-Dec-2024-Dessert-Navi Mumbai.docx
+[Indexer] Processing: 30-Dec-2024-Dessert-Navi Mumbai.jpg
+[Indexer] Processing: 26-1-25 Lunch.png
+[Indexer] Processing: change to 26-01-2025.jpeg
+[Indexer] Processing: daman - changed.jpg
+[Indexer] Processing: daman.jpg
+[Indexer] Processing: house of lords - Copy.jpeg
+[Indexer] Processing: house of lords - Copy2.jpeg
+[Indexer] Processing: house of lords changed to 31-1-25.jpg
+[Indexer] Processing: house of lords.jpeg
+[Indexer] Processing: WhatsApp Image 2025-03-05 at 12.20.37 AM.jpeg
+[Indexer] Processing: WhatsApp Image 2025-03-05 at 12.20.38 AM.jpeg
+[Indexer] Processing: WhatsApp Image 2025-03-05 at 12.20.40 AM.jpeg
+[Indexer] Processing: WhatsApp Image 2025-03-05 at 12.20.47 AM.jpeg
+[Indexer] Processing: WhatsApp Image 2025-03-05 at 12.20.50 AM.jpeg
+[Indexer] Processing: WhatsApp Image 2025-03-05 at 12.20.60 AM.jpeg
+[Indexer] Processing: WhatsApp Image 2025-03-05 at 12.45.70 AM.jpeg
+[Indexer] Processing: Chick Filla.docx
+[Indexer] Processing: Daman 1947 01feb.jpeg
+[Indexer] Processing: Expense spreadsheet.xlsx
+[Indexer] Processing: House of Lords 1313 06Feb.jpeg
+[Indexer] Processing: House of Lords 1418 07Feb.jpeg
+[Indexer] Processing: Pop Tates 1685 21Dec.jpeg
+[Indexer] Processing: Sula Vineyard 1050 19Jan.jpeg
+[Indexer] Processing: 1000029162.jpg
+[Indexer] Processing: 1000029167.jpg
+[Indexer] Processing: 1000029168.jpg
+[Indexer] Processing: 1000029173.jpg
+[Indexer] Processing: 1000029186.jpg
+[Indexer] Processing: 1000029217.jpg
+[Indexer] Processing: 1000029222.jpg
+[Indexer] Processing: 1000029226.jpg
+[Indexer] Processing: 1000029236.jpg
+[Indexer] Processing: 1000029239.jpg
+[Indexer] Processing: 1000029240 (2).jpg
+[Indexer] Processing: 1000029242.jpg
+[Indexer] Processing: 1000029244.jpg
+[Indexer] Processing: 1000029249.jpg
+[Indexer] Processing: 1000029256.jpg
+[Indexer] Processing: 1000029258.jpg
+[Indexer] Processing: 1000029259.jpg
+[Indexer] Processing: 1000029266.jpg
+[Indexer] Processing: 1000029274.jpg
+[Indexer] Processing: 1000029275.jpg
+[Indexer] Processing: 1000029278.jpg
+[Indexer] Processing: 1000029279.jpg
+[Indexer] Processing: pro-1wBMGfX4.jpeg
+[Indexer] Processing: pro-cICrOkOw.jpeg
+[Indexer] Processing: Istanbul to Delhi (SREEPARNA).pdf
+[Indexer] Processing: Three+ App.txt
+[Indexer] Processing: y2 devonshire ....txt
+[Indexer] Processing: Aadhar Card Suddha (Attested).pdf
+[Indexer] Processing: Aadhar Suddha.pdf
+[Indexer] Processing: AFFORDABILTY FORM-SUDDHA RAY.docx
+[Indexer] Processing: Akhata-PropertyID.txt
+[Indexer] Processing: BRP Suddha.pdf
+[Indexer] Processing: DS_hoarding_SuddhasattaRay.docx
+[Indexer] Processing: DS_hoarding_SuddhasattaRay.pdf
+[Indexer] Processing: E-Aadhaar Suddha (UNMASKED).jpg
+[Indexer] Processing: E-Aadhaar Suddha (UNMASKED).pdf
+[Indexer] Processing: EAadhaar_Suddha Ray.pdf
+[Indexer] Processing: FORM_19_SUDDHA_SATTA_RAY.pdf
+[Indexer] Processing: HDFC Acct Statement_XX7243_23082024.xls
+[Indexer] Processing: I am based out of Ealing in West Lo.txt
+[Indexer] Processing: Microsoft Edge Passwords(17-Jun-25).csv
+[Indexer] Processing: Oracle Database XE Installation.txt
+[Indexer] Processing: Oracle SSI Experience Letter (1).pdf
+[Indexer] Processing: Oracle SSI Experience Letter.pdf
+[Indexer] Processing: Retail Reply Profile - Suddha.key
+[Indexer] Processing: Retail Reply Profile_A4 - Suddha.pdf
+[Indexer] Processing: Retail Reply Profile_A4 - Suddha.pptx
+[Indexer] Processing: Suddha PAN.pdf
+[Indexer] Processing: Suddha Passport 3.pdf
+[Indexer] Processing: Suddha Passport Aadhaar PAN DL.pdf
+[Indexer] Processing: Suddha Ray - CV Resume Data Architect.docx
+[Indexer] Processing: Suddha Ray - Employment Reference Letter (8-Sep-23).pdf
+[Indexer] Processing: Suddha Resume CV (1).pdf
+[Indexer] Processing: Suddha Resume CV 1.docx
+[Indexer] Processing: Suddha Resume CV.docx
+[Indexer] Processing: Suddha Resume CV.pdf
+[Indexer] Processing: Suddha Satta Ray - DL.pdf
+[Indexer] Processing: SUDDHA SATTA RAY - SBI PPF.jpeg
+[Indexer] Processing: Suddha Satta Ray - Standard Employment Reference Letter.pdf
+[Indexer] Processing: Suddha Satta Ray CV.docx
+[Indexer] Processing: Suddha Satta Ray CV.pdf
+[Indexer] Processing: Suddha Travel History (July 2022-Feb 2025) SARU 1145713 Final Bundle.pdf
+[Indexer] Processing: Suddha Travel History.xlsx
+[Indexer] Processing: Suddha Voter ID - e-EPIC_SVF9413873.pdf
+[Indexer] Processing: Suddha's Savings - Google Sheets.pdf
+[Indexer] Processing: SUDDHA-KUNDLI.docx
+[Indexer] Processing: SUDDHA-KUNDLI.pdf
+[Indexer] Processing: SUDDHA-KUNDLI.png
+[Indexer] Processing: Suddha-Kundli.txt
+[Indexer] Processing: suddha-satta-ray-1916387.pdf
+[Indexer] Processing: Suddha-Signature.jpg
+[Indexer] Processing: Suddha-Signature.png
+[Indexer] Processing: suddha.br
+[Indexer] Processing: Suddha_Birthday_Itinerary.pdf
+[Indexer] Processing: Suddha_Moon_Reading.pdf
+[Indexer] Processing: SUDDHA_Pre_UAN_Joint_Declaration_ORACLE.docx
+[Indexer] Processed 1800/2592 files
+[Indexer] Processing: Tenant offer form 2022- Suddha Ray.pdf
+[Indexer] Processing: Verified Tenant Report For Suddha Satta Ray.pdf
+[Indexer] Processing: Aiven Database Credentials.txt
+[Indexer] Processing: Anthropic-API-Key.txt
+[Indexer] Processing: app.py
+[Indexer] Processing: hotels.json
+[Indexer] Processing: index.html
+[Indexer] Processing: chat_finder_app.py
+[Indexer] Processing: chat_finder_app_backup.py
+[Indexer] Processing: chat_finder_simple.py
+[Indexer] Processing: chat_messages_dump.txt
+[Indexer] Processing: CLAUDE.md
+[Indexer] Processing: client_secret.jpg
+[Indexer] Processing: creds.txt
+[Indexer] Processing: error.jpg
+[Indexer] Processing: error.txt
+[Indexer] Processing: error1.jpg
+[Indexer] Processing: graph_api_perms.jpg
+[Indexer] Processing: log.txt
+[Indexer] Processing: lords.jpg
+[Indexer] Processing: pic.jpg
+[Indexer] Processing: README.md
+[Indexer] Processing: scope.txt
+[Indexer] Processing: search.jpg
+[Indexer] Processing: claude code in vscode.rtf
+[Indexer] Processing: Helvetica-Bold.ttf
+[Indexer] Processing: Helvetica-Bold.woff
+[Indexer] Processing: Helvetica-BoldItalic.ttf
+[Indexer] Processing: Helvetica-BoldItalic.woff
+[Indexer] Processing: Helvetica-Italic.ttf
+[Indexer] Processing: Helvetica-Italic.woff
+[Indexer] Processing: Helvetica-Regular.ttf
+[Indexer] Processing: Helvetica-Regular.woff
+[Indexer] Processing: main.py
+[Indexer] Processing: render_settings.png
+[Indexer] Processing: requirements.txt
+[Indexer] Processing: wsgi.py
+[Indexer] Processing: DeepSeek Key.txt
+[Indexer] Processing: desktop.ini
+[Indexer] Processing: app.py
+[Indexer] Processing: error.txt
+[Indexer] Processing: personas.json
+[Indexer] Processing: pic.png
+[Indexer] Processing: README.md
+[Indexer] Processing: requirements.txt
+[Indexer] Processing: review_workflow.py
+[Indexer] Processing: index.html
+[Indexer] Processing: manage_personas.html
+[Indexer] Processing: results.html
+[Indexer] Processing: wsgi.py
+[Indexer] Processing: personas.cpython-39.pyc
+[Indexer] Processing: review_workflow.cpython-39.pyc
+[Indexer] Processing: CLAUDE.md
+[Indexer] Processing: emojis.com fiat-logo.png
+[Indexer] Processing: emojis.com red-fiat-500-convertible.png
+[Indexer] Processing: game.js
+[Indexer] Processing: index.html
+[Indexer] Processing: logs.txt
+[Indexer] Processing: pic.jpg
+[Indexer] Processing: styles.css
+[Indexer] Processing: app.py
+[Indexer] Processing: app_flask.py
+[Indexer] Processing: CLAUDE.md
+[Indexer] Processing: error.jpg
+[Indexer] Processing: git.txt
+[Indexer] Processing: inspire.jpg
+[Indexer] Processing: pic.jpg
+[Indexer] Processing: README.md
+[Indexer] Processing: requirements.txt
+[Indexer] Processing: scroll.jpg
+[Indexer] Processing: startFileCat.bat
+[Indexer] Processing: style.css
+[Indexer] Processing: index.html
+[Indexer] Processing: app.cpython-39.pyc
+[Indexer] Processing: database_fix.js
+[Indexer] Processing: f12.txt
+[Indexer] Processing: GenSummary.bat
+[Indexer] Processing: indexer.cjs
+[Indexer] Processing: log.txt
+[Indexer] Processing: nodemon.js
+[Indexer] Processing: package-lock.json
+[Indexer] Processing: package.json
+[Indexer] Processing: pic.jpg
+[Indexer] Processing: prd.md
+[Indexer] Processing: previewer.js
+[Indexer] Processing: index.html
+[Indexer] Processing: script.js
+[Indexer] Processing: styles.css
+[Indexer] Processing: README.md
+[Indexer] Processing: server.cjs
+[Indexer] Processing: startFileSearch.bat
+[Indexer] Processing: summary_file-searcher.txt
+[Indexer] Processing: app.py
+[Indexer] Processing: Gemini Google AI Studio Key.txt
+[Indexer] Processing: GIT STEPS.txt
+[Indexer] Processing: GIT SWITCH GLOBAL USER.txt
+[Indexer] Processing: GitHub - Feature on a Branch.pdf
+[Indexer] Processing: GitHub - switch to corporate account.pdf
+[Indexer] Processing: GitHub - switch user.pdf
+[Indexer] Processing: GitHub Pull and Push- STEPS.pdf
+[Indexer] Processed 1900/2592 files
+[Indexer] Processing: GitHub ssray23 Personal Access Token.txt
+[Indexer] Processing: Git_user_Personal.txt
+[Indexer] Processing: hello.go
+[Indexer] Processing: app.py
+[Indexer] Processing: requirements.txt
+[Indexer] Processing: index.html
+[Indexer] Processing: 51a3a208-a48b-4819-9ae5-1483bc6ef7e0_push_notifications_diagrams.html
+[Indexer] Processing: push_notifications_diagrams.pdf
+[Indexer] Processing: seriouseats.com.pdf
+[Indexer] Processing: seriouseats.com_ce5480ef-a052-484f-af2a-2e706996130f.html
+[Indexer] Processing: wsgi.py
+[Indexer] Processing: HuggingFace Key.txt
+[Indexer] Processing: app.py
+[Indexer] Processing: Helvetica-Bold.woff
+[Indexer] Processing: Helvetica-BoldItalic.woff
+[Indexer] Processing: Helvetica-Italic.woff
+[Indexer] Processing: Helvetica-Regular.woff
+[Indexer] Processing: requirements.txt
+[Indexer] Processing: wsgi.py
+[Indexer] Processing: app.py
+[Indexer] Processing: error.txt
+[Indexer] Processing: Helvetica-Bold.woff
+[Indexer] Processing: Helvetica-BoldItalic.woff
+[Indexer] Processing: Helvetica-Italic.woff
+[Indexer] Processing: Helvetica-Regular.woff
+[Indexer] Processing: requirements.txt
+[Indexer] Processing: startKillApp.bat
+[Indexer] Processing: startKillApp.bat - Shortcut.lnk
+[Indexer] Processing: wsgi.py
+[Indexer] Processing: Langsmith API key.txt
+[Indexer] Processing: app.py
+[Indexer] Processing: build.sh
+[Indexer] Processing: index.html
+[Indexer] Processing: langsmith.png
+[Indexer] Processing: requirements.txt
+[Indexer] Processing: create_dataset.py
+[Indexer] Processing: run_evaluation.py
+[Indexer] Processing: summarizer.py
+[Indexer] Processing: run_evaluation.cpython-39.pyc
+[Indexer] Processing: summarizer.cpython-39.pyc
+[Indexer] Processing: script.js
+[Indexer] Processing: style.css
+[Indexer] Processing: traces.png
+[Indexer] Processing: web-bad.png
+[Indexer] Processing: web.png
+[Indexer] Processing: Moonshot AI Key.txt
+[Indexer] Processing: app.py
+[Indexer] Processing: categories.json
+[Indexer] Processing: error.txt
+[Indexer] Processing: gemini-update
+[Indexer] Processing: Git_user.txt
+[Indexer] Processing: pic.png
+[Indexer] Processing: prompt.txt
+[Indexer] Processing: README.md
+[Indexer] Processing: requirements.txt
+[Indexer] Processing: saved_news.json
+[Indexer] Processing: style.css
+[Indexer] Processing: app.js
+[Indexer] Processing: index.html
+[Indexer] Processing: test_dates.html
+[Indexer] Processing: wsgi.py
+[Indexer] Processing: app.cpython-39.pyc
+[Indexer] Processing: hello_server.js
+[Indexer] Processing: npm upgrade -g @googlegemini-cli.txt
+[Indexer] Processing: Open AI Personal Key.txt
+[Indexer] Processing: OpenRouter API Key.txt
+[Indexer] Processing: CLAUDE.md
+[Indexer] Processing: deploy.ps1
+[Indexer] Processing: deploy.sh
+[Indexer] Processing: dropdown.png
+[Indexer] Processing: error.txt
+[Indexer] Processing: package_lambda.ps1
+[Indexer] Processing: package_lambda.sh
+[Indexer] Processing: preview.png
+[Indexer] Processing: prompt.txt
+[Indexer] Processing: README.md
+[Indexer] Processing: requirements.txt
+[Indexer] Processing: 10149B21101.pdf
+[Indexer] Processing: 10482B21101.pdf
+[Indexer] Processing: 3.pdf
+[Indexer] Processing: 5.pdf
+[Indexer] Processing: basic-invoice-3345.pdf
+[Indexer] Processing: basic-invoice.docx
+[Indexer] Processing: basic-invoice2323.pdf
+[Indexer] Processing: basic-invoice2324.pdf
+[Indexer] Processing: Croatia VAT project.xlsx
+[Indexer] Processing: Supplier ABC Travels.docx
+[Indexer] Processing: set_aws_variables.bat
+[Indexer] Processing: requirements.txt
+[Indexer] Processing: textract_processor.py
+[Indexer] Processing: textract_trigger.py
+[Indexer] Processing: __init__.py
+[Indexer] Processing: template.yaml
+[Indexer] Processing: main.tf
+[Indexer] Processing: outputs.tf
+[Indexer] Processing: README.md
+[Indexer] Processing: variables.tf
+[Indexer] Processing: app.py
+[Indexer] Processing: create_table.py
+[Indexer] Processing: Dockerfile
+[Indexer] Processed 2000/2592 files
+[Indexer] Processing: README.md
+[Indexer] Processing: requirements.txt
+[Indexer] Processing: run.ps1
+[Indexer] Processing: run.sh
+[Indexer] Processing: setup.bat
+[Indexer] Processing: script.js
+[Indexer] Processing: style.css
+[Indexer] Processing: index.html
+[Indexer] Processing: __init__.py
+[Indexer] Processing: create_table.cpython-39.pyc
+[Indexer] Processing: Quickly Show Hide Hidden Files on macOS.pdf
+[Indexer] Processing: analyze_backstabbing.py
+[Indexer] Processing: API_FIX_SUMMARY.md
+[Indexer] Processing: app.py
+[Indexer] Processing: pic.png
+[Indexer] Processing: preview.png
+[Indexer] Processing: app_backup.py
+[Indexer] Processing: saved_quotes_backup_20250802_071701.json
+[Indexer] Processing: saved_quotes_backup_20250802_072009.json
+[Indexer] Processing: saved_quotes_backup_20250802_072201.json
+[Indexer] Processing: basic_test.py
+[Indexer] Processing: check_curated.py
+[Indexer] Processing: CLEANUP_SUMMARY.md
+[Indexer] Processing: complete_validation_test.py
+[Indexer] Processing: database_enhancement.sql
+[Indexer] Processing: database_manager.py
+[Indexer] Processing: database_schema.sql
+[Indexer] Processing: db_test.py
+[Indexer] Processing: demo_architecture.py
+[Indexer] Processing: DEPLOYMENT_GUIDE.md
+[Indexer] Processing: CLAUDE.md
+[Indexer] Processing: CLEANUP_SUMMARY.md
+[Indexer] Processing: DEPLOYMENT_GUIDE.md
+[Indexer] Processing: ENHANCED_SEARCH_SYSTEM.md
+[Indexer] Processing: error.txt
+[Indexer] Processing: fix_app_autosave.py
+[Indexer] Processing: fix_auto_save.py
+[Indexer] Processing: Git_user.txt
+[Indexer] Processing: manual_validation_test.py
+[Indexer] Processing: migrate_saved_quotes.py
+[Indexer] Processing: migrate_to_mysql.py
+[Indexer] Processing: migration_test.py
+[Indexer] Processing: Procfile
+[Indexer] Processing: quick_test.py
+[Indexer] Processing: README.md
+[Indexer] Processing: render.yaml
+[Indexer] Processing: render_env_test.py
+[Indexer] Processing: requirements.txt
+[Indexer] Processing: saved_quotes.json
+[Indexer] Processing: analyze_backstabbing.py
+[Indexer] Processing: check_curated.py
+[Indexer] Processing: check_hatred.py
+[Indexer] Processing: check_learned_quotes.py
+[Indexer] Processing: create_dirs.py
+[Indexer] Processing: create_learned_quotes.py
+[Indexer] Processing: demo_architecture.py
+[Indexer] Processing: direct_sql.py
+[Indexer] Processing: fix_app_autosave.py
+[Indexer] Processing: fix_auto_save.py
+[Indexer] Processing: migrate_saved_quotes.py
+[Indexer] Processing: migrate_to_mysql.py
+[Indexer] Processing: quick_api_test.py
+[Indexer] Processing: quick_seed.py
+[Indexer] Processing: quick_test.py
+[Indexer] Processing: seed_curated_quotes.py
+[Indexer] Processing: seed_emotional_themes.py
+[Indexer] Processing: seed_essential_quotes.py
+[Indexer] Processing: setup_database.py
+[Indexer] Processing: setup_learned_quotes.py
+[Indexer] Processing: simple_db_check.py
+[Indexer] Processing: simple_debug.py
+[Indexer] Processing: simple_openai_test.py
+[Indexer] Processing: test_api_integration.py
+[Indexer] Processing: test_app_parallel_search.py
+[Indexer] Processing: test_app_search.py
+[Indexer] Processing: test_auto_learning.py
+[Indexer] Processing: test_env.py
+[Indexer] Processing: test_hatred_search.py
+[Indexer] Processing: test_parallel_search_fresh.py
+[Indexer] Processing: validate_auto_learning.py
+[Indexer] Processing: seed_curated_quotes.py
+[Indexer] Processing: seed_emotional_themes.py
+[Indexer] Processing: seed_essential_quotes.py
+[Indexer] Processing: setup_database.py
+[Indexer] Processing: simple_debug.py
+[Indexer] Processing: simple_test.py
+[Indexer] Processing: simple_validation_test.py
+[Indexer] Processing: index.html
+[Indexer] Processing: index_clean.html
+[Indexer] Processing: saved.html
+[Indexer] Processing: basic_test.py
+[Indexer] Processing: complete_validation_test.py
+[Indexer] Processing: db_test.py
+[Indexer] Processing: manual_validation_test.py
+[Indexer] Processing: migration_test.py
+[Indexer] Processing: quick_test.py
+[Indexer] Processing: render_env_test.py
+[Indexer] Processing: simple_test.py
+[Indexer] Processing: simple_validation_test.py
+[Indexer] Processing: test_app_search.py
+[Indexer] Processed 2100/2592 files
+[Indexer] Processing: test_auto_learning.py
+[Indexer] Processing: test_clean.py
+[Indexer] Processing: test_cleanup.py
+[Indexer] Processing: test_clean_app.py
+[Indexer] Processing: test_clean_architecture.py
+[Indexer] Processing: test_connection.py
+[Indexer] Processing: test_database.py
+[Indexer] Processing: test_delete.py
+[Indexer] Processing: test_delete_debug.py
+[Indexer] Processing: test_despair.py
+[Indexer] Processing: test_discovery.py
+[Indexer] Processing: test_enhanced_search.py
+[Indexer] Processing: test_fixed_quotes.py
+[Indexer] Processing: test_focus.py
+[Indexer] Processing: test_freedom.py
+[Indexer] Processing: test_greed_fix.py
+[Indexer] Processing: test_hunger_direct.py
+[Indexer] Processing: test_hunger_search.py
+[Indexer] Processing: test_improved_suffix.py
+[Indexer] Processing: test_logic_quotes.py
+[Indexer] Processing: test_logic_simple.py
+[Indexer] Processing: test_performance.py
+[Indexer] Processing: test_quote_ids.py
+[Indexer] Processing: test_quote_parsing.py
+[Indexer] Processing: test_regret.py
+[Indexer] Processing: test_routes.py
+[Indexer] Processing: test_saved_quotes.py
+[Indexer] Processing: test_search_performance.py
+[Indexer] Processing: test_simple.py
+[Indexer] Processing: test_spirit.py
+[Indexer] Processing: test_strict_validation.py
+[Indexer] Processing: test_theme_database.py
+[Indexer] Processing: test_validation.py
+[Indexer] Processing: test_app_search.py
+[Indexer] Processing: test_auto_learning.py
+[Indexer] Processing: test_clean.py
+[Indexer] Processing: test_cleanup.py
+[Indexer] Processing: test_clean_app.py
+[Indexer] Processing: test_clean_architecture.py
+[Indexer] Processing: test_connection.py
+[Indexer] Processing: test_database.py
+[Indexer] Processing: test_delete.py
+[Indexer] Processing: test_delete_debug.py
+[Indexer] Processing: test_despair.py
+[Indexer] Processing: test_discovery.py
+[Indexer] Processing: test_fixed_quotes.py
+[Indexer] Processing: test_focus.py
+[Indexer] Processing: test_freedom.py
+[Indexer] Processing: test_greed_fix.py
+[Indexer] Processing: test_hunger_direct.py
+[Indexer] Processing: test_hunger_search.py
+[Indexer] Processing: test_improved_suffix.py
+[Indexer] Processing: test_logic_quotes.py
+[Indexer] Processing: test_logic_simple.py
+[Indexer] Processing: test_performance.py
+[Indexer] Processing: test_quote_ids.py
+[Indexer] Processing: test_quote_parsing.py
+[Indexer] Processing: test_regret.py
+[Indexer] Processing: test_routes.py
+[Indexer] Processing: test_saved_quotes.py
+[Indexer] Processing: test_search_performance.py
+[Indexer] Processing: test_simple.py
+[Indexer] Processing: test_spirit.py
+[Indexer] Processing: test_strict_validation.py
+[Indexer] Processing: test_theme_database.py
+[Indexer] Processing: test_validation.py
+[Indexer] Processing: theme_database.json
+[Indexer] Processing: wsgi.py
+[Indexer] Processing: app.cpython-39.pyc
+[Indexer] Processing: database_manager.cpython-39.pyc
+[Indexer] Processing: READ THIS - Prompt Guidance for Code Agent.txt
+[Indexer] Processing: app.py
+[Indexer] Processing: DEPLOYMENT_TROUBLESHOOTING.md
+[Indexer] Processing: Git_user.txt
+[Indexer] Processing: Procfile
+[Indexer] Processing: README.md
+[Indexer] Processing: recipes.db
+[Indexer] Processing: recipe_agent_web_enhanced.py
+[Indexer] Processing: render.yaml
+[Indexer] Processing: requirements.txt
+[Indexer] Processing: runtime.txt
+[Indexer] Processing: script.js
+[Indexer] Processing: spa-navigation.js
+[Indexer] Processing: style.css
+[Indexer] Processing: base.html
+[Indexer] Processing: index.html
+[Indexer] Processing: saved_recipes.html
+[Indexer] Processing: wsgi.py
+[Indexer] Processing: recipe_agent.cpython-39.pyc
+[Indexer] Processing: recipe_agent_alternative.cpython-39.pyc
+[Indexer] Processing: recipe_agent_improved.cpython-39.pyc
+[Indexer] Processing: recipe_agent_web_enhanced.cpython-39.pyc
+[Indexer] Processing: analysis.py
+[Indexer] Processing: stock.py
+[Indexer] Processing: api.py
+[Indexer] Processing: main.py
+[Indexer] Processing: api.cpython-39.pyc
+[Indexer] Processing: main.cpython-39.pyc
+[Indexer] Processing: analysis_service.py
+[Indexer] Processing: news_service.py
+[Indexer] Processed 2200/2592 files
+[Indexer] Processing: stock_service.py
+[Indexer] Processing: analysis_service.cpython-39.pyc
+[Indexer] Processing: news_service.cpython-39.pyc
+[Indexer] Processing: data_fetcher.py
+[Indexer] Processing: sentiment_analyzer.py
+[Indexer] Processing: data_fetcher.cpython-39.pyc
+[Indexer] Processing: __init__.py
+[Indexer] Processing: __init__.cpython-39.pyc
+[Indexer] Processing: create_db.sql
+[Indexer] Processing: db.sqlite3
+[Indexer] Processing: Procfile
+[Indexer] Processing: prompt.txt
+[Indexer] Processing: requirements.txt
+[Indexer] Processing: run.py
+[Indexer] Processing: style.css
+[Indexer] Processing: main.js
+[Indexer] Processing: index.html
+[Indexer] Processing: aiven mysql details.png
+[Indexer] Processing: Build a chatbot application that ca.txt
+[Indexer] Processing: chroma.sqlite3
+[Indexer] Processing: create_tables_with_data.sql
+[Indexer] Processing: Helvetica-Bold.woff
+[Indexer] Processing: Helvetica-BoldItalic.woff
+[Indexer] Processing: Helvetica-Italic.woff
+[Indexer] Processing: Helvetica-Regular.woff
+[Indexer] Processing: LOOKFEEL.png
+[Indexer] Processing: render_settings.png
+[Indexer] Processing: requirements.txt
+[Indexer] Processing: store_chatbot_openai_aistudio_WORKING_1.py
+[Indexer] Processing: store_chatbot_openai_aistudio_WORKING_2.py
+[Indexer] Processing: wsgi.py
+[Indexer] Processing: aiven mysql details.png
+[Indexer] Processing: corrected_sql.txt
+[Indexer] Processing: create_tables_with_data.sql
+[Indexer] Processing: DATA_SAMPLES.xlsx
+[Indexer] Processing: flow.txt
+[Indexer] Processing: generate_more_sales.py
+[Indexer] Processing: Helvetica-Bold.woff
+[Indexer] Processing: Helvetica-BoldItalic.woff
+[Indexer] Processing: Helvetica-Italic.woff
+[Indexer] Processing: Helvetica-Regular.woff
+[Indexer] Processing: How it works.docx
+[Indexer] Processing: more_sales_data.sql
+[Indexer] Processing: README.md
+[Indexer] Processing: render_settings.png
+[Indexer] Processing: Reply UK OpenAI API key.txt
+[Indexer] Processing: requirements.txt
+[Indexer] Processing: sql.txt
+[Indexer] Processing: SQL_Agent_Workflow_Confluence_Style.pdf
+[Indexer] Processing: StoreManagerChatBot-Demo Slides.pptx
+[Indexer] Processing: store_chatbot_openai_aistudio_WORKING_2.py
+[Indexer] Processing: store_chatbot_openai_aistudio_WORKING_3.py
+[Indexer] Processing: wsgi.py
+[Indexer] Processing: app.py
+[Indexer] Processing: Helvetica-Bold.woff
+[Indexer] Processing: Helvetica-BoldItalic.woff
+[Indexer] Processing: Helvetica-Italic.woff
+[Indexer] Processing: Helvetica-Regular.woff
+[Indexer] Processing: font_embedder.py
+[Indexer] Processing: Places API Key.txt
+[Indexer] Processing: requirements.txt
+[Indexer] Processing: wsgi.py
+[Indexer] Processing: app.py
+[Indexer] Processing: data.json
+[Indexer] Processing: Helvetica-Bold.woff
+[Indexer] Processing: Helvetica-BoldItalic.woff
+[Indexer] Processing: Helvetica-Italic.woff
+[Indexer] Processing: Helvetica-Regular.woff
+[Indexer] Processing: hobbies.csv
+[Indexer] Processing: README.md
+[Indexer] Processing: requirements.txt
+[Indexer] Processing: app.log
+[Indexer] Processing: app.py
+[Indexer] Processing: env variables.txt
+[Indexer] Processing: error.jpg
+[Indexer] Processing: preview.png
+[Indexer] Processing: README.md
+[Indexer] Processing: requirements.txt
+[Indexer] Processing: index.html
+[Indexer] Processing: wsgi.py
+[Indexer] Processing: app.py
+[Indexer] Processing: Helvetica-Bold.woff
+[Indexer] Processing: Helvetica-BoldItalic.woff
+[Indexer] Processing: Helvetica-Italic.woff
+[Indexer] Processing: Helvetica-Regular.woff
+[Indexer] Processing: Moderat-Bold.woff
+[Indexer] Processing: Moderat-BoldItalic.woff
+[Indexer] Processing: Moderat-Italic.woff
+[Indexer] Processing: Moderat-Regular.woff
+[Indexer] Processing: font_embedder.py
+[Indexer] Processing: requirements.txt
+[Indexer] Processing: wsgi.py
+[Indexer] Processing: font_embedder.cpython-39.pyc
+[Indexer] Processing: app.py
+[Indexer] Processing: envionment variables in render for app-dot-py.png
+[Indexer] Processing: Helvetica-Bold.woff
+[Indexer] Processing: Helvetica-BoldItalic.woff
+[Indexer] Processing: Helvetica-Italic.woff
+[Indexer] Processing: Helvetica-Regular.woff
+[Indexer] Processing: StudioFeixenSans-Bold.woff
+[Indexer] Processed 2300/2592 files
+[Indexer] Processing: StudioFeixenSans-BoldItalic.woff
+[Indexer] Processing: StudioFeixenSans-Italic.woff
+[Indexer] Processing: StudioFeixenSans-Regular.woff
+[Indexer] Processing: font_embedder.py
+[Indexer] Processing: GCP Cloud Function (main-dot-py) to handle push messages from PubSub topic subscription.png
+[Indexer] Processing: GCP Cloud Function Environment Variables for main-dot-py.png
+[Indexer] Processing: GCP Event Based Pub-Sub Web App Architecture.png
+[Indexer] Processing: GCP Topic (sticky-note-events).png
+[Indexer] Processing: GCP topic subscription (HTTPS PUSH) to deliver messages.png
+[Indexer] Processing: gcp-key.json
+[Indexer] Processing: main.py
+[Indexer] Processing: README.md
+[Indexer] Processing: render settings for app-dot-py.png
+[Indexer] Processing: requirements.txt
+[Indexer] Processing: WebNotesEvents_README.md at main · ssray23_WebNotesEvents.pdf
+[Indexer] Processing: wsgi.py
+[Indexer] Processing: wsgi_worker.py
+[Indexer] Processing: app.cpython-39.pyc
+[Indexer] Processing: font_embedder.cpython-39.pyc
+[Indexer] Processing: app.py
+[Indexer] Processing: compose.yaml
+[Indexer] Processing: Dockerfile
+[Indexer] Processing: Helvetica-Bold.woff
+[Indexer] Processing: Helvetica-BoldItalic.woff
+[Indexer] Processing: Helvetica-Italic.woff
+[Indexer] Processing: Helvetica-Regular.woff
+[Indexer] Processing: README.md
+[Indexer] Processing: render_settings.png
+[Indexer] Processing: requirements.txt
+[Indexer] Processing: wsgi.py
+[Indexer] Processing: 15_G_Form(Blank).pdf
+[Indexer] Processing: Chequebook_HDFC.jpg
+[Indexer] Processing: Form 15G with instruction.pdf
+[Indexer] Processing: form-15g.pdf
+[Indexer] Processing: Form_15G_Suddha_Satta_Ray.pdf
+[Indexer] Processing: FORM_19_10044012277001001.pdf
+[Indexer] Processing: MHBAN00456650000115435_new.pdf
+[Indexer] Processing: PXL_20230110_034234074~2.jpg
+[Indexer] Processing: PXL_20230110_034247800.jpg
+[Indexer] Processing: PXL_20230110_034255015.jpg
+[Indexer] Processing: Video Instructions on 15G.txt
+[Indexer] Processing: Lease_Renewal_33_Raja_SC_Mullick_Rd.pdf
+[Indexer] Processing: Lease_Renewal_34_Raja_SC_Mullick_Rd.pdf
+[Indexer] Processing: desktop.ini
+[Indexer] Processing: KMC Assessee Numbers.png
+[Indexer] Processing: PNB Canteen Tax Reimbursement (34).jpeg
+[Indexer] Processing: PNB UBI RENTAL AGREEMENT 1 (Ground Floor ATM space).pdf
+[Indexer] Processing: PNB UBI RENTAL AGREEMENT 2 (Ground Floor Main space)-searchable.pdf
+[Indexer] Processing: PNB UBI RENTAL AGREEMENT 2 (Ground Floor Main space).pdf
+[Indexer] Processing: Space Audit_PNB, GARIA BRANCH.pdf
+[Indexer] Processing: Summary of Findings Agreement vs Space Audit.docx
+[Indexer] Processing: Termination of Lease _33_Raja_SC_Mullick_Rd v2.docx
+[Indexer] Processing: Termination of Lease _33_Raja_SC_Mullick_Rd v2.pdf
+[Indexer] Processing: Termination of Lease _33_Raja_SC_Mullick_Rd.docx
+[Indexer] Processing: Termination of Lease _33_Raja_SC_Mullick_Rd.pdf
+[Indexer] Processing: Termination of Lease _34_Raja_SC_Mullick_Rd v2.docx
+[Indexer] Processing: Termination of Lease _34_Raja_SC_Mullick_Rd v2.pdf
+[Indexer] Processing: Termination of Lease _34_Raja_SC_Mullick_Rd.docx
+[Indexer] Processing: Termination of Lease _34_Raja_SC_Mullick_Rd.pdf
+[Indexer] Processing: dict_example.py
+[Indexer] Processing: April_2024.csv
+[Indexer] Processing: calc_tuition_fees (round-down).py
+[Indexer] Processing: calc_tuition_fees.py
+[Indexer] Processing: DataImport.log
+[Indexer] Processing: date-time-mqsql.sql
+[Indexer] Processing: date-time-mqsql.sql.design
+[Indexer] Processing: Dec_2024.csv
+[Indexer] Processing: expdata_202402031221.xlsx
+[Indexer] Processing: expdata_202403301133.xlsx
+[Indexer] Processing: expdata_202405021157.xlsx
+[Indexer] Processing: expdata_202406041458.xlsx
+[Indexer] Processing: expdata_202410060757.xlsx
+[Indexer] Processing: expdata_202411072337.xlsx
+[Indexer] Processing: expdata_202411080758.xlsx
+[Indexer] Processing: expdata_202411301016.xlsx
+[Indexer] Processing: expdata_202501021549.xlsx
+[Indexer] Processing: Feb_2025.txt
+[Indexer] Processing: Feb_2025_Output.txt
+[Indexer] Processing: jan_2024.csv
+[Indexer] Processing: Jan_2025.txt
+[Indexer] Processing: Jan_2025_Output.txt
+[Indexer] Processing: jul_2024.csv
+[Indexer] Processing: march_2024.csv
+[Indexer] Processing: Mar_2025.txt
+[Indexer] Processing: Mar_2025_Output.txt
+[Indexer] Processing: May_2024.csv
+[Indexer] Processing: Nov_2024.csv
+[Indexer] Processing: Oct_2024.csv
+[Indexer] Processing: Sept_2024.csv
+[Indexer] Processing: Kolkata_Night.JPEG
+[Indexer] Processing: London_Bus_Night.JPEG
+[Indexer] Processing: SIM 13 - Functional Overview FINAL.ppt
+[Indexer] Processing: SIM Student Guide.pdf
+[Indexer] Processing: StatementArchive_7 Mar 2025.pdf
+[Indexer] Processing: Blood Sugar Glucose (Fasting).JPG
+[Indexer] Processing: Blood Sugar Glucose (PP).JPG
+[Indexer] Processing: Bloog Group and RH.JPG
+[Indexer] Processing: Calcium.pdf
+[Indexer] Processing: ECG.JPG
+[Indexer] Processing: Hameogram.JPG
+[Indexer] Processed 2400/2592 files
+[Indexer] Processing: Serum Creatinine.JPG
+[Indexer] Processing: Serum Electrolytes.JPG
+[Indexer] Processing: Serum Lipid Profile.JPG
+[Indexer] Processing: Serum Liver Function Test.JPG
+[Indexer] Processing: Suddha Executive Health Check Up (Aug 2024).pdf
+[Indexer] Processing: Summary.JPG
+[Indexer] Processing: Urine Analysis.JPG
+[Indexer] Processing: Vitamin D.pdf
+[Indexer] Processing: XRay Chest.JPG
+[Indexer] Processing: Frozen Shoulder (1).JPG
+[Indexer] Processing: Frozen Shoulder.JPG
+[Indexer] Processing: 160VS - HP.LaserJet.M570.A.vbs
+[Indexer] Processing: 160VS - HP.LaserJet.M570.B.vbs
+[Indexer] Processing: 2023-cloud-security-threat-report.pdf
+[Indexer] Processing: agent ransack search.txt
+[Indexer] Processing: Android Tablets.pdf
+[Indexer] Processing: Apple Support Case 102426388584 10_10_2024_7_58am.pdf
+[Indexer] Processing: Automate S3 Copy.pdf
+[Indexer] Processing: AWS AZ and NAT Gateway for High Availibility HA solution.docx
+[Indexer] Processing: AWS Glue - DOES NOT STORE DATA.pdf
+[Indexer] Processing: AWS Lambda.docx
+[Indexer] Processing: AWS WEB APPLICATION.xml
+[Indexer] Processing: Bulk data ingestion from S3 into DynamoDB.pdf
+[Indexer] Processing: Create an AWS Lambda to Query Data with...ena & Output to S3 Bucket using Python.pdf
+[Indexer] Processing: Creating a simple web form that logs payment transactions into a MySQL table using Node.docx
+[Indexer] Processing: emp.sql
+[Indexer] Processing: enterpise_service_bus.pdf
+[Indexer] Processing: Enterprise Software Systems.pdf
+[Indexer] Processing: ERP Core Modernization.pdf
+[Indexer] Processing: Event Driven Architeture Patterns.pdf
+[Indexer] Processing: EXCELLENT - Difference between Azure Service Bus Queues and Topics.pdf
+[Indexer] Processing: External Data to AWS.pdf
+[Indexer] Processing: Get List of programs installed in Windows.txt
+[Indexer] Processing: GitHub - aws-samples_amazon-athena-queries-via-aws-lambda-cdk.pdf
+[Indexer] Processing: Glue connect to external database over internet NAT Gateway.pdf
+[Indexer] Processing: Here is a simple API example that implements a.docx
+[Indexer] Processing: How do I build an API to push a message to UM (Universal Messaging).pdf
+[Indexer] Processing: HP.LaserJet.M479.C.vbs
+[Indexer] Processing: Hybrid Integration Patterns.pdf
+[Indexer] Processing: ICLOUD CONNECTION ERROR.txt
+[Indexer] Processing: Oracle Database XE Installation.docx
+[Indexer] Processing: Invoking asynchronous external APIs wit...Step Functions _ AWS Architecture Blog.pdf
+[Indexer] Processing: lenovo.txt
+[Indexer] Processing: Mac external displays.pdf
+[Indexer] Processing: macOS_Sonoma_All_New_Features.PDF
+[Indexer] Processing: Message Architecture.pdf
+[Indexer] Processing: Oracle Database XE Installation.pdf
+[Indexer] Processing: PING federation is a set of protocols and technologies used for secure identity management and single sign.pdf
+[Indexer] Processing: PLSQL DEVELOPER 15.0.2.2054 Registr.txt
+[Indexer] Processing: Pub-Sub Messaging Models.pdf
+[Indexer] Processing: python - Problem querying AWS Athena fr...ntroducing a variable - Stack Overflow.pdf
+[Indexer] Processing: sap-cloud-platform-integration-odata-api-for-accessing-the-service-endpoints.pdf
+[Indexer] Processing: Securing Enterprise Software Systems.pdf
+[Indexer] Processing: Solution Architecture.pdf
+[Indexer] Processing: SVG DIAGRAM CREATION PROMPT.txt
+[Indexer] Processing: SVG VISUAL STYLE.txt
+[Indexer] Processing: The top trends to impact tech providers by 2025 — Gartner.pdf
+[Indexer] Processing: The world of open source ESBs-1.pdf
+[Indexer] Processing: Uber_Eats_APIs_Postman_2019-11-27.zip
+[Indexer] Processing: Webhooks, WebSocket, Pub_Sub, and Polling.pdf
+[Indexer] Processing: What is a Retina display.pdf
+[Indexer] Processing: What is Wave in Warehouse Management System _ AC2 Group.pdf
+[Indexer] Processing: white-paper-architects-guide-to-implementing-event-driven-architecture.pdf
+[Indexer] Processing: white-paper-comparing-and-contrasting-service-mesh-and-event-mesh.pdf
+[Indexer] Processing: Worksheet in Reply_Response_City_Plumbing_v1.pdf
+[Indexer] Processing: 2022_December_Statement.pdf
+[Indexer] Processing: 2022_November_Statement.pdf
+[Indexer] Processing: 2022_October_Statement.pdf
+[Indexer] Processing: 2022_September_Statement.pdf
+[Indexer] Processing: 2023_February_Statement.pdf
+[Indexer] Processing: 2023_January_Statement.pdf
+[Indexer] Processing: 2023_March_Statement.pdf
+[Indexer] Processing: Bill_14937190.pdf
+[Indexer] Processing: C212307083_DBI0017.pdf
+[Indexer] Processing: CTC Proof.pdf
+[Indexer] Processing: FIXED_LINE_Bill_08043707336_HT2329I007224046 (1).pdf
+[Indexer] Processing: GAF_DKI0005.pdf
+[Indexer] Processing: Passport Back Side.pdf
+[Indexer] Processing: Passport india Entry Latest.pdf
+[Indexer] Processing: Passport UK Entry Latest.pdf
+[Indexer] Processing: Payslip-RAY0000000832-20220831.pdf
+[Indexer] Processing: Payslip-RAY0000000832-20220930.pdf
+[Indexer] Processing: Payslip-RAY0000000832-20221031.pdf
+[Indexer] Processing: Payslip-RAY0000000832-20221130.pdf
+[Indexer] Processing: Payslip-RAY0000000832-20221231.pdf
+[Indexer] Processing: Payslip-RAY0000000832-20230131.pdf
+[Indexer] Processing: PRO0xxxx-Sampoorna-Raksha-Supreme-(SRS)-Brochure-V3.pdf
+[Indexer] Processing: Suddha-Photo.jpg
+[Indexer] Processing: Vaccination certificate.pdf
+[Indexer] Processing: ​Employment ID Proof.pdf
+[Indexer] Processing: ​Residential Proof of Residing Country.pdf
+[Indexer] Processing: 15-AUG-2023 (CCU-AUH).pdf
+[Indexer] Processing: 17-Jan CCU to BLR Boarding Pass.pdf
+[Indexer] Processing: Applying for an Italian Visa in the United Kingdom - Italy VISA UK.pdf
+[Indexer] Processing: BLR to CDG Boarding Passes.pdf
+[Indexer] Processing: BLR to CDG.pdf
+[Indexer] Processing: BLR_gateway-inn hotel book (15-16 Jan).pdf
+[Indexer] Processing: Booking.com_Taj_New_Town_ Confirmation.pdf
+[Indexer] Processing: CCU TO BLR (15-Jan).pdf
+[Indexer] Processing: CCU to BLR Parna (17-Jan).pdf
+[Indexer] Processed 2500/2592 files
+[Indexer] Processing: easyjet geoff.txt
+[Indexer] Processing: easyJet.com -- Booking confirmation.pdf
+[Indexer] Processing: eticket GFURHW.pdf
+[Indexer] Processing: European Breaks.pdf
+[Indexer] Processing: FRANCE_SCHENGEN_OLD_APPLICATIONcerfa_CS_1674984633247.pdf
+[Indexer] Processing: GoFirst_C4TY8F.pdf
+[Indexer] Processing: How to Fill-in Correctly the Schengen Visa Application Form.pdf
+[Indexer] Processing: How to Get Airport Lounge Access - 8 Smart Methods - Nomad Paradise.docx
+[Indexer] Processing: MaltaChecklist2023.pdf
+[Indexer] Processing: MALTA VISA APPO LETTER.pdf
+[Indexer] Processing: Malta_Booking.com_ Confirmation.pdf
+[Indexer] Processing: return to london.xlsx
+[Indexer] Processing: Ryanair(London to Malta Return).pdf
+[Indexer] Processing: savaari-travel-magazine-2023.pdf
+[Indexer] Processing: SCHENGEN_SWISS_application_form_original.en.pdf
+[Indexer] Processing: tasks in Mumbai before departure.txt
+[Indexer] Processing: Thameslink Route Map-June-2023.pdf
+[Indexer] Processing: uk_checklist_schengen_visa_tourism_2023.pdf
+[Indexer] Processing: VOVO_HOTEL.pdf
+[Indexer] Processing: WWDC2023 (2).ics
+[Indexer] Processing: A34FGRR9Y8-Application to Vote by Post.pdf
+[Indexer] Processing: Child car seats_ the law_ Using a child car seat or booster seat - GOV.UK.pdf
+[Indexer] Processing: 2022-23 Ealing Council.pdf
+[Indexer] Processing: 2023-24 - Ealing Council.pdf
+[Indexer] Processing: Account activity - Ealing Council.pdf
+[Indexer] Processing: CAR_PDDNEW_Direct_Debit_Ealing_Council.pdf
+[Indexer] Processing: Council_Tax_Bill_14524240.pdf
+[Indexer] Processing: Council_Tax_Bill_14937190.pdf
+[Indexer] Processing: Council_Tax_Bill_15045959.pdf
+[Indexer] Processing: Council_Tax_Bill_15231664.pdf
+[Indexer] Processing: Council_Tax_Bill_48_Windsor_Rd_15241463.pdf
+[Indexer] Processing: Payment-CouncilTax-Oct2023.pdf
+[Indexer] Processing: Council_Tax_Bill_193B_S_Ealing_Rd_15241463.pdf
+[Indexer] Processing: Ealing COUNCIL - DIRECT DEBIT MANDATE.pdf
+[Indexer] Processing: EALING COUNCIL - SINGKE PERSON DISCOUNT APPLICATION (58745633).pdf
+[Indexer] Processing: Ealing Council Payment (03-Nov-2023).pdf
+[Indexer] Processing: Ealing Council Tax Payment (02-Jan-2024).pdf
+[Indexer] Processing: Ealing Council Tax Payment (5-Dec-23).pdf
+[Indexer] Processing: Ealing Council-58745633-Final-Bill.pdf
+[Indexer] Processing: Ealing Council-58745633-Final-Pay.pdf
+[Indexer] Processing: Ealing Council-59093616-First-Bill.pdf
+[Indexer] Processing: Ealing_Council_Tax_Bill_14524240.pdf
+[Indexer] Processing: Ealing_Council_Tax_Bill_15053133.pdf
+[Indexer] Processing: PAYMENT-Ealing_Council_Tax_Bill_14524240.pdf
+[Indexer] Processing: restuarants in ealing.txt
+[Indexer] Processing: Single_occupant_discount_ealing_council.pdf
+[Indexer] Processing: south Ealing underground station.txt
+[Indexer] Processing: Tenancy Agreement  Ground Floor Flat 193B South Ealing Road, London, W5 4RH - Copy.pdf
+[Indexer] Processing: Tenancy Agreement  Ground Floor Flat 193B South Ealing Road, London, W5 4RH.pdf
+[Indexer] Processing: Tenancy Agreement 48 Windsor Rd W5 5PE.PDF
+[Indexer] Processing: Documents_for_signing_Flat_5_48_Windsor_Roa.pdf
+[Indexer] Processing: Gazette-104.43-25-November-2022-spreads.pdf
+[Indexer] Processing: Grievance Response.docx
+[Indexer] Processing: Right to work – GOV.UK.pdf
+[Indexer] Processing: Signed Inventory (Flat 5 W55PE) Sept 2024.pdf
+[Indexer] Processing: What should I expect from my landlord_letting agent_.pdf
+[Indexer] Processing: Driving Practical Test Pass Certificate.pdf
+[Indexer] Processing: UK Driving Licence.txt
+[Indexer] Processing: UK Driving License (Back).jpeg
+[Indexer] Processing: UK Driving License (Front).jpeg
+[Indexer] Processing: Suddha Visio Template.vstm
+[Indexer] Processing: SUDDHA-VISIO.vstm
+[Indexer] Processing: Suddha_Sample.vsdx
+[Indexer] Processing: Accenture Exit Letter 10626667.pdf
+[Indexer] Processing: JD - Domain Architect, Development Practices 55027.pdf
+[Indexer] Processing: IBM Experience Letter.pdf
+[Indexer] Processing: Merchandising_Stock_Ledger_19.0_Reference_Paper.pdf
+[Indexer] Processing: Merchandising_Stock_Ledger_23.0_Reference_Paper.pdf
+[Indexer] Processing: noSQL Data wih API to serve.txt
+[Indexer] Processing: Pick at Supplier (Chat GPT).pdf
+[Indexer] Processing: As per reject reason I contacted IB.md
+[Indexer] Processing: EFPO_how_is_the_interest_calculated.pdf
+[Indexer] Processing: EPFiGMS __ Grievance Lodge.pdf
+[Indexer] Processing: EPFO Claim error.pdf
+[Indexer] Processing: EPFO grievance registration number (may 2025).txt
+[Indexer] Processing: EPFO grievance registration number.txt
+[Indexer] Processing: EPFO REGIONAL OFFICE NUMBERS.pdf
+[Indexer] Processing: FULL PF CLAIM SUPPORTS.pdf
+[Indexer] Processing: Online PF Claim Rejection (Jan 2023).txt
+[Indexer] Processing: Online PF transfer-out guideline.zip
+[Indexer] Processing: query_and_write_seats_results.xlsx
+[Indexer] Processing: Request for Leave (8-15 Dec).docx
+[Indexer] Processing: RMS_Franchise_Management_White_Paper-14.x.pdf
+[Indexer] Processing: RMS_Stock_Ledger_Reference_Paper-13.2.x.pdf
+[Indexer] Processing: sc-digital-supply-chain-executive-report.pdf
+[Indexer] Processing: SIM and FF processes - PaulMe drawn.txt
+[Indexer] Processing: NOW BROADBAND TERMS.pdf
+[Indexer] Processing: Tesco Mobile SIM.docx
+[Indexer] Processing: VOXI_Charges_Basic_Info.pdf
+[Indexer] Processing: The Waitrose TMS solution is currently operating from 3 RDCs.pdf
+[Indexer] Processing: three-step-plan-for-supply-chain-digital-transformation.pdf
+[Indexer] Processing: UPI Solution.pdf
+[Indexer] Processed 2592/2592 files
+[Indexer] Successfully indexed 2592 files in C:\Users\su.ray\OneDrive - Reply\Suddha
+GET /api/index/status?directory=C%3A%5CUsers%5Csu.ray%5COneDrive%20-%20Reply%5CSuddha
+Status request: { directory: 'C:\\Users\\su.ray\\OneDrive - Reply\\Suddha' }
+Status response: {
+  folder: 'C:\\Users\\su.ray\\OneDrive - Reply\\Suddha',
+  status: 'complete',
+  indexedCount: 2592,
+  totalFiles: 2592
+}
+GET /api/search?query=s&directory=C%3A%5CUsers%5Csu.ray%5COneDrive+-+Reply%5CSuddha&fileType=all
+Search request: {
+  query: 's',
+  directory: 'C:\\Users\\su.ray\\OneDrive - Reply\\Suddha',
+  fileType: 'all'
+}
+Searching in folder: C:\Users\su.ray\OneDrive - Reply\Suddha
+[Indexer] Searching in database: C:\Users\su.ray\OneDrive - Reply\Suddha\Personal Projects\file-searcher\.indexes\1e714b9306a574ce70fd8ebfd42a231b.db
+GET /api/search?query=sr&directory=C%3A%5CUsers%5Csu.ray%5COneDrive+-+Reply%5CSuddha&fileType=all
+Search request: {
+  query: 'sr',
+  directory: 'C:\\Users\\su.ray\\OneDrive - Reply\\Suddha',
+  fileType: 'all'
+}
+Searching in folder: C:\Users\su.ray\OneDrive - Reply\Suddha
+[Indexer] Searching in database: C:\Users\su.ray\OneDrive - Reply\Suddha\Personal Projects\file-searcher\.indexes\1e714b9306a574ce70fd8ebfd42a231b.db
+[Indexer] Found 100 search results
+GET /api/search?query=sreepa&directory=C%3A%5CUsers%5Csu.ray%5COneDrive+-+Reply%5CSuddha&fileType=all
+Search request: {
+  query: 'sreepa',
+  directory: 'C:\\Users\\su.ray\\OneDrive - Reply\\Suddha',
+  fileType: 'all'
+}
+Searching in folder: C:\Users\su.ray\OneDrive - Reply\Suddha
+[Indexer] Searching in database: C:\Users\su.ray\OneDrive - Reply\Suddha\Personal Projects\file-searcher\.indexes\1e714b9306a574ce70fd8ebfd42a231b.db
+[Indexer] Found 100 search results
+GET /api/search?query=sreepar&directory=C%3A%5CUsers%5Csu.ray%5COneDrive+-+Reply%5CSuddha&fileType=all
+Search request: {
+  query: 'sreepar',
+  directory: 'C:\\Users\\su.ray\\OneDrive - Reply\\Suddha',
+  fileType: 'all'
+}
+Searching in folder: C:\Users\su.ray\OneDrive - Reply\Suddha
+[Indexer] Searching in database: C:\Users\su.ray\OneDrive - Reply\Suddha\Personal Projects\file-searcher\.indexes\1e714b9306a574ce70fd8ebfd42a231b.db
+[Indexer] Found 100 search results
+[Indexer] Found 100 search results
+GET /api/search?query=sreeparna&directory=C%3A%5CUsers%5Csu.ray%5COneDrive+-+Reply%5CSuddha&fileType=all
+Search request: {
+  query: 'sreeparna',
+  directory: 'C:\\Users\\su.ray\\OneDrive - Reply\\Suddha',
+  fileType: 'all'
+}
+Searching in folder: C:\Users\su.ray\OneDrive - Reply\Suddha
+[Indexer] Searching in database: C:\Users\su.ray\OneDrive - Reply\Suddha\Personal Projects\file-searcher\.indexes\1e714b9306a574ce70fd8ebfd42a231b.db
+[Indexer] Found 100 search results
+GET /api/preview/QzpcVXNlcnNcc3UucmF5XE9uZURyaXZlIC0gUmVwbHlcU3VkZGhhXFBlcnNvbmFsXFNyZWVwYXJuYVxIb3VzdG9uIEZvb2QgQmlsbHNcRkFLRSBSRUNFSVBUIEdFTkVSQVRPUlxDUkVBVEUgSU4gV09SRFxZYXJkIEhvdXNlIDIuZG9jeA==
+Preview request for fileId: QzpcVXNlcnNcc3UucmF5XE9uZURyaXZlIC0gUmVwbHlcU3VkZGhhXFBlcnNvbmFsXFNyZWVwYXJuYVxIb3VzdG9uIEZvb2QgQmlsbHNcRkFLRSBSRUNFSVBUIEdFTkVSQVRPUlxDUkVBVEUgSU4gV09SRFxZYXJkIEhvdXNlIDIuZG9jeA==
+Decoded file path: C:\Users\su.ray\OneDrive - Reply\Suddha\Personal\Sreeparna\Houston Food Bills\FAKE RECEIPT GENERATOR\CREATE IN WORD\Yard House 2.docx
+File extension: .docx
+Generating text/document preview
+Preview result type: html
+Content length: 135103
+GET /api/preview/QzpcVXNlcnNcc3UucmF5XE9uZURyaXZlIC0gUmVwbHlcU3VkZGhhXFBlcnNvbmFsXFNyZWVwYXJuYVxIb3VzdG9uIEZvb2QgQmlsbHNcTWF5XDV0aCBNYXkgVGFjbyBCZWxsLmRvY3g=
+Preview request for fileId: QzpcVXNlcnNcc3UucmF5XE9uZURyaXZlIC0gUmVwbHlcU3VkZGhhXFBlcnNvbmFsXFNyZWVwYXJuYVxIb3VzdG9uIEZvb2QgQmlsbHNcTWF5XDV0aCBNYXkgVGFjbyBCZWxsLmRvY3g=
+Decoded file path: C:\Users\su.ray\OneDrive - Reply\Suddha\Personal\Sreeparna\Houston Food Bills\May\5th May Taco Bell.docx
+File extension: .docx
+Generating text/document preview
+Preview result type: html
+Content length: 141308
+GET /api/resolve-directory?directory=C%3A%5CUsers%5Csu.ray%5COneDrive%20-%20Reply%5CEasyJet
+Resolve directory request: { directory: 'C:\\Users\\su.ray\\OneDrive - Reply\\EasyJet' }
+Resolved path: C:\Users\su.ray\OneDrive - Reply\EasyJet
+POST /api/index?directory=C%3A%5CUsers%5Csu.ray%5COneDrive%20-%20Reply%5CEasyJet
+Index request received: { directory: 'C:\\Users\\su.ray\\OneDrive - Reply\\EasyJet' }
+Starting indexing for folder: C:\Users\su.ray\OneDrive - Reply\EasyJet
+[Indexer] Starting indexing for: C:\Users\su.ray\OneDrive - Reply\EasyJet
+[Indexer] Scanning directory: C:\Users\su.ray\OneDrive - Reply\EasyJet
+[Indexer] Found 55163 files
+[Indexer] Initializing database for C:\Users\su.ray\OneDrive - Reply\EasyJet
+[Indexer] Processing 55163 files
+[Indexer] Processing: 2025-26 PLAN.xlsx
+[Indexer] Processing: EZY Form 4A (Signed) - 14-08-2025.jpg
+[Indexer] Processing: EZY Form4A - Contractor Landside Renewal.pdf
+[Indexer] Processing: EZY4A.jpeg
+[Indexer] Processing: Right to Work.pdf
+[Indexer] Processing: BRP and Signature.jpeg
+[Indexer] Processing: BRP and Signature.pdf
+[Indexer] Processing: Dan and Paul Signatures.jpeg
+[Indexer] Processing: Dan and Paul Signatures.pdf
+[Indexer] Processing: DBS-Certificate.pdf
+[Indexer] Processing: EasyJet Access Form Suddha Ray EZY6.pdf
+[Indexer] Processing: EasyJet Access Form Suddha Ray-BRP.pdf
+[Indexer] Processing: EasyJet Access Form Suddha Ray-Criminal Check.pdf
+[Indexer] Processing: EasyJet Access Form Suddha Ray-EZY2.pdf
+[Indexer] Processing: EasyJet Access Form Suddha Ray-Passport.pdf
+[Indexer] Processing: EasyJet Access Form Suddha Ray-Photo.jpg
+[Indexer] Processing: EasyJet Access Form Suddha Ray-Photo.pdf
+[Indexer] Processing: EasyJet Access Form Suddha Ray-Signature.jpg
+[Indexer] Processing: EZY Form2 - Landside New Application.pdf
+[Indexer] Processing: EZY Form4A - Contractor Landside Renewal.pdf
+[Indexer] Processing: EZY Form6 - On-Site Supplier Declaration.pdf
+[Indexer] Processing: Suddha Passport 3.pdf
+[Indexer] Processing: aws access.txt
+[Indexer] Processing: Easyjet Credentials.txt
+[Indexer] Processing: Redshift nonprod access.png
+[Indexer] Processing: easyJet_Reply_SoW2302 (1).pdf
+[Indexer] Processing: Mileage from W5 5PE (Home) to LU1 3.txt
+[Indexer] Processing: Statement of Work.docx
+[Indexer] Processing: AGENT RANSACK.txt
+[Indexer] Processing: Amazon Connect.excalidraw
+[Indexer] Processing: Apollo Architecture.png
+[Indexer] Processing: Architecture+Standards+and+Principles.docx
+[Indexer] Processing: EA+__+Top+Level+Architecture+Principles+(FY17+Refresh).docx
+[Indexer] Processing: EJH Solution Doc Standards.docx
+[Indexer] Processing: EJH_Architecture_Principles.doc
+[Indexer] Processing: EJH_Architecture_Principles.docx
+[Indexer] Processing: EJH_Architecture_Principles.doc.docx
+[Indexer] Processing: Architecture Landscape Overview.png
+[Indexer] Processing: 10 Software Architecture Patterns You Must Know About.pdf
+[Indexer] Processing: AWS Cloud Architecture Patterns OREILLY.pdf
+[Indexer] Processing: AWS Connect SSO.pdf
+[Indexer] Processing: AWS PATTERNS.url
+[Indexer] Processing: build-e2e-data-driven-applications.pdf
+[Indexer] Processing: cloud-design-patterns.pdf
+[Indexer] Processing: Consistent Updates.png
+[Indexer] Processing: EventBridge (Airlines).png
+[Indexer] Processing: Eventing Desicion Tree.png
+[Indexer] Processing: MICROSERVICES.docx
+[Indexer] Processing: New Draft.docx
+[Indexer] Processing: Patterns Tasks.txt
+[Indexer] Processing: Patterns.pdf
+[Indexer] Processing: Patterns.xlsx
+[Indexer] Processing: Repo by Problem Search.docx
+[Indexer] Processing: Repo by Problem Search.pdf
+[Indexer] Processing: Screenshot 2024-07-05 144051.png
+[Indexer] Processing: SERVERLESS PATTERNS.url
+[Indexer] Processing: Software Architecture Patterns. We will... to focus… _ by Mahmoud Abbas _ Medium.pdf
+[Indexer] Processing: Software Architecture Patterns_ What Ar...the Best One for Your Project _ Turing.pdf
+[Indexer] Processing: software-architecture-patterns.pdf
+[Indexer] Processing: Types of Software Architecture Patterns - GeeksforGeeks.pdf
+[Indexer] Processing: Standard_Core_Technologies.doc
+[Indexer] Processing: Assisted Travel -To Be.pdf
+[Indexer] Processing: ASSISTED TRAVEL.png
+[Indexer] Processing: BRMT.txt
+[Indexer] Processing: CTY1.txt
+[Indexer] Processing: CTY2.txt
+[Indexer] Processing: CTY3.txt
+[Indexer] Processing: RM.txt
+[Indexer] Processing: RMFC.txt
+[Indexer] Processing: SRC.txt
+[Indexer] Processing: @comRes - Data Model T3.22.pdf
+[Indexer] Processing: ACC – Accommodation.txt
+[Indexer] Processing: ATCOM Bookings Data to Delta and SF - Option 1 - Canonical Booking.png
+[Indexer] Processing: ATCOM Events (Delta + Salesforce integration).png
+[Indexer] Processing: ATCOM FAQ 1.pdf
+[Indexer] Processing: ATCOM FAQ.pdf
+[Indexer] Processing: ATCOM OVERVIEW (2 PM MEETING).pptx
+[Indexer] Processing: ATCOM Overview.pdf
+[Indexer] Processing: ATCOM Priorities 2025-2026 (2).png
+[Indexer] Processing: ATCOM Priorities 2025-2026.png
+[Indexer] Processing: ATCOM- EasyJetHolidays CaseStudy.pdf
+[Indexer] Processing: Atcom.postman_environment.json
+[Indexer] Processing: ATCOMeasyJetholidaysCaseStudy.pdf
+[Indexer] Processing: ATCORE Infra  Report Workshop.txt
+[Indexer] Processing: AvCache Interface 3.46a.zip
+[Indexer] Processing: 2025-08-04-inspect-the-wsdl-and-tell-me-how-it-achieves-secur.txt
+[Indexer] Processing: DATAHUB AS-IS.png
+[Indexer] Processing: DataHub Security Architecture.pdf
+[Indexer] Processing: DATAHUB TO-BE (post seat syncing issue).png
+[Indexer] Processing: DATAHUB TO-BE.png
+[Indexer] Processing: DataHubSOAP.wsdl
+[Indexer] Processing: DataHub_Security_Architecture.md
+[Indexer] Processing: DH_XML_70264911_V1.xml
+[Indexer] Processing: EJH_DH_Overview_V1.pptx
+[Indexer] Processing: EJH_TST_DH_Reservation_Data_9486816.xml
+[Indexer] Processing: ESB_ATCOMRES_Interface_T-Stream_Part1_108.0.docx
+[Indexer] Processing: httpsezy-tst-vrp.atcoretec.comEZYTS.txt
+[Indexer] Processing: DefaultXsltOutput.htm
+[Indexer] Processing: easyJet direct Atcom DB access connection guide.docx
+[Indexer] Processing: eJH Systems and Data flow overview with ATCOMv0.6.pdf
+Warning: TT: undefined function: 32
+Warning: TT: undefined function: 32
+Warning: TT: undefined function: 32
+Warning: TT: undefined function: 32
+Warning: TT: undefined function: 32
+Warning: TT: undefined function: 32
+Warning: TT: undefined function: 32
+GET /api/index/status?directory=C%3A%5CUsers%5Csu.ray%5COneDrive%20-%20Reply%5CEasyJet
+Status request: { directory: 'C:\\Users\\su.ray\\OneDrive - Reply\\EasyJet' }
+Status response: {
+  folder: 'C:\\Users\\su.ray\\OneDrive - Reply\\EasyJet',
+  status: 'indexing',
+  indexedCount: 0,
+  totalFiles: 55163
+}
+Warning: TT: undefined function: 21
+Warning: TT: undefined function: 21
+Warning: TT: undefined function: 21
+Warning: TT: undefined function: 21
+Warning: TT: undefined function: 32
+GET /api/index/status?directory=C%3A%5CUsers%5Csu.ray%5COneDrive%20-%20Reply%5CEasyJet
+Status request: { directory: 'C:\\Users\\su.ray\\OneDrive - Reply\\EasyJet' }
+Status response: {
+  folder: 'C:\\Users\\su.ray\\OneDrive - Reply\\EasyJet',
+  status: 'indexing',
+  indexedCount: 0,
+  totalFiles: 55163
+}
+GET /api/index/status?directory=C%3A%5CUsers%5Csu.ray%5COneDrive%20-%20Reply%5CEasyJet
+Status request: { directory: 'C:\\Users\\su.ray\\OneDrive - Reply\\EasyJet' }
+Status response: {
+  folder: 'C:\\Users\\su.ray\\OneDrive - Reply\\EasyJet',
+  status: 'indexing',
+  indexedCount: 0,
+  totalFiles: 55163
+}
+GET /api/index/status?directory=C%3A%5CUsers%5Csu.ray%5COneDrive%20-%20Reply%5CEasyJet
+Status request: { directory: 'C:\\Users\\su.ray\\OneDrive - Reply\\EasyJet' }
+Status response: {
+  folder: 'C:\\Users\\su.ray\\OneDrive - Reply\\EasyJet',
+  status: 'indexing',
+  indexedCount: 0,
+  totalFiles: 55163
+}
+GET /api/index/status?directory=C%3A%5CUsers%5Csu.ray%5COneDrive%20-%20Reply%5CEasyJet
+Status request: { directory: 'C:\\Users\\su.ray\\OneDrive - Reply\\EasyJet' }
+Status response: {
+  folder: 'C:\\Users\\su.ray\\OneDrive - Reply\\EasyJet',
+  status: 'indexing',
+  indexedCount: 0,
+  totalFiles: 55163
+}
+GET /api/index/status?directory=C%3A%5CUsers%5Csu.ray%5COneDrive%20-%20Reply%5CEasyJet
+Status request: { directory: 'C:\\Users\\su.ray\\OneDrive - Reply\\EasyJet' }
+Status response: {
+  folder: 'C:\\Users\\su.ray\\OneDrive - Reply\\EasyJet',
+  status: 'indexing',
+  indexedCount: 0,
+  totalFiles: 55163
+}
+GET /api/index/status?directory=C%3A%5CUsers%5Csu.ray%5COneDrive%20-%20Reply%5CEasyJet
+Status request: { directory: 'C:\\Users\\su.ray\\OneDrive - Reply\\EasyJet' }
+Status response: {
+  folder: 'C:\\Users\\su.ray\\OneDrive - Reply\\EasyJet',
+  status: 'indexing',
+  indexedCount: 0,
+  totalFiles: 55163
+}
+[Indexer] Processed 100/55163 files
+[Indexer] Processing: EJH_TST_VRP_DisplayResponse_5559795.txt
+[Indexer] Processing: ESB_ATCOMRES_Interface_T-Stream_Part1_103.0_PEND_03Aug23.docx
+[Indexer] Processing: ESB_ATCOMRES_Interface_T-Stream_Part1_103.0_PEND_03Aug23.pdf
+[Indexer] Processing: ESB_ATCOMRES_Interface_T-Stream_Part2_26.0.docx
+[Indexer] Processing: ESB_ATCOMRES_Interface_T-Stream_Part3_18.0.docx
+[Indexer] Processing: EZY336c In-Memory Cache End State Sharding FS V1.0.docx
+[Indexer] Processing: EZY443 - Self Healing Cache - FS V2.0.docx
+[Indexer] Processing: EZY467 - AWS SQS - Multi Threading - FS V1.0.docx
+[Indexer] Processing: Flights Finance Overview.pdf
+[Indexer] Processing: Handover+notes+around+ATCORE+(Updated+-+2019-05-20).doc
+[Indexer] Processing: Handover+notes+around+ATCORE+(Updated+-+2019-05-20).docx
+[Indexer] Processing: Holidays+website_+Atcore+API+introduction+workshop+-+9th+April-1.docx
+[Indexer] Processing: Holidays+website_+Atcore+API+introduction+workshop+-+9th+April.docx
+[Indexer] Processing: Integration Test.postman_collection.json
+[Indexer] Processing: New DataHub Service (sheild Datahub tables from EJH).png
+[Indexer] Processing: Overview of ATCORE ATCOM API capability.pdf
+[Indexer] Processing: Questions for ATCOM team v2.docx
+[Indexer] Processing: Questions for ATCOM team.docx
+[Indexer] Processing: Questions for ATCOM.docx
+[Indexer] Processing: RE_ VRP BookingRequest response error - Suddha Ray - Outlook.pdf
+[Indexer] Processing: Rough Guide to ATCOM data model Geoff Palmer.pdf
+[Indexer] Processing: SearchAppliance.postman_collection.json
+[Indexer] Processing: UAT Web - Create Booking in ATCOM UAT.png
+[Indexer] Processing: Use Of Search Appliance And VRP Messages v11[50].pdf
+[Indexer] Processing: Use Of Search Appliance And VRP Messages v13 (1) (1) (1) 2.pdf
+[Indexer] Processing: Use Of Search Appliance And VRP Messages v13.pdf
+[Indexer] Processing: Use Of Search Appliance And VRP Messages v13.txt
+[Indexer] Processing: Use Of Search Appliance And VRP Messages v13-1.pdf
+[Indexer] Processing: Use Of Search Appliance And VRP Messages v13-2.pdf
+[Indexer] Processing: Use Of Search Appliance And VRP Messages v13-3.pdf
+[Indexer] Processing: Use Of Search Appliance And VRP Messages v13-4.pdf
+[Indexer] Processing: Use Of Search Appliance And VRP Messages v13-5.pdf
+[Indexer] Processing: Use Of Search Appliance And VRP Messages v13-6.pdf
+[Indexer] Processing: Use Of Search Appliance And VRP Messages v13-7.pdf
+[Indexer] Processing: Use Of Search Appliance And VRP Messages v13-8.pdf
+[Indexer] Processing: Use Of Search Appliance And VRP Messages v13-9.pdf
+[Indexer] Processing: VRP Session.docx
+[Indexer] Processing: vrp URL.png
+[Indexer] Processing: VRP vs DataHub (DH).docx
+[Indexer] Processing: VRP.postman_collection.json
+[Indexer] Processing: Application+View+-+B2B+Architecture.doc
+[Indexer] Processing: Application+View+-+B2B+Architecture.doc.docx
+[Indexer] Processing: B2B API Partner Technical Specification v3.0 (AutoRecovered).doc
+[Indexer] Processing: B2B API Partner Technical Specification v3.0.doc
+[Indexer] Processing: B2B API Partner Technical Specification v3.0.pdf
+[Indexer] Processing: B2BAPI_BookingSummary_response.xml
+[Indexer] Processing: B2BAPI_request.xml
+[Indexer] Processing: B2BAPI_response.xml
+[Indexer] Processing: B2B_September_2023 Release_API_FunctionalSpecification.pdf
+[Indexer] Processing: desktop.ini
+[Indexer] Processing: easyJet B2B API Catalogue.xlsx
+[Indexer] Processing: Fare+Class+Discovery-+B2B.doc.docx
+[Indexer] Processing: GetBooking.docx
+[Indexer] Processing: ~WRD3378.tmp
+[Indexer] Processing: Bistro Portal Interface.png
+[Indexer] Processing: PB_Bistro_Portal_EN.pdf
+[Indexer] Processing: Authentication Screen When a user n.md
+[Indexer] Processing: automation_hub_access_diagram.svg
+[Indexer] Processing: aws_components_export_2025-08-12_112920.csv
+[Indexer] Processing: aws_components_export_2025-08-12_112920.xlsx
+[Indexer] Processing: BOA CS CANCELLATIONS- security.docx
+[Indexer] Processing: BOA-8.drawio
+[Indexer] Processing: BOA-NN Contact Centre Cancellation.png
+[Indexer] Processing: Contact Centre Cancellations-20240920_100238-Meeting Recording.mhtml
+[Indexer] Processing: Data.png
+[Indexer] Processing: AP Automation - process and wish list 220625.pdf
+[Indexer] Processing: BOA Finance Automation (DMC Invoice Handling) - E2E with Inbox Mgmt.png
+[Indexer] Processing: BOA Finance Automation (DMC Invoice Handling) - E2E-1.png
+[Indexer] Processing: BOA Finance Automation (DMC Invoice Handling) - E2E-2.png
+[Indexer] Processing: BOA Finance Automation (DMC Invoice Handling) - E2E-3.png
+[Indexer] Processing: BOA Finance Automation (DMC Invoice Handling) - E2E-4.png
+[Indexer] Processing: BOA Finance Automation (DMC Invoice Handling) - Neptune.png
+[Indexer] Processing: BOA Finance Automation (DMC Invoice Handling) - Page 2.png
+[Indexer] Processing: BOA Finance Automation (Inbox and SP Automation) - Inbox Processing.png
+[Indexer] Processing: BOA Finance Automation - Inbox Processing.png
+[Indexer] Processing: BOA FINANCE REQUIREMENTS.docx
+[Indexer] Processing: Croatia VAT project.xlsx
+[Indexer] Processing: Croatian Suppliers - Target XLS.png
+[Indexer] Processing: desktop.ini
+[Indexer] Processing: E-Invoicing Requirements (Draft).docx
+[Indexer] Processing: easyJet Holidays - Process  Invoice Atcom.pdf
+[Indexer] Processing: easyJet Holidays Hotel Invoicing template guide (cleaned).docx
+[Indexer] Processing: EJH Finance System landscape v2.pptx
+[Indexer] Processing: Finance AP-Croatian VAT (2).jpg
+[Indexer] Processing: Finance AP-Inbox Management (3).jpg
+[Indexer] Processing: Finance AP-Sharepoint Management.jpg
+[Indexer] Processing: Finance AP-Croatian VAT.jpg
+[Indexer] Processing: Finance AP-Inbox Management.jpg
+[Indexer] Processing: Finance Automation Summary.docx
+[Indexer] Processing: First Three Columns.xlsx
+[Indexer] Processing: Flights Finance Overview - Updated FY25 (1).pdf
+[Indexer] Processing: Flow.clj
+[Indexer] Processing: gmail - How to find out which country a... address originated from_ - Super User.pdf
+[Indexer] Processing: Hotelier - manual Invoice upload process.xlsx
+[Indexer] Processing: inbox mgmt.png
+[Indexer] Processing: inbox.mmd
+[Indexer] Processing: 1.pdf
+[Indexer] Processing: 10.pdf
+[Indexer] Processing: 11.pdf
+[Indexer] Processing: 12.pdf
+Error extracting content from C:\Users\su.ray\OneDrive - Reply\EasyJet\BOA - Back Office Automation\BOA - Finance Automation\Invoice copies\1.pdf: bad XRef entry
+Warning: TT: undefined function: 32
+Warning: TT: undefined function: 32
+Warning: TT: undefined function: 32
+Warning: TT: undefined function: 32
+Warning: TT: undefined function: 32
+GET /api/index/status?directory=C%3A%5CUsers%5Csu.ray%5COneDrive%20-%20Reply%5CEasyJet
+Status request: { directory: 'C:\\Users\\su.ray\\OneDrive - Reply\\EasyJet' }
+Status response: {
+  folder: 'C:\\Users\\su.ray\\OneDrive - Reply\\EasyJet',
+  status: 'indexing',
+  indexedCount: 100,
+  totalFiles: 55163
+}
+GET /api/index/status?directory=C%3A%5CUsers%5Csu.ray%5COneDrive%20-%20Reply%5CEasyJet
+Status request: { directory: 'C:\\Users\\su.ray\\OneDrive - Reply\\EasyJet' }
+Status response: {
+  folder: 'C:\\Users\\su.ray\\OneDrive - Reply\\EasyJet',
+  status: 'indexing',
+  indexedCount: 100,
+  totalFiles: 55163
+}
+GET /api/index/status?directory=C%3A%5CUsers%5Csu.ray%5COneDrive%20-%20Reply%5CEasyJet
+Status request: { directory: 'C:\\Users\\su.ray\\OneDrive - Reply\\EasyJet' }
+Status response: {
+  folder: 'C:\\Users\\su.ray\\OneDrive - Reply\\EasyJet',
+  status: 'indexing',
+  indexedCount: 100,
+  totalFiles: 55163
+}
+GET /api/index/status?directory=C%3A%5CUsers%5Csu.ray%5COneDrive%20-%20Reply%5CEasyJet
+Status request: { directory: 'C:\\Users\\su.ray\\OneDrive - Reply\\EasyJet' }
+Status response: {
+  folder: 'C:\\Users\\su.ray\\OneDrive - Reply\\EasyJet',
+  status: 'indexing',
+  indexedCount: 100,
+  totalFiles: 55163
+}
+Warning: TT: undefined function: 32
+Warning: TT: undefined function: 32
+GET /api/index/status?directory=C%3A%5CUsers%5Csu.ray%5COneDrive%20-%20Reply%5CEasyJet
+Status request: { directory: 'C:\\Users\\su.ray\\OneDrive - Reply\\EasyJet' }
+Status response: {
+  folder: 'C:\\Users\\su.ray\\OneDrive - Reply\\EasyJet',
+  status: 'indexing',
+  indexedCount: 100,
+  totalFiles: 55163
+}
+GET /api/index/status?directory=C%3A%5CUsers%5Csu.ray%5COneDrive%20-%20Reply%5CEasyJet
+Status request: { directory: 'C:\\Users\\su.ray\\OneDrive - Reply\\EasyJet' }
+Status response: {
+  folder: 'C:\\Users\\su.ray\\OneDrive - Reply\\EasyJet',
+  status: 'indexing',
+  indexedCount: 100,
+  totalFiles: 55163
+}
+[Indexer] Skipping file "ESB_ATCOMRES_Interface_T-Stream_Part1_103.0_PEND_03Aug23.docx" due to error: File processing timed out
+[Indexer] Skipping file "ESB_ATCOMRES_Interface_T-Stream_Part1_103.0_PEND_03Aug23.pdf" due to error: File processing timed out
+[Indexer] Skipping file "ESB_ATCOMRES_Interface_T-Stream_Part2_26.0.docx" due to error: File processing timed out
+[Indexer] Skipping file "ESB_ATCOMRES_Interface_T-Stream_Part3_18.0.docx" due to error: File processing timed out
+[Indexer] Skipping file "EZY336c In-Memory Cache End State Sharding FS V1.0.docx" due to error: File processing timed out
+[Indexer] Skipping file "EZY443 - Self Healing Cache - FS V2.0.docx" due to error: File processing timed out
+[Indexer] Skipping file "EZY467 - AWS SQS - Multi Threading - FS V1.0.docx" due to error: File processing timed out
+[Indexer] Skipping file "Handover+notes+around+ATCORE+(Updated+-+2019-05-20).docx" due to error: File processing timed out
+[Indexer] Skipping file "Holidays+website_+Atcore+API+introduction+workshop+-+9th+April-1.docx" due to error: File processing timed out
+[Indexer] Skipping file "Holidays+website_+Atcore+API+introduction+workshop+-+9th+April.docx" due to error: File processing timed out
+[Indexer] Skipping file "Questions for ATCOM team v2.docx" due to error: File processing timed out
+[Indexer] Skipping file "Questions for ATCOM team.docx" due to error: File processing timed out
+[Indexer] Skipping file "Questions for ATCOM.docx" due to error: File processing timed out
+[Indexer] Skipping file "Use Of Search Appliance And VRP Messages v11[50].pdf" due to error: File processing timed out
+[Indexer] Skipping file "Use Of Search Appliance And VRP Messages v13 (1) (1) (1) 2.pdf" due to error: File processing timed out
+[Indexer] Skipping file "Use Of Search Appliance And VRP Messages v13.pdf" due to error: File processing timed out
+[Indexer] Skipping file "VRP Session.docx" due to error: File processing timed out
+[Indexer] Skipping file "VRP vs DataHub (DH).docx" due to error: File processing timed out
+[Indexer] Skipping file "Application+View+-+B2B+Architecture.doc.docx" due to error: File processing timed out
+[Indexer] Skipping file "B2B API Partner Technical Specification v3.0.pdf" due to error: File processing timed out
+[Indexer] Skipping file "Fare+Class+Discovery-+B2B.doc.docx" due to error: File processing timed out
+[Indexer] Skipping file "GetBooking.docx" due to error: File processing timed out
+[Indexer] Skipping file "PB_Bistro_Portal_EN.pdf" due to error: File processing timed out
+[Indexer] Skipping file "BOA CS CANCELLATIONS- security.docx" due to error: File processing timed out
+[Indexer] Skipping file "BOA FINANCE REQUIREMENTS.docx" due to error: File processing timed out
+[Indexer] Skipping file "E-Invoicing Requirements (Draft).docx" due to error: File processing timed out
+[Indexer] Skipping file "easyJet Holidays Hotel Invoicing template guide (cleaned).docx" due to error: File processing timed out
+[Indexer] Skipping file "EJH Finance System landscape v2.pptx" due to error: File processing timed out
+[Indexer] Skipping file "Finance Automation Summary.docx" due to error: File processing timed out
+[Indexer] Processed 200/55163 files
+[Indexer] Processing: 13.pdf
+[Indexer] Processing: 15.pdf
+[Indexer] Processing: 16.pdf
+[Indexer] Processing: 18.pdf
+[Indexer] Processing: 2.pdf
+[Indexer] Processing: 20.pdf
+[Indexer] Processing: 21.pdf
+[Indexer] Processing: 22.pdf
+[Indexer] Processing: 23.pdf
+[Indexer] Processing: 24.pdf
+[Indexer] Processing: 25.pdf
+[Indexer] Processing: 26.pdf
+[Indexer] Processing: 28.pdf
+[Indexer] Processing: 3.pdf
+[Indexer] Processing: 32.pdf
+[Indexer] Processing: 33.pdf
+[Indexer] Processing: 34.pdf
+[Indexer] Processing: 35.pdf
+[Indexer] Processing: 36.pdf
+[Indexer] Processing: 4.pdf
+[Indexer] Processing: 5.pdf
+[Indexer] Processing: 7.pdf
+[Indexer] Processing: 8.pdf
+[Indexer] Processing: 9.pdf
+[Indexer] Processing: M Number - DI Accruals to be corrected by Script_Updated 03June25.xlsx
+[Indexer] Processing: M Number - Update Accruals for DI properties_040425.docx
+[Indexer] Processing: Manual Invoicing – Electronic Invoicing.docx
+[Indexer] Processing: My aging accrual.xlsm
+[Indexer] Processing: Payments Process (As-Is).png
+[Indexer] Processing: Power Automate.url
+[Indexer] Processing: RE_ Finance AP Requirements - Hotelier Manual Invoice upload data.zip
+[Indexer] Processing: Rules.json
+[Indexer] Processing: Source for countries (01-03-25) AP email mapping.xlsx
+[Indexer] Processing: SUPPLIER CODES.docx
+[Indexer] Processing: Upload Invoices_DMC.jpg
+[Indexer] Processing: 6450 easyJet Holidays Daily Dist_1e753527220a402b869f3438ae7b6bc0-050722-1034-62.pdf
+[Indexer] Processing: BOA template - BOA 1 2 3 v5.pptx
+[Indexer] Processing: BOA template - BOA 1 2 3 v5_231023 Workshop.pptx
+[Indexer] Processing: PRJ-721+New+Fare+Classes+-+Holidays+Discounted+Seats.docx
+[Indexer] Processing: Acceptance Criteria.docx
+[Indexer] Processing: 20231212ACEBRS2734.txt
+[Indexer] Processing: All Season Reconcilliation DB.accdb
+[Indexer] Processing: All Season Reconcilliation DB1.accdb
+[Indexer] Processing: atcom.csv
+[Indexer] Processing: atcom.parquet
+[Indexer] Processing: ATCOM.sql
+[Indexer] Processing: ATCOM.sql.design
+[Indexer] Processing: atcom.xlsx
+[Indexer] Processing: atcom_bulk_column_add.txt
+[Indexer] Processing: CHECKT7 QUERY.sql
+[Indexer] Processing: DataImport.log
+[Indexer] Processing: eJh Sales 11DEC23 (copy)-1.csv
+[Indexer] Processing: eJh Sales 11DEC23 (copy)-2.csv
+[Indexer] Processing: eJh Sales 11DEC23 (copy).xlsx
+[Indexer] Processing: eJh Sales 11DEC23.xlsx
+[Indexer] Processing: EJHBookingsT1.xlsx
+[Indexer] Processing: EJHBookingsT7 (eres).xlsx
+[Indexer] Processing: EJHBookingsT7.csv
+[Indexer] Processing: ejhdailysales.csv
+[Indexer] Processing: EJH_MasterFile.xlsx
+[Indexer] Processing: emp.csv
+[Indexer] Processing: eRes Block and Booked PNRs.xlsx
+[Indexer] Processing: eRES.sql
+[Indexer] Processing: eRES.sql.design
+[Indexer] Processing: eRes_LID.csv
+[Indexer] Processing: Eskel - Series Seats Extract.xlsx
+[Indexer] Processing: expdata_202401180929.xlsx
+[Indexer] Processing: expdata_202401300936.xlsx
+[Indexer] Processing: expdata_202401300943.xlsx
+[Indexer] Processing: export-flight-details-all.sql
+[Indexer] Processing: FlightDetailsAll_2024_01_15_08_50.csv
+[Indexer] Processing: FlightDetailsAll_2024_01_15_08_50.xlsx
+[Indexer] Processing: FlightDetailsAll_2024_07_15_16_54.csv
+[Indexer] Processing: FlightDetailsAll_2024_07_15_16_54 (atcom).xlsx
+[Indexer] Processing: HASH.sql
+[Indexer] Processing: import_data_eskel.sql
+[Indexer] Processing: IROPS_BOOKING.png
+[Indexer] Processing: IROPS_CSV.png
+[Indexer] Processing: irops_data.xlsx
+[Indexer] Processing: LAST BIT MACRO.sql
+[Indexer] Processing: MismatchingFlightNumbers.csv
+[Indexer] Processing: MismatchingFlightNumbers.sql
+[Indexer] Processing: MT cars (1).parquet
+[Indexer] Processing: Queries in Access File.sql
+[Indexer] Processing: queries.sql
+[Indexer] Processing: Reconcile_eres_extract.sql
+[Indexer] Processing: sample_atcom.xlsx
+[Indexer] Processing: sample_eres.xlsx
+[Indexer] Processing: series_seats.sql
+[Indexer] Processing: suddha.sql
+[Indexer] Processing: suddha.sql.design
+[Indexer] Processing: T5.png
+[Indexer] Processing: BOA 10.jpeg
+[Indexer] Processing: BOA 10.png
+[Indexer] Processing: BOA-10-Series-Seat-Reconciliation - Thoughtspot-FINAL-FINAL.png
+[Indexer] Processing: BOA-10-Series-Seat-Reconciliation - Thoughtspot-FINAL.png
+[Indexer] Processing: BOA-10-Series-Seat-Reconciliation Solution.pdf
+[Indexer] Processing: BOA-10-Series-Seat-Reconciliation.png
+[Indexer] Processing: BOA10 - Reconciling Series Seats ATCOM eRes Automated Reporting.pdf
+[Indexer] Processing: BOA10 - Reconciling Series Seats ATCOM eRes Automated Reporting.pptx
+Warning: TT: undefined function: 32
+GET /api/index/status?directory=C%3A%5CUsers%5Csu.ray%5COneDrive%20-%20Reply%5CEasyJet
+Status request: { directory: 'C:\\Users\\su.ray\\OneDrive - Reply\\EasyJet' }
+Status response: {
+  folder: 'C:\\Users\\su.ray\\OneDrive - Reply\\EasyJet',
+  status: 'indexing',
+  indexedCount: 200,
+  totalFiles: 55163
+}
+GET /api/index/status?directory=C%3A%5CUsers%5Csu.ray%5COneDrive%20-%20Reply%5CEasyJet
+Status request: { directory: 'C:\\Users\\su.ray\\OneDrive - Reply\\EasyJet' }
+Status response: {
+  folder: 'C:\\Users\\su.ray\\OneDrive - Reply\\EasyJet',
+  status: 'indexing',
+  indexedCount: 200,
+  totalFiles: 55163
+}
+GET /api/index/status?directory=C%3A%5CUsers%5Csu.ray%5COneDrive%20-%20Reply%5CEasyJet
+Status request: { directory: 'C:\\Users\\su.ray\\OneDrive - Reply\\EasyJet' }
+Status response: {
+  folder: 'C:\\Users\\su.ray\\OneDrive - Reply\\EasyJet',
+  status: 'indexing',
+  indexedCount: 200,
+  totalFiles: 55163
+}

@@ -3,5 +3,5 @@ echo Starting File Searcher...
 echo.
 echo Starting server...
 cd "C:\Users\su.ray\OneDrive - Reply\Suddha\Personal Projects\file-searcher"
-npm start
+npm start > log.txt 2>&1
 pause
