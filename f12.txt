@@ -1,10 +1,114 @@
-Navigated to http://localhost:3000/
-script.js:1292 File Searcher initialized with real file system
-script.js:1297 [DEBUG] updateCurrentPath called. selectedDirectory: current
-script.js:1315 [DEBUG] pathValue updated to: Current Directory
-script.js:1297 [DEBUG] updateCurrentPath called. selectedDirectory: documents
-script.js:1315 [DEBUG] pathValue updated to: Documents
-script.js:70 Content search toggled: true
-script.js:205 performSearch called. contentSearchEnabled: true
-script.js:205 performSearch called. contentSearchEnabled: true
-script.js:205 performSearch called. contentSearchEnabled: true
+script.js:698 Status data: Object
+script.js:698 Status data: Object
+script.js:727 Progress update: Object
+script.js:698 Status data: Object
+script.js:727 Progress update: Object
+script.js:698 Status data: {folder: 'C:\\Users\\su.ray\\OneDrive - Reply\\EasyJet', status: 'indexing', indexedCount: 26900, totalFiles: 55163}
+script.js:727 Progress update: {folder: 'C:\\Users\\su.ray\\OneDrive - Reply\\EasyJet', status: 'indexing', indexedCount: 26900, totalFiles: 55163}
+script.js:698 Status data: {folder: 'C:\\Users\\su.ray\\OneDrive - Reply\\EasyJet', status: 'indexing', indexedCount: 43700, totalFiles: 55163}
+script.js:727 Progress update: {folder: 'C:\\Users\\su.ray\\OneDrive - Reply\\EasyJet', status: 'indexing', indexedCount: 43700, totalFiles: 55163}
+script.js:698 Status data: {folder: 'C:\\Users\\su.ray\\OneDrive - Reply\\EasyJet', status: 'complete', indexedCount: 55163, totalFiles: 55163}
+script.js:137 [Search] Starting search request #1 for query: "datah"
+script.js:167 [Search] Displaying results for request #1: 0 files
+script.js:137 [Search] Starting search request #2 for query: "datahu"
+script.js:167 [Search] Displaying results for request #2: 0 files
+script.js:137 [Search] Starting search request #3 for query: "datahub"
+script.js:167 [Search] Displaying results for request #3: 78 files
+script.js:271 Preview request for file: {id: 'QzpcVXNlcnNcc3UucmF5XE9uZURyaXZlIC0gUmVwbHlcRWFzeU…yMCBBVENPUkUgcmVmZXJlbmNlIG1ldGFkYXRhXFNSQy50eHQ=', name: 'SRC.txt', path: 'C:\\Users\\su.ray\\OneDrive - Reply\\EasyJet\\ATCOM\\20190520 ATCORE reference metadata\\SRC.txt', extension: 'txt', size: 4812, …}
+script.js:272 Current search query for highlighting: datahub
+script.js:273 File path to highlight: C:\Users\su.ray\OneDrive - Reply\EasyJet\ATCOM\20190520 ATCORE reference metadata\SRC.txt
+script.js:274 File name to highlight: SRC.txt
+script.js:275 Does path contain search term? false
+script.js:276 Does name contain search term? false
+script.js:279 All file object properties: (6) ['id', 'name', 'path', 'extension', 'size', 'modified']
+script.js:606 highlightPath called with: {filePath: 'C:\\Users\\su.ray\\OneDrive - Reply\\EasyJet\\ATCOM\\20190520 ATCORE reference metadata\\SRC.txt', query: 'datahub'}
+script.js:616 highlightPath: term "datahub" - before: C:\Users\su.ray\OneDrive - Reply\EasyJet\ATCOM\20190520 ATCORE reference metadata\SRC.txt
+script.js:617 highlightPath: term "datahub" - after: C:\Users\su.ray\OneDrive - Reply\EasyJet\ATCOM\20190520 ATCORE reference metadata\SRC.txt
+script.js:621 highlightPath: does path contain "datahub"? false
+script.js:624 highlightPath: Final result: C:\Users\su.ray\OneDrive - Reply\EasyJet\ATCOM\20190520 ATCORE reference metadata\SRC.txt
+script.js:351 Found content match, scrolling to it
+script.js:271 Preview request for file: {id: 'QzpcVXNlcnNcc3UucmF5XE9uZURyaXZlIC0gUmVwbHlcRWFzeU…Db21wYXJpc29uXERIIFJFU1BPTlNFIEVYUExBSU5FRC5kb2N4', name: 'DH RESPONSE EXPLAINED.docx', path: 'C:\\Users\\su.ray\\OneDrive - Reply\\EasyJet\\Data\\ATCOM DH vs VRP Comparison\\DH RESPONSE EXPLAINED.docx', extension: 'docx', size: 22241, …}
+script.js:272 Current search query for highlighting: datahub
+script.js:273 File path to highlight: C:\Users\su.ray\OneDrive - Reply\EasyJet\Data\ATCOM DH vs VRP Comparison\DH RESPONSE EXPLAINED.docx
+script.js:274 File name to highlight: DH RESPONSE EXPLAINED.docx
+script.js:275 Does path contain search term? false
+script.js:276 Does name contain search term? false
+script.js:279 All file object properties: (6) ['id', 'name', 'path', 'extension', 'size', 'modified']
+script.js:606 highlightPath called with: {filePath: 'C:\\Users\\su.ray\\OneDrive - Reply\\EasyJet\\Data\\ATCOM DH vs VRP Comparison\\DH RESPONSE EXPLAINED.docx', query: 'datahub'}
+script.js:616 highlightPath: term "datahub" - before: C:\Users\su.ray\OneDrive - Reply\EasyJet\Data\ATCOM DH vs VRP Comparison\DH RESPONSE EXPLAINED.docx
+script.js:617 highlightPath: term "datahub" - after: C:\Users\su.ray\OneDrive - Reply\EasyJet\Data\ATCOM DH vs VRP Comparison\DH RESPONSE EXPLAINED.docx
+script.js:621 highlightPath: does path contain "datahub"? false
+script.js:624 highlightPath: Final result: C:\Users\su.ray\OneDrive - Reply\EasyJet\Data\ATCOM DH vs VRP Comparison\DH RESPONSE EXPLAINED.docx
+script.js:555 Highlighting terms in HTML content: {query: 'datahub', contentLength: 11043}
+script.js:351 Found content match, scrolling to it
+script.js:271 Preview request for file: {id: 'QzpcVXNlcnNcc3UucmF5XE9uZURyaXZlIC0gUmVwbHlcRWFzeU…gZVJlcyAtIFN5bmNocm9uaXNlIFBOUiBSTiB2MS4wLmRvY3g=', name: 'EZY317 - eRes - Synchronise PNR RN v1.0.docx', path: 'C:\\Users\\su.ray\\OneDrive - Reply\\EasyJet\\BOA - Bac…eats\\EZY317 - eRes - Synchronise PNR RN v1.0.docx', extension: 'docx', size: 1376102, …}
+script.js:272 Current search query for highlighting: datahub
+script.js:273 File path to highlight: C:\Users\su.ray\OneDrive - Reply\EasyJet\BOA - Back Office Automation\BOA 53 - Sync Seats\EZY317 - eRes - Synchronise PNR RN v1.0.docx
+script.js:274 File name to highlight: EZY317 - eRes - Synchronise PNR RN v1.0.docx
+script.js:275 Does path contain search term? false
+script.js:276 Does name contain search term? false
+script.js:279 All file object properties: (6) ['id', 'name', 'path', 'extension', 'size', 'modified']
+script.js:606 highlightPath called with: {filePath: 'C:\\Users\\su.ray\\OneDrive - Reply\\EasyJet\\BOA - Bac…eats\\EZY317 - eRes - Synchronise PNR RN v1.0.docx', query: 'datahub'}
+script.js:616 highlightPath: term "datahub" - before: C:\Users\su.ray\OneDrive - Reply\EasyJet\BOA - Back Office Automation\BOA 53 - Sync Seats\EZY317 - eRes - Synchronise PNR RN v1.0.docx
+script.js:617 highlightPath: term "datahub" - after: C:\Users\su.ray\OneDrive - Reply\EasyJet\BOA - Back Office Automation\BOA 53 - Sync Seats\EZY317 - eRes - Synchronise PNR RN v1.0.docx
+script.js:621 highlightPath: does path contain "datahub"? false
+script.js:624 highlightPath: Final result: C:\Users\su.ray\OneDrive - Reply\EasyJet\BOA - Back Office Automation\BOA 53 - Sync Seats\EZY317 - eRes - Synchronise PNR RN v1.0.docx
+script.js:555 Highlighting terms in HTML content: {query: 'datahub', contentLength: 2034655}
+script.js:351 Found content match, scrolling to it
+script.js:137 [Search] Starting search request #4 for query: "eres"
+script.js:167 [Search] Displaying results for request #4: 97 files
+script.js:271 Preview request for file: {id: 'QzpcVXNlcnNcc3UucmF5XE9uZURyaXZlIC0gUmVwbHlcRWFzeU…yZXMgYnVsayBwbnIgKFN1ZGRoYSBSIHZlcnNpb24pLnNxbA==', name: 'eres bulk pnr (Suddha R version).sql', path: 'C:\\Users\\su.ray\\OneDrive - Reply\\EasyJet\\BOA - Bac… Manifesting\\eres bulk pnr (Suddha R version).sql', extension: 'sql', size: 2153, …}
+script.js:272 Current search query for highlighting: eres
+script.js:273 File path to highlight: C:\Users\su.ray\OneDrive - Reply\EasyJet\BOA - Back Office Automation\BOA 15 - Series Seat Manifesting\eres bulk pnr (Suddha R version).sql
+script.js:274 File name to highlight: eres bulk pnr (Suddha R version).sql
+script.js:275 Does path contain search term? true
+script.js:276 Does name contain search term? true
+script.js:279 All file object properties: (6) ['id', 'name', 'path', 'extension', 'size', 'modified']
+script.js:282 Found search term "eres" in file.name: eres bulk pnr (Suddha R version).sql
+script.js:282 Found search term "eres" in file.path: C:\Users\su.ray\OneDrive - Reply\EasyJet\BOA - Back Office Automation\BOA 15 - Series Seat Manifesting\eres bulk pnr (Suddha R version).sql
+script.js:606 highlightPath called with: {filePath: 'C:\\Users\\su.ray\\OneDrive - Reply\\EasyJet\\BOA - Bac… Manifesting\\eres bulk pnr (Suddha R version).sql', query: 'eres'}
+script.js:616 highlightPath: term "eres" - before: C:\Users\su.ray\OneDrive - Reply\EasyJet\BOA - Back Office Automation\BOA 15 - Series Seat Manifesting\eres bulk pnr (Suddha R version).sql
+script.js:617 highlightPath: term "eres" - after: C:\Users\su.ray\OneDrive - Reply\EasyJet\BOA - Back Office Automation\BOA 15 - Series Seat Manifesting\<mark class="path-highlight">eres</mark> bulk pnr (Suddha R version).sql
+script.js:621 highlightPath: does path contain "eres"? true
+script.js:624 highlightPath: Final result: C:\Users\su.ray\OneDrive - Reply\EasyJet\BOA - Back Office Automation\BOA 15 - Series Seat Manifesting\<mark class="path-highlight">eres</mark> bulk pnr (Suddha R version).sql
+script.js:365 Found path match
+script.js:271 Preview request for file: {id: 'QzpcVXNlcnNcc3UucmF5XE9uZURyaXZlIC0gUmVwbHlcRWFzeU…pY2F0aW9uc1xDb2RlIHNldCBEaXJlY3RvcnkgMjMuMS5wZGY=', name: 'Code set Directory 23.1.pdf', path: 'C:\\Users\\su.ray\\OneDrive - Reply\\EasyJet\\Datalex S…ing OCN Notifications\\Code set Directory 23.1.pdf', extension: 'pdf', size: 1095848, …}
+script.js:272 Current search query for highlighting: eres
+script.js:273 File path to highlight: C:\Users\su.ray\OneDrive - Reply\EasyJet\Datalex Stellex (CORE)\NDC Schemas including OCN Notifications\Code set Directory 23.1.pdf
+script.js:274 File name to highlight: Code set Directory 23.1.pdf
+script.js:275 Does path contain search term? false
+script.js:276 Does name contain search term? false
+script.js:279 All file object properties: (6) ['id', 'name', 'path', 'extension', 'size', 'modified']
+script.js:606 highlightPath called with: {filePath: 'C:\\Users\\su.ray\\OneDrive - Reply\\EasyJet\\Datalex S…ing OCN Notifications\\Code set Directory 23.1.pdf', query: 'eres'}
+script.js:616 highlightPath: term "eres" - before: C:\Users\su.ray\OneDrive - Reply\EasyJet\Datalex Stellex (CORE)\NDC Schemas including OCN Notifications\Code set Directory 23.1.pdf
+script.js:617 highlightPath: term "eres" - after: C:\Users\su.ray\OneDrive - Reply\EasyJet\Datalex Stellex (CORE)\NDC Schemas including OCN Notifications\Code set Directory 23.1.pdf
+script.js:621 highlightPath: does path contain "eres"? false
+script.js:624 highlightPath: Final result: C:\Users\su.ray\OneDrive - Reply\EasyJet\Datalex Stellex (CORE)\NDC Schemas including OCN Notifications\Code set Directory 23.1.pdf
+script.js:351 Found content match, scrolling to it
+script.js:271 Preview request for file: {id: 'QzpcVXNlcnNcc3UucmF5XE9uZURyaXZlIC0gUmVwbHlcRWFzeU…EYXRhXERBVEEgTU9ERUxTXGVSZXNcY2hhcmdlQ29kZXMuY3N2', name: 'chargeCodes.csv', path: 'C:\\Users\\su.ray\\OneDrive - Reply\\EasyJet\\Data\\DATA MODELS\\eRes\\chargeCodes.csv', extension: 'csv', size: 47404, …}
+script.js:272 Current search query for highlighting: eres
+script.js:273 File path to highlight: C:\Users\su.ray\OneDrive - Reply\EasyJet\Data\DATA MODELS\eRes\chargeCodes.csv
+script.js:274 File name to highlight: chargeCodes.csv
+script.js:275 Does path contain search term? true
+script.js:276 Does name contain search term? false
+script.js:279 All file object properties: (6) ['id', 'name', 'path', 'extension', 'size', 'modified']
+script.js:282 Found search term "eres" in file.path: C:\Users\su.ray\OneDrive - Reply\EasyJet\Data\DATA MODELS\eRes\chargeCodes.csv
+script.js:606 highlightPath called with: {filePath: 'C:\\Users\\su.ray\\OneDrive - Reply\\EasyJet\\Data\\DATA MODELS\\eRes\\chargeCodes.csv', query: 'eres'}
+script.js:616 highlightPath: term "eres" - before: C:\Users\su.ray\OneDrive - Reply\EasyJet\Data\DATA MODELS\eRes\chargeCodes.csv
+script.js:617 highlightPath: term "eres" - after: C:\Users\su.ray\OneDrive - Reply\EasyJet\Data\DATA MODELS\<mark class="path-highlight">eRes</mark>\chargeCodes.csv
+script.js:621 highlightPath: does path contain "eres"? true
+script.js:624 highlightPath: Final result: C:\Users\su.ray\OneDrive - Reply\EasyJet\Data\DATA MODELS\<mark class="path-highlight">eRes</mark>\chargeCodes.csv
+script.js:365 Found path match
+script.js:271 Preview request for file: {id: 'QzpcVXNlcnNcc3UucmF5XE9uZURyaXZlIC0gUmVwbHlcRWFzeU…kZC1jNTU2NzYxYTNmMmItYzAwMC5zbmFwcHkucGFycXVldA==', name: 'part-00000-10af6660-8383-4b06-8bdd-c556761a3f2b-c000.snappy.parquet', path: 'C:\\Users\\su.ray\\OneDrive - Reply\\EasyJet\\BOA - Bac…0-8383-4b06-8bdd-c556761a3f2b-c000.snappy.parquet', extension: 'parquet', size: 13868049, …}
+script.js:272 Current search query for highlighting: eres
+script.js:273 File path to highlight: C:\Users\su.ray\OneDrive - Reply\EasyJet\BOA - Back Office Automation\BOA 53 - Sync Seats\eRes Data (Bookings)\part-00000-10af6660-8383-4b06-8bdd-c556761a3f2b-c000.snappy.parquet
+script.js:274 File name to highlight: part-00000-10af6660-8383-4b06-8bdd-c556761a3f2b-c000.snappy.parquet
+script.js:275 Does path contain search term? true
+script.js:276 Does name contain search term? false
+script.js:279 All file object properties: (6) ['id', 'name', 'path', 'extension', 'size', 'modified']
+script.js:282 Found search term "eres" in file.path: C:\Users\su.ray\OneDrive - Reply\EasyJet\BOA - Back Office Automation\BOA 53 - Sync Seats\eRes Data (Bookings)\part-00000-10af6660-8383-4b06-8bdd-c556761a3f2b-c000.snappy.parquet
+script.js:606 highlightPath called with: {filePath: 'C:\\Users\\su.ray\\OneDrive - Reply\\EasyJet\\BOA - Bac…0-8383-4b06-8bdd-c556761a3f2b-c000.snappy.parquet', query: 'eres'}
+script.js:616 highlightPath: term "eres" - before: C:\Users\su.ray\OneDrive - Reply\EasyJet\BOA - Back Office Automation\BOA 53 - Sync Seats\eRes Data (Bookings)\part-00000-10af6660-8383-4b06-8bdd-c556761a3f2b-c000.snappy.parquet
+script.js:617 highlightPath: term "eres" - after: C:\Users\su.ray\OneDrive - Reply\EasyJet\BOA - Back Office Automation\BOA 53 - Sync Seats\<mark class="path-highlight">eRes</mark> Data (Bookings)\part-00000-10af6660-8383-4b06-8bdd-c556761a3f2b-c000.snappy.parquet
+script.js:621 highlightPath: does path contain "eres"? true
+script.js:624 highlightPath: Final result: C:\Users\su.ray\OneDrive - Reply\EasyJet\BOA - Back Office Automation\BOA 53 - Sync Seats\<mark class="path-highlight">eRes</mark> Data (Bookings)\part-00000-10af6660-8383-4b06-8bdd-c556761a3f2b-c000.snappy.parquet

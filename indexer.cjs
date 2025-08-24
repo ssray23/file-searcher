@@ -328,7 +328,7 @@ async function indexFolder(folder) {
 
 function searchContent(folder, query) {
     const dbPath = getDbPath(folder);
-    console.log(`[Indexer] Searching in database: ${dbPath}`);
+    console.log(`[Indexer] Searching in database: ${dbPath} for query: "${query}"`);
     
     // Check if database file exists
     if (!fs.existsSync(dbPath)) {
@@ -348,6 +348,34 @@ function searchContent(folder, query) {
             db.close();
             return resolve([]);
         }
+        
+        // Parse quoted phrases and individual terms
+        const quotedPhrases = [];
+        const individualTerms = [];
+        
+        // Extract quoted phrases (both single and double quotes)
+        const quoteRegex = /["']([^"']*)["']/g;
+        let match;
+        let processedQuery = searchQuery;
+        
+        while ((match = quoteRegex.exec(searchQuery)) !== null) {
+            const phrase = match[1].trim();
+            if (phrase) {
+                quotedPhrases.push(phrase);
+                // Remove the quoted phrase from the query for individual term processing
+                processedQuery = processedQuery.replace(match[0], ' ');
+            }
+        }
+        
+        // Extract individual terms from remaining query
+        const remainingTerms = processedQuery.trim().split(/\s+/).filter(term => term.length > 0);
+        individualTerms.push(...remainingTerms);
+        
+        console.log(`[Indexer] Parsed query - Phrases: [${quotedPhrases.join(', ')}], Individual terms: [${individualTerms.join(', ')}]`);
+        
+        // Store the original query components for strict validation
+        const originalPhrases = quotedPhrases.map(p => p.toLowerCase());
+        const originalTerms = individualTerms.map(t => t.toLowerCase());
         
         // Check if content table exists first
         db.get("SELECT name FROM sqlite_master WHERE type='table' AND name='content'", (err, row) => {
@@ -388,34 +416,52 @@ function searchContent(folder, query) {
                     let params;
                     
                     if (isFTS) {
-                        // Use FTS search
-                        if (!(searchQuery.startsWith('"') && searchQuery.endsWith('"'))) {
-                            searchQuery = searchQuery.split(/\s+/).filter(Boolean).map(term => `"${term}"*`).join(' AND ');
-                        }
+                        // Build FTS query combining phrases and individual terms
+                        let ftsQueryParts = [];
+                        
+                        // Add quoted phrases as exact matches
+                        quotedPhrases.forEach(phrase => {
+                            ftsQueryParts.push(`"${phrase}"`);
+                        });
+                        
+                        // Add individual terms
+                        individualTerms.forEach(term => {
+                            ftsQueryParts.push(term);
+                        });
+                        
+                        const ftsQuery = ftsQueryParts.join(' AND ');
                         
                         sql = `
                             SELECT f.*, results.priority, results.rank FROM (
-                                SELECT fullpath, 1 AS priority, rank FROM content WHERE filename MATCH ?
+                                SELECT fullpath, 1 AS priority, rank FROM content 
+                                WHERE filename MATCH ? AND filename IS NOT NULL
                                 UNION ALL
-                                SELECT fullpath, 2 AS priority, rank FROM content WHERE filepath MATCH ?
+                                SELECT fullpath, 2 AS priority, rank FROM content 
+                                WHERE filepath MATCH ? AND filepath IS NOT NULL
                                 UNION ALL
-                                SELECT fullpath, 3 AS priority, rank FROM content WHERE filecontent MATCH ?
+                                SELECT fullpath, 3 AS priority, rank FROM content 
+                                WHERE filecontent MATCH ? AND filecontent IS NOT NULL AND filecontent != ''
                             ) AS results
                             JOIN files f ON f.fullpath = results.fullpath
                             GROUP BY f.fullpath
                             ORDER BY MIN(results.priority) ASC, results.rank DESC LIMIT 100;
                         `;
-                        params = [searchQuery, searchQuery, searchQuery];
+                        params = [ftsQuery, ftsQuery, ftsQuery];
                     } else {
-                        // Use LIKE search for fallback table
-                        const likeQuery = `%${searchQuery}%`;
+                        // For non-FTS, combine all terms with LIKE
+                        const allTerms = [...quotedPhrases, ...individualTerms];
+                        const likeQuery = `%${allTerms.join('%')}%`;
+                        
                         sql = `
                             SELECT f.*, results.priority FROM (
-                                SELECT fullpath, 1 AS priority FROM content WHERE filename LIKE ?
+                                SELECT fullpath, 1 AS priority FROM content 
+                                WHERE LOWER(filename) LIKE LOWER(?) AND filename IS NOT NULL
                                 UNION ALL
-                                SELECT fullpath, 2 AS priority FROM content WHERE filepath LIKE ?
+                                SELECT fullpath, 2 AS priority FROM content 
+                                WHERE LOWER(filepath) LIKE LOWER(?) AND filepath IS NOT NULL
                                 UNION ALL
-                                SELECT fullpath, 3 AS priority FROM content WHERE filecontent LIKE ?
+                                SELECT fullpath, 3 AS priority FROM content 
+                                WHERE LOWER(filecontent) LIKE LOWER(?) AND filecontent IS NOT NULL AND filecontent != ''
                             ) AS results
                             JOIN files f ON f.fullpath = results.fullpath
                             GROUP BY f.fullpath
@@ -424,24 +470,90 @@ function searchContent(folder, query) {
                         params = [likeQuery, likeQuery, likeQuery];
                     }
                     
+                    console.log(`[Indexer] Executing search query with phrases and terms`);
+                    
                     db.all(sql, params, (err, rows) => {
-                        db.close();
                         if (err) {
                             console.error('Search query error:', err);
+                            db.close();
                             return reject(err);
                         }
                         
-                        const results = rows.map(row => ({
-                            id: Buffer.from(row.fullpath).toString('base64'),
-                            name: row.name,
-                            path: row.fullpath,
-                            extension: row.extension,
-                            size: row.size,
-                            modified: new Date(row.mtime * 1000).toISOString()
-                        }));
+                        console.log(`[Indexer] Initial query returned ${rows.length} rows`);
                         
-                        console.log(`[Indexer] Found ${results.length} search results`);
-                        resolve(results);
+                        // Get additional content info to validate matches
+                        if (rows.length === 0) {
+                            db.close();
+                            return resolve([]);
+                        }
+                        
+                        // Get the content data to verify actual matches
+                        const fullpaths = rows.map(row => row.fullpath);
+                        const placeholders = fullpaths.map(() => '?').join(',');
+                        const contentSql = `SELECT fullpath, filename, filepath, filecontent FROM content WHERE fullpath IN (${placeholders})`;
+                        
+                        db.all(contentSql, fullpaths, (contentErr, contentRows) => {
+                            db.close();
+                            
+                            if (contentErr) {
+                                console.error('Error fetching content for validation:', contentErr);
+                                return reject(contentErr);
+                            }
+                            
+                            // Create a map for quick content lookup
+                            const contentMap = new Map();
+                            contentRows.forEach(content => {
+                                contentMap.set(content.fullpath, content);
+                            });
+                            
+                            // Validate each result with STRICT matching including phrase validation
+                            const validatedResults = rows.filter(row => {
+                                const content = contentMap.get(row.fullpath);
+                                if (!content) {
+                                    console.log(`[Indexer] No content found for: ${row.name}`);
+                                    return false;
+                                }
+                                
+                                // Strict validation - check phrases and individual terms
+                                const filenameText = (content.filename || '').toLowerCase();
+                                const filepathText = (content.filepath || '').toLowerCase();
+                                const filecontentText = (content.filecontent || '').toLowerCase();
+                                
+                                // Check if all quoted phrases are present
+                                const phraseMatches = originalPhrases.every(phrase => {
+                                    return filenameText.includes(phrase) || 
+                                           filepathText.includes(phrase) || 
+                                           filecontentText.includes(phrase);
+                                });
+                                
+                                // Check if all individual terms are present
+                                const termMatches = originalTerms.every(term => {
+                                    return filenameText.includes(term) || 
+                                           filepathText.includes(term) || 
+                                           filecontentText.includes(term);
+                                });
+                                
+                                const hasValidMatch = phraseMatches && termMatches;
+                                
+                                if (!hasValidMatch) {
+                                    console.log(`[Indexer] STRICT FILTER: Rejecting file "${row.name}" - missing required phrases or terms`);
+                                }
+                                
+                                return hasValidMatch;
+                            });
+                            
+                            const results = validatedResults.map(row => ({
+                                id: Buffer.from(row.fullpath).toString('base64'),
+                                name: row.name,
+                                path: row.fullpath,
+                                extension: row.extension,
+                                size: row.size,
+                                modified: new Date(row.mtime * 1000).toISOString()
+                            }));
+                            
+                            console.log(`[Indexer] FINAL: Found ${results.length} validated search results (filtered from ${rows.length}) for query "${query}"`);
+                            resolve(results);
+                        });
                     });
                 });
             });

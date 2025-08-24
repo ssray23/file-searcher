@@ -1,5 +1,3 @@
-// FILE: C:\Users\su.ray\OneDrive - Reply\Suddha\Personal Projects\file-searcher\public\script.js
-
 class FileSearcher {
     constructor() {
         // Core elements
@@ -13,8 +11,6 @@ class FileSearcher {
         this.folderSelect = document.getElementById('folderSelect');
         this.customPathInput = document.getElementById('customPathInput');
         this.pathValue = document.getElementById('pathValue');
-
-        // ADDED: A reference to the file type filter dropdown
         this.fileTypeFilter = document.getElementById('fileTypeFilter');
 
         // Indexing UI
@@ -31,6 +27,9 @@ class FileSearcher {
         // State
         this.selectedDirectory = 'current';
         this.indexingPollInterval = null;
+        this.currentSearchQuery = ''; // Store current search query for highlighting
+        this.currentSearchController = null; // For aborting requests
+        this.searchRequestId = 0; // For tracking request order
 
         this.initializeEventListeners();
         this.handleFolderChange({
@@ -42,10 +41,7 @@ class FileSearcher {
 
     initializeEventListeners() {
         this.searchInput.addEventListener('input', () => this.handleSearchInput());
-
-        // ADDED: An event listener to re-run the search whenever the filter is changed
         this.fileTypeFilter.addEventListener('change', () => this.performSearch());
-
         this.cancelBtn.addEventListener('click', () => this.clearSearch());
         this.folderSelect.addEventListener('change', (e) => this.handleFolderChange(e));
         this.customPathInput.addEventListener('change', (e) => this.handleCustomPath(e));
@@ -62,7 +58,6 @@ class FileSearcher {
     }
 
     async handleFolderChange(e) {
-        // MODIFIED: Corrected logic to properly show and handle custom path input
         const value = e.target.value;
         if (value === 'custom') {
             this.customPathInput.style.display = 'inline-block';
@@ -95,39 +90,98 @@ class FileSearcher {
         }
     }
 
-
     handleSearchInput() {
-        clearTimeout(this.searchTimeout);
-        this.searchTimeout = setTimeout(() => this.performSearch(), 200);
+        // Clear existing timeout
+        if (this.searchTimeout) {
+            clearTimeout(this.searchTimeout);
+        }
+        
+        // Abort any ongoing search request
+        if (this.currentSearchController) {
+            console.log('[Search] Aborting previous search request');
+            this.currentSearchController.abort();
+            this.currentSearchController = null;
+        }
+        
+        // Set up new debounced search - increased to 300ms for better performance
+        this.searchTimeout = setTimeout(() => this.performSearch(), 300);
     }
 
     async performSearch() {
         const query = this.searchInput.value.trim();
-        // ADDED: Read the value from the file type filter dropdown
         const fileType = this.fileTypeFilter.value;
+        
+        // Increment request ID to track this specific search
+        const currentRequestId = ++this.searchRequestId;
+        
+        this.currentSearchQuery = query; // Store for highlighting
         const startTime = performance.now();
         this.cancelBtn.style.display = query ? 'flex' : 'none';
 
-        // MODIFIED: Allows a filter to be active even with an empty search query
         if (!query && fileType === 'all') {
             this.hideResults();
             return;
         }
 
+        // Abort any existing request
+        if (this.currentSearchController) {
+            console.log('[Search] Aborting previous search request');
+            this.currentSearchController.abort();
+        }
+
+        // Create new AbortController for this request
+        this.currentSearchController = new AbortController();
+        const { signal } = this.currentSearchController;
+
         try {
-            // MODIFIED: Send the selected fileType to the server. Use '*' as a wildcard if query is empty.
+            console.log(`[Search] Starting search request #${currentRequestId} for query: "${query}"`);
+            
             const params = new URLSearchParams({
                 query: query || '*',
                 directory: this.selectedDirectory,
                 fileType
             });
-            const response = await fetch(`/api/search?${params}`);
-            const data = await response.json();
-            if (data.success) {
-                this.displayResults(data.files, Math.round(performance.now() - startTime));
+            
+            const response = await fetch(`/api/search?${params}`, { signal });
+            
+            // Check if this request is still the latest one
+            if (currentRequestId !== this.searchRequestId) {
+                console.log(`[Search] Discarding outdated response #${currentRequestId} (latest: #${this.searchRequestId})`);
+                return;
             }
+            
+            if (signal.aborted) {
+                console.log(`[Search] Request #${currentRequestId} was aborted`);
+                return;
+            }
+            
+            const data = await response.json();
+            
+            // Double-check we're still the latest request
+            if (currentRequestId !== this.searchRequestId) {
+                console.log(`[Search] Discarding outdated results #${currentRequestId} (latest: #${this.searchRequestId})`);
+                return;
+            }
+            
+            if (data.success) {
+                console.log(`[Search] Displaying results for request #${currentRequestId}: ${data.files.length} files`);
+                this.displayResults(data.files, Math.round(performance.now() - startTime));
+            } else {
+                console.error(`[Search] Search failed for request #${currentRequestId}:`, data.error);
+            }
+            
         } catch (error) {
-            console.error('Search failed:', error);
+            // Only log error if it wasn't an abort
+            if (error.name !== 'AbortError') {
+                console.error(`[Search] Search failed for request #${currentRequestId}:`, error);
+            } else {
+                console.log(`[Search] Request #${currentRequestId} was aborted`);
+            }
+        } finally {
+            // Clear the controller if this was the current request
+            if (this.currentSearchController && !signal.aborted) {
+                this.currentSearchController = null;
+            }
         }
     }
 
@@ -145,8 +199,23 @@ class FileSearcher {
     hideResults() {
         this.resultsSection.classList.remove('show');
     }
+
     clearSearch() {
+        // Abort any ongoing request
+        if (this.currentSearchController) {
+            this.currentSearchController.abort();
+            this.currentSearchController = null;
+        }
+        
+        // Clear timeout
+        if (this.searchTimeout) {
+            clearTimeout(this.searchTimeout);
+            this.searchTimeout = null;
+        }
+        
+        // Reset search state
         this.searchInput.value = '';
+        this.currentSearchQuery = '';
         this.fileTypeFilter.value = 'all';
         this.cancelBtn.style.display = 'none';
         this.hideResults();
@@ -192,184 +261,409 @@ class FileSearcher {
             alert('Could not open the file.');
         }
     }
-    // Update the showPreview method to include path display:
-async showPreview(file) {
-    this.modalTitle.textContent = `Loading: ${file.name}`;
-    this.modalBody.innerHTML = `<p>Please wait...</p>`;
-    this.modalBody.style.fontFamily = 'monospace';
-    this.previewModal.classList.add('show');
+    
+    async showPreview(file) {
+        this.modalTitle.textContent = `Loading: ${file.name}`;
+        this.modalBody.innerHTML = `<p>Please wait...</p>`;
+        this.modalBody.style.fontFamily = 'monospace';
+        this.previewModal.classList.add('show');
 
-    console.log('Preview request for file:', file);
+        console.log('Preview request for file:', file);
+        console.log('Current search query for highlighting:', this.currentSearchQuery);
+        console.log('File path to highlight:', file.path);
+        console.log('File name to highlight:', file.name);
+        console.log('Does path contain search term?', file.path.toLowerCase().includes(this.currentSearchQuery.toLowerCase()));
+        console.log('Does name contain search term?', file.name.toLowerCase().includes(this.currentSearchQuery.toLowerCase()));
 
-    try {
-        const response = await fetch(`/api/preview/${file.id}`);
-        
-        if (!response.ok) {
-            let errorData;
-            try {
-                errorData = await response.json();
-            } catch {
-                errorData = { error: `Server error: ${response.status} ${response.statusText}` };
-            }
-            throw new Error(errorData.error || `HTTP ${response.status}`);
-        }
-        
-        const data = await response.json();
-        
-        // Create enhanced modal header with path
-        const highlightedPath = this.highlightPath(file.path, this.searchInput.value);
-        this.modalTitle.innerHTML = `
-            <div class="modal-title-content">
-                <div class="file-name">${file.name}</div>
-                <div class="file-path" title="${file.path}">${highlightedPath}</div>
-            </div>
-        `;
-        
-        if (data.success && data.content) {
-            if (data.type === 'image') {
-                this.modalBody.innerHTML = `<img src="${data.content}" style="max-width: 100%; height: auto;" alt="Preview">`;
-                this.modalBody.style.fontFamily = 'var(--font-family)';
-            } else if (data.type === 'html') {
-                // Apply search highlighting to HTML content
-                const highlighted = this.highlightSearchTermsInHTML(data.content, this.searchInput.value);
-                this.modalBody.innerHTML = highlighted;
-                this.modalBody.style.fontFamily = 'var(--font-family)';
-            } else {
-                // Text content
-                const sanitizedContent = data.content.replace(/</g, "&lt;").replace(/>/g, "&gt;");
-                const highlighted = this.highlightSearchTerms(sanitizedContent, this.searchInput.value);
-                this.modalBody.innerHTML = `<pre>${highlighted}</pre>`;
-                this.modalBody.style.fontFamily = 'monospace';
-            }
-
-            // Auto-scroll to first match after content is loaded
-            setTimeout(() => {
-                const firstMatch = this.modalBody.querySelector('mark');
-                if (firstMatch) {
-                    console.log('Found first match, scrolling to it');
-                    firstMatch.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                    
-                    // Add highlight effect
-                    firstMatch.style.transition = 'box-shadow 0.3s ease-in-out';
-                    firstMatch.style.boxShadow = '0 0 15px 5px #fef08a';
-                    
-                    setTimeout(() => { 
-                        firstMatch.style.boxShadow = ''; 
-                    }, 2000);
-                } else {
-                    // Check if there are path highlights instead
-                    const pathMatch = document.querySelector('.file-path mark.path-highlight');
-                    if (pathMatch) {
-                        console.log('Found path match');
-                        pathMatch.style.transition = 'box-shadow 0.3s ease-in-out';
-                        pathMatch.style.boxShadow = '0 0 10px 3px #fef08a';
-                        setTimeout(() => { 
-                            pathMatch.style.boxShadow = ''; 
-                        }, 2000);
-                    }
-                    console.log('No content matches found for highlighting');
+        // Check if there are any other properties in the file object that might contain the search term
+        console.log('All file object properties:', Object.keys(file));
+            Object.keys(file).forEach(key => {
+                if (typeof file[key] === 'string' && file[key].toLowerCase().includes(this.currentSearchQuery.toLowerCase())) {
+                    console.log(`Found search term "${this.currentSearchQuery}" in file.${key}:`, file[key]);
                 }
-            }, 100);
+            });
 
+        try {
+            const response = await fetch(`/api/preview/${file.id}`);
+            
+            if (!response.ok) {
+                let errorData;
+                try {
+                    errorData = await response.json();
+                } catch {
+                    errorData = { error: `Server error: ${response.status} ${response.statusText}` };
+                }
+                throw new Error(errorData.error || `HTTP ${response.status}`);
+            }
+            
+            const data = await response.json();
+            
+            // Create enhanced modal header with path highlighting
+            const highlightedPath = this.highlightPath(file.path, this.currentSearchQuery);
+            this.modalTitle.innerHTML = `
+                <div class="modal-title-content">
+                    <div class="file-name">${this.highlightSearchTerms(file.name, this.currentSearchQuery)}</div>
+                    <div class="file-path" title="${file.path}">${highlightedPath}</div>
+                </div>
+            `;
+            
+            if (data.success && data.content) {
+                if (data.type === 'image') {
+                    this.modalBody.innerHTML = `<img src="${data.content}" style="max-width: 100%; height: auto;" alt="Preview">`;
+                    this.modalBody.style.fontFamily = 'var(--font-family)';
+                } else if (data.type === 'html') {
+                    // Apply search highlighting to HTML content
+                    const highlighted = this.highlightSearchTermsInHTML(data.content, this.currentSearchQuery);
+                    this.modalBody.innerHTML = highlighted;
+                    this.modalBody.style.fontFamily = 'var(--font-family)';
+                } else {
+                    // Text content
+                    const sanitizedContent = this.escapeHtml(data.content);
+                    const highlighted = this.highlightSearchTerms(sanitizedContent, this.currentSearchQuery);
+                    this.modalBody.innerHTML = `<pre>${highlighted}</pre>`;
+                    this.modalBody.style.fontFamily = 'monospace';
+                }
+
+                // Auto-scroll to first match and show status after content is loaded
+                setTimeout(() => {
+                    this.scrollToFirstMatch();
+                }, 100);
+
+            } else {
+                this.modalBody.innerHTML = `<p>Error: ${data.error || 'No preview available.'}</p>`;
+            }
+            
+        } catch (error) {
+            console.error('Preview error:', error);
+            this.modalTitle.innerHTML = `
+                <div class="modal-title-content">
+                    <div class="file-name">Preview Failed: ${file.name}</div>
+                    <div class="file-path" title="${file.path}">${file.path}</div>
+                </div>
+            `;
+            this.modalBody.innerHTML = `<p style="color: red;">Error: ${error.message}</p>`;
+        }
+    }
+
+    scrollToFirstMatch() {
+        const firstMatch = this.modalBody.querySelector('mark');
+        if (firstMatch) {
+            console.log('Found content match, scrolling to it');
+            firstMatch.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            
+            // Add highlight effect
+            firstMatch.style.transition = 'box-shadow 0.3s ease-in-out';
+            firstMatch.style.boxShadow = '0 0 15px 5px #fef08a';
+            
+            setTimeout(() => { 
+                firstMatch.style.boxShadow = ''; 
+            }, 2000);
         } else {
-            this.modalBody.innerHTML = `<p>Error: ${data.error || 'No preview available.'}</p>`;
+            // Check if there are path highlights instead
+            const pathMatch = document.querySelector('.file-path mark.path-highlight');
+            if (pathMatch) {
+                console.log('Found path match');
+                pathMatch.style.transition = 'box-shadow 0.3s ease-in-out';
+                pathMatch.style.boxShadow = '0 0 10px 3px #fef08a';
+                setTimeout(() => { 
+                    pathMatch.style.boxShadow = ''; 
+                }, 2000);
+            } else {
+                // FIXED: Actually check if path/filename contains the term before showing the message
+                const currentFile = this.getCurrentFileInfo();
+                const query = this.currentSearchQuery.toLowerCase();
+                let matchReason = '';
+                
+                if (currentFile) {
+                    const pathContains = currentFile.path.toLowerCase().includes(query);
+                    const nameContains = currentFile.name.toLowerCase().includes(query);
+                    
+                    if (pathContains && nameContains) {
+                        matchReason = 'path and filename';
+                    } else if (pathContains) {
+                        matchReason = 'file path';
+                    } else if (nameContains) {
+                        matchReason = 'filename';
+                    }
+                }
+                
+                if (matchReason) {
+                    console.log(`No content matches found for "${this.currentSearchQuery}" - file matched due to ${matchReason} containing the search term`);
+                } else {
+                    console.log(`No visible matches found for "${this.currentSearchQuery}" - file matched through search index or metadata`);
+                }
+                
+                // Show a helpful message to user
+                this.showHighlightStatus();
+            }
+        }
+    }
+    
+    showHighlightStatus() {
+    // Create or update a status message in the modal
+    let statusEl = this.modalBody.querySelector('.highlight-status');
+    if (!statusEl && this.currentSearchQuery) {
+        statusEl = document.createElement('div');
+        statusEl.className = 'highlight-status';
+        statusEl.style.cssText = `
+            position: sticky;
+            top: 0;
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            color: #92400e;
+            padding: 12px 16px;
+            margin: -10px -10px 20px -10px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            box-shadow: 0 2px 8px rgba(146, 64, 14, 0.1);
+            border: 1px solid #fcd34d;
+            z-index: 10;
+        `;
+        
+        // FIXED: Actually check if path/filename contains the term
+        const reasons = [];
+        const query = this.currentSearchQuery.toLowerCase();
+        const currentFile = this.getCurrentFileInfo();
+        
+        if (currentFile) {
+            if (currentFile.name.toLowerCase().includes(query)) {
+                reasons.push('filename');
+            }
+            if (currentFile.path.toLowerCase().includes(query)) {
+                reasons.push('file path');
+            }
         }
         
-    } catch (error) {
-        console.error('Preview error:', error);
-        this.modalTitle.innerHTML = `
-            <div class="modal-title-content">
-                <div class="file-name">Preview Failed: ${file.name}</div>
-                <div class="file-path" title="${file.path}">${file.path}</div>
-            </div>
-        `;
-        this.modalBody.innerHTML = `<p style="color: red;">Error: ${error.message}</p>`;
+        const contentMatches = this.modalBody.querySelectorAll('mark').length;
+        
+        if (contentMatches > 0) {
+            statusEl.innerHTML = `
+                <strong>📍 ${contentMatches} match${contentMatches === 1 ? '' : 'es'} found</strong><br>
+                Search term "${this.escapeHtml(this.currentSearchQuery)}" highlighted in content below.
+            `;
+        } else if (reasons.length > 0) {
+            statusEl.innerHTML = `
+                <strong>📂 Match found in ${reasons.join(' and ')}</strong><br>
+                Search term "${this.escapeHtml(this.currentSearchQuery)}" appears in the ${reasons.join(' and ')} but not in the file content.
+            `;
+        } else {
+            // FIXED: More accurate message when no visible matches are found
+            statusEl.innerHTML = `
+                <strong>🔍 Match found in search index</strong><br>
+                This file appeared in search results, but "${this.escapeHtml(this.currentSearchQuery)}" may be in metadata, cached content, or other indexed properties not visible in this preview.
+            `;
+        }
+        
+        this.modalBody.insertBefore(statusEl, this.modalBody.firstChild);
     }
 }
+    
+    getCurrentFileInfo() {
+        // Extract file info from modal title
+        const titleEl = this.modalTitle.querySelector('.file-name');
+        const pathEl = this.modalTitle.querySelector('.file-path');
+        if (titleEl && pathEl) {
+            return {
+                name: titleEl.textContent,
+                path: pathEl.getAttribute('title') || pathEl.textContent
+            };
+        }
+        return null;
+    }
 
     hideModal() {
         this.previewModal.classList.remove('show');
     }
 
+    // Enhanced search term highlighting with better word boundary detection
     highlightSearchTerms(content, query) {
         if (!query || !content || query === '*') return content;
+        
+        // Split query into individual terms, removing quotes and empty strings
         const terms = query.replace(/"/g, '').split(/\s+/).filter(Boolean);
+        
         let highlightedContent = content;
-        terms.forEach(term => {
-            const regex = new RegExp(`(${term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
-            highlightedContent = highlightedContent.replace(regex, `<mark>$1</mark>`);
+        let totalMatches = 0;
+        
+        terms.forEach((term, index) => {
+            if (term.length < 1) return; // Skip very short terms
+            
+            // Escape special regex characters but allow partial matching
+            const escapedTerm = term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+            
+            // Create a regex that matches the term case-insensitively
+            // Use word boundaries for better matching when appropriate
+            let regexPattern;
+            if (/^[a-zA-Z0-9_]+$/.test(term)) {
+                // For alphanumeric terms, try word boundary matching first
+                regexPattern = `\\b(${escapedTerm})\\b`;
+            } else {
+                // For terms with special chars, use direct matching
+                regexPattern = `(${escapedTerm})`;
+            }
+            
+            const regex = new RegExp(regexPattern, 'gi');
+            const beforeCount = (highlightedContent.match(/<mark>/g) || []).length;
+            
+            // First try with word boundaries
+            let newContent = highlightedContent.replace(regex, (match, p1, offset, string) => {
+                // Check if we're already inside a <mark> tag to avoid double-highlighting
+                const beforeMatch = string.substring(Math.max(0, offset - 50), offset);
+                
+                // Count open and close tags before this position
+                const openTags = (beforeMatch.match(/<mark[^>]*>/g) || []).length;
+                const closeTags = (beforeMatch.match(/<\/mark>/g) || []).length;
+                
+                if (openTags > closeTags) {
+                    // We're inside a mark tag, don't highlight again
+                    return match;
+                }
+                
+                return `<mark>${p1}</mark>`;
+            });
+            
+            // If word boundary didn't match anything for alphanumeric terms, try without boundaries
+            if (/^[a-zA-Z0-9_]+$/.test(term) && newContent === highlightedContent) {
+                const fallbackRegex = new RegExp(`(${escapedTerm})`, 'gi');
+                newContent = highlightedContent.replace(fallbackRegex, (match, p1, offset, string) => {
+                    const beforeMatch = string.substring(Math.max(0, offset - 50), offset);
+                    const openTags = (beforeMatch.match(/<mark[^>]*>/g) || []).length;
+                    const closeTags = (beforeMatch.match(/<\/mark>/g) || []).length;
+                    
+                    if (openTags > closeTags) {
+                        return match;
+                    }
+                    
+                    return `<mark>${p1}</mark>`;
+                });
+            }
+            
+            highlightedContent = newContent;
+            
+            const afterCount = (highlightedContent.match(/<mark>/g) || []).length;
+            const newMatches = afterCount - beforeCount;
+            totalMatches += newMatches;
         });
+        
         return highlightedContent;
     }
 
-    // NEW METHOD: Add this after the existing highlightSearchTerms method
+    // Enhanced HTML highlighting method
     highlightSearchTermsInHTML(htmlContent, query) {
         if (!query || !htmlContent || query === '*') return htmlContent;
+
+        console.log('Highlighting terms in HTML content:', { query, contentLength: htmlContent.length });
 
         const terms = query.replace(/"/g, '').split(/\s+/).filter(Boolean);
         let highlightedContent = htmlContent;
 
         terms.forEach(term => {
-            // Create a regex that matches the term but not inside HTML tags
             const escapedTerm = term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-
-            // Match text content between HTML tags
-            const regex = new RegExp(`(>[^<]*?)(${escapedTerm})([^<]*?<)`, 'gi');
-            highlightedContent = highlightedContent.replace(regex, '$1<mark>$2</mark>$3');
-
-            // Also handle text at the beginning or end of the content
-            const startRegex = new RegExp(`^([^<]*?)(${escapedTerm})([^<]*?)(<|$)`, 'gi');
-            highlightedContent = highlightedContent.replace(startRegex, '$1<mark>$2</mark>$3$4');
+            
+            // Create a temporary div to work with the DOM properly
+            const tempDiv = document.createElement('div');
+            tempDiv.innerHTML = highlightedContent;
+            
+            // Function to recursively highlight text nodes
+            const highlightInTextNodes = (node) => {
+                if (node.nodeType === Node.TEXT_NODE) {
+                    const text = node.textContent;
+                    const regex = new RegExp(`(${escapedTerm})`, 'gi');
+                    if (regex.test(text)) {
+                        const highlightedText = text.replace(regex, '<mark>$1</mark>');
+                        const wrapper = document.createElement('span');
+                        wrapper.innerHTML = highlightedText;
+                        
+                        // Replace the text node with the highlighted content
+                        const parent = node.parentNode;
+                        const childNodes = Array.from(wrapper.childNodes);
+                        childNodes.forEach(child => parent.insertBefore(child, node));
+                        parent.removeChild(node);
+                    }
+                } else if (node.nodeType === Node.ELEMENT_NODE) {
+                    // Don't highlight inside <mark> tags to avoid nested highlighting
+                    if (node.tagName !== 'MARK') {
+                        const childNodes = Array.from(node.childNodes);
+                        childNodes.forEach(child => highlightInTextNodes(child));
+                    }
+                }
+            };
+            
+            highlightInTextNodes(tempDiv);
+            highlightedContent = tempDiv.innerHTML;
         });
 
         return highlightedContent;
     }
 
+    // Path highlighting with better visual distinction
+    highlightPath(filePath, query) {
+        if (!query || !filePath || query === '*') {
+            console.log('highlightPath: No query or path, returning original:', filePath);
+            return filePath;
+        }
+        
+        console.log('highlightPath called with:', { filePath, query });
+        
+        const terms = query.replace(/"/g, '').split(/\s+/).filter(Boolean);
+        let highlightedPath = filePath;
+        
+        terms.forEach(term => {
+            const escapedTerm = term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+            const regex = new RegExp(`(${escapedTerm})`, 'gi');
+            const beforeHighlight = highlightedPath;
+            highlightedPath = highlightedPath.replace(regex, '<mark class="path-highlight">$1</mark>');
+            console.log(`highlightPath: term "${term}" - before:`, beforeHighlight);
+            console.log(`highlightPath: term "${term}" - after:`, highlightedPath);
+            
+            // Also check if the term exists in the path at all
+            const pathContainsTerm = filePath.toLowerCase().includes(term.toLowerCase());
+            console.log(`highlightPath: does path contain "${term}"?`, pathContainsTerm);
+        });
+        
+        console.log('highlightPath: Final result:', highlightedPath);
+        return highlightedPath;
+    }
+
+    // HTML escape utility
+    escapeHtml(text) {
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
+    }
+
     getFileIcon(ext) {
         const icons = {
-            'pdf': '📄',
-            'doc': '📄',
-            'docx': '📄',
-            'txt': '📝',
-            'md': '📝',
-            'xls': '📊',
-            'xlsx': '📊',
-            'csv': '📊',
-            'ppt': '📊',
-            'pptx': '📊',
-            'jpg': '🖼️',
-            'jpeg': '🖼️',
-            'png': '🖼️',
-            'gif': '🖼️',
-            'bmp': '🖼️',
-            'svg': '🖼️',
-            'mp4': '🎬',
-            'mov': '🎬',
-            'avi': '🎬',
-            'mp3': '🎵',
-            'wav': '🎵',
-            'js': '💻',
-            'ts': '💻',
-            'json': '💻',
-            'html': '🌐',
-            'css': '🎨',
-            'py': '🐍',
-            'java': '☕',
-            'zip': '📦',
-            'rar': '📦',
-            '7z': '📦',
-            'ttf': '🖋️',
-            'otf': '🖋️'
+            'pdf': '📄', 'doc': '📄', 'docx': '📄', 'txt': '📝', 'md': '📝',
+            'xls': '📊', 'xlsx': '📊', 'csv': '📊', 'ppt': '📊', 'pptx': '📊',
+            'jpg': '🖼️', 'jpeg': '🖼️', 'png': '🖼️', 'gif': '🖼️', 'bmp': '🖼️', 'svg': '🖼️',
+            'mp4': '🎬', 'mov': '🎬', 'avi': '🎬', 'mp3': '🎵', 'wav': '🎵',
+            'js': '💻', 'ts': '💻', 'json': '💻', 'html': '🌐', 'css': '🎨',
+            'py': '🐍', 'java': '☕', 'zip': '📦', 'rar': '📦', '7z': '📦',
+            'ttf': '🖋️', 'otf': '🖋️'
         };
         return icons[ext] || '📄';
     }
+    
     formatFileSize(bytes) {
         if (bytes === 0) return '0 B';
         const i = Math.floor(Math.log(bytes) / Math.log(1024));
         return parseFloat((bytes / Math.pow(1024, i)).toFixed(1)) + ' ' + ['B', 'KB', 'MB', 'GB'][i];
     }
+    
     formatDate(dateStr) {
-        return new Date(dateStr).toLocaleString();
+        const date = new Date(dateStr);
+        const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+        const day = String(date.getDate()).padStart(2, '0');
+        const month = months[date.getMonth()];
+        const year = date.getFullYear();
+        let hours = date.getHours();
+        const minutes = String(date.getMinutes()).padStart(2, '0');
+        const ampm = hours >= 12 ? 'PM' : 'AM';
+        hours = hours % 12;
+        hours = hours ? hours : 12; // 0 should be 12
+        const hoursStr = String(hours).padStart(2, '0');
+        return `${day}-${month}-${year} ${hoursStr}:${minutes} ${ampm}`;
     }
 
     async updateCurrentPath() {
@@ -379,7 +673,7 @@ async showPreview(file) {
             if ('success' in data && data.success) {
                 const parts = data.path.split(/[/\\]/);
                 this.pathValue.textContent = parts.pop() || data.path;
-                this.pathValue.title = data.path; // Important: Stores the full path for the previewer to use
+                this.pathValue.title = data.path;
             } else {
                 this.pathValue.textContent = '...';
                 this.pathValue.title = '';
@@ -390,8 +684,6 @@ async showPreview(file) {
         }
     }
 
-
-    // These methods should be added/updated in your FileSearcher class in script.js
     async initiateIndexing() {
         if (this.indexingPollInterval) clearInterval(this.indexingPollInterval);
 
@@ -414,7 +706,7 @@ async showPreview(file) {
             const data = await response.json();
 
             if (data.success && directoryToPoll === this.selectedDirectory) {
-                console.log('Status data:', data.status); // Debug log
+                console.log('Status data:', data.status);
 
                 if (data.status.status === 'complete' || data.status.status === 'idle') {
                     this.setSearchUIReady(true);
@@ -442,17 +734,9 @@ async showPreview(file) {
         }
     }
 
-    // Replace the updateIndexingProgress method in script.js with this:
-
     updateIndexingProgress(status) {
         console.log('Progress update:', status);
-        console.log('Current paths:', {
-            statusFolder: status.folder,
-            pathValueTitle: this.pathValue.title,
-            selectedDirectory: this.selectedDirectory
-        });
 
-        // Normalize paths for comparison (handle different path separators)
         const normalizePath = (path) => {
             return path ? path.replace(/\\/g, '/').toLowerCase() : '';
         };
@@ -461,7 +745,6 @@ async showPreview(file) {
         const currentPathNorm = normalizePath(this.pathValue.title);
         const selectedDirNorm = normalizePath(this.selectedDirectory);
 
-        // Check if this status update is for the current directory
         const isCurrentDirectory = statusFolderNorm === currentPathNorm ||
             statusFolderNorm === selectedDirNorm ||
             currentPathNorm.includes(statusFolderNorm) ||
@@ -475,18 +758,10 @@ async showPreview(file) {
                 this.indexingProgressBar.value = status.indexedCount;
                 const percentage = Math.round((status.indexedCount / status.totalFiles) * 100);
                 this.indexingStatusText.textContent = `Indexing ${status.indexedCount.toLocaleString()} of ${status.totalFiles.toLocaleString()} files (${percentage}%)`;
-                console.log(`Progress bar updated: ${status.indexedCount}/${status.totalFiles} (${percentage}%)`);
             } else {
                 this.indexingStatusText.textContent = `Discovering files in folder...`;
-                // Show indeterminate progress
                 this.indexingProgressBar.removeAttribute('value');
             }
-        } else {
-            console.log('Path mismatch - not updating progress:', {
-                statusFolderNorm,
-                currentPathNorm,
-                selectedDirNorm
-            });
         }
     }
 
@@ -496,34 +771,14 @@ async showPreview(file) {
         this.searchInput.placeholder = isReady ? 'Search for files...' : 'Indexing, please wait...';
 
         if (isReady) {
-            // Reset progress when ready
             this.indexingStatusText.textContent = 'Indexing complete';
             this.indexingProgressBar.value = 0;
             this.indexingProgressBar.max = 100;
         } else {
-            // Initialize progress bar when starting
             this.indexingStatusText.textContent = 'Starting indexing...';
             this.indexingProgressBar.value = 0;
             this.indexingProgressBar.max = 100;
         }
-    }
-
-    // First, add a method to highlight path components in the FileSearcher class:
-    highlightPath(filePath, query) {
-        if (!query || !filePath || query === '*') {
-            return filePath;
-        }
-        
-        const terms = query.replace(/"/g, '').split(/\s+/).filter(Boolean);
-        let highlightedPath = filePath;
-        
-        terms.forEach(term => {
-            const escapedTerm = term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-            const regex = new RegExp(`(${escapedTerm})`, 'gi');
-            highlightedPath = highlightedPath.replace(regex, '<mark class="path-highlight">$1</mark>');
-        });
-        
-        return highlightedPath;
     }
 }
 
