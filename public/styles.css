@@ -115,16 +115,7 @@ body { font-family: var(--font-family); background: var(--background-gradient); 
     font-weight: 600;
 }
 
-/* Update modal header to accommodate the new layout */
-.modal-header {
-    padding: 1rem 1.5rem;
-    border-bottom: 1px solid var(--border-color);
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start; /* Changed from center to flex-start */
-    gap: 1rem;
-    min-height: 60px; /* Ensure consistent height */
-}
+
 
 .modal-header h3 {
     margin: 0;
@@ -194,4 +185,67 @@ body { font-family: var(--font-family); background: var(--background-gradient); 
     box-shadow: 0 4px 12px rgba(146, 64, 14, 0.15) !important;
     transform: translateY(-1px);
     transition: all 0.2s ease;
+}
+
+/* Match Navigation Styles */
+.match-navigation {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #f8f9fa;
+    border-radius: 20px;
+    padding: 0.25rem 0.75rem;
+    border: 1px solid #e9ecef;
+}
+
+.match-counter {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+    min-width: 40px;
+    text-align: center;
+}
+
+.nav-btn {
+    background: #fff;
+    border: 1px solid #d1d5db;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    transition: all 0.2s ease;
+}
+
+.nav-btn:hover {
+    background: var(--accent-color);
+    color: white;
+    border-color: var(--accent-color);
+    transform: scale(1.05);
+}
+
+.nav-btn:active {
+    transform: scale(0.95);
+}
+
+/* Current match highlighting */
+.modal-body mark.current-match {
+    background-color: #fbbf24;
+    border: 2px solid #f59e0b;
+    box-shadow: 0 0 8px rgba(245, 158, 11, 0.4);
+}
+
+/* Update modal header layout for navigation */
+.modal-header {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Changed back to center for better alignment */
+    gap: 1rem;
+    min-height: 60px;
 }

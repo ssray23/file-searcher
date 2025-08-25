@@ -23,6 +23,9 @@ class FileSearcher {
         this.modalTitle = document.getElementById('modalTitle');
         this.modalBody = document.getElementById('modalBody');
         this.closeModal = document.getElementById('closeModal');
+        this.matchCounter = document.getElementById('matchCounter');
+        this.prevMatchBtn = document.getElementById('prevMatch');
+        this.nextMatchBtn = document.getElementById('nextMatch');
 
         // State
         this.selectedDirectory = 'current';
@@ -30,6 +33,8 @@ class FileSearcher {
         this.currentSearchQuery = ''; // Store current search query for highlighting
         this.currentSearchController = null; // For aborting requests
         this.searchRequestId = 0; // For tracking request order
+        this.currentMatchIndex = 0; // Current match position
+        this.totalMatches = 0; // Total number of matches
 
         this.initializeEventListeners();
         this.handleFolderChange({
@@ -52,8 +57,19 @@ class FileSearcher {
         this.previewModal.addEventListener('click', (e) => {
             if (e.target === this.previewModal) this.hideModal();
         });
+        this.prevMatchBtn.addEventListener('click', () => this.navigateToMatch('prev'));
+        this.nextMatchBtn.addEventListener('click', () => this.navigateToMatch('next'));
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') this.hideModal();
+            if (this.previewModal.classList.contains('show')) {
+                if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
+                    e.preventDefault();
+                    this.navigateToMatch('prev');
+                } else if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
+                    e.preventDefault();
+                    this.navigateToMatch('next');
+                }
+            }
         });
     }
 
@@ -326,7 +342,7 @@ class FileSearcher {
 
                 // Auto-scroll to first match and show status after content is loaded
                 setTimeout(() => {
-                    this.scrollToFirstMatch();
+                    this.initializeMatchNavigation();
                 }, 100);
 
             } else {
@@ -345,58 +361,95 @@ class FileSearcher {
         }
     }
 
-    scrollToFirstMatch() {
-        const firstMatch = this.modalBody.querySelector('mark');
-        if (firstMatch) {
-            console.log('Found content match, scrolling to it');
-            firstMatch.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    initializeMatchNavigation() {
+        // Find all matches in the modal content
+        const matches = this.modalBody.querySelectorAll('mark');
+        this.totalMatches = matches.length;
+        this.currentMatchIndex = 0;
+
+        // Update navigation UI
+        this.updateMatchNavigationUI();
+
+        // Scroll to first match if exists
+        if (matches.length > 0) {
+            this.scrollToMatch(0);
+        } else {
+            this.handleNoMatches();
+        }
+    }
+
+    navigateToMatch(direction) {
+        const matches = this.modalBody.querySelectorAll('mark');
+        if (matches.length === 0) return;
+
+        // Calculate new index
+        if (direction === 'next') {
+            this.currentMatchIndex = (this.currentMatchIndex + 1) % matches.length;
+        } else {
+            this.currentMatchIndex = (this.currentMatchIndex - 1 + matches.length) % matches.length;
+        }
+
+        // Update UI and scroll
+        this.updateMatchNavigationUI();
+        this.scrollToMatch(this.currentMatchIndex);
+    }
+
+    scrollToMatch(index) {
+        const matches = this.modalBody.querySelectorAll('mark');
+        if (index >= 0 && index < matches.length) {
+            const targetMatch = matches[index];
             
-            // Add highlight effect
-            firstMatch.style.transition = 'box-shadow 0.3s ease-in-out';
-            firstMatch.style.boxShadow = '0 0 15px 5px #fef08a';
+            // Remove highlight from all matches
+            matches.forEach(match => match.classList.remove('current-match'));
+            
+            // Highlight current match
+            targetMatch.classList.add('current-match');
+            
+            // Scroll to match
+            targetMatch.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            
+            // Add temporary highlight effect
+            targetMatch.style.transition = 'box-shadow 0.3s ease-in-out';
+            targetMatch.style.boxShadow = '0 0 15px 5px #fef08a';
             
             setTimeout(() => { 
-                firstMatch.style.boxShadow = ''; 
+                targetMatch.style.boxShadow = ''; 
+            }, 2000);
+        }
+    }
+
+    updateMatchNavigationUI() {
+        if (this.totalMatches > 0) {
+            this.matchCounter.textContent = `${this.currentMatchIndex + 1} / ${this.totalMatches}`;
+            this.matchCounter.style.display = 'inline';
+            this.prevMatchBtn.style.display = 'inline-block';
+            this.nextMatchBtn.style.display = 'inline-block';
+        } else {
+            this.matchCounter.style.display = 'none';
+            this.prevMatchBtn.style.display = 'none';
+            this.nextMatchBtn.style.display = 'none';
+        }
+    }
+
+    handleNoMatches() {
+        // Check if there are path highlights instead
+        const pathMatch = document.querySelector('.file-path mark.path-highlight');
+        if (pathMatch) {
+            console.log('Found path match');
+            pathMatch.style.transition = 'box-shadow 0.3s ease-in-out';
+            pathMatch.style.boxShadow = '0 0 10px 3px #fef08a';
+            setTimeout(() => { 
+                pathMatch.style.boxShadow = ''; 
             }, 2000);
         } else {
-            // Check if there are path highlights instead
-            const pathMatch = document.querySelector('.file-path mark.path-highlight');
-            if (pathMatch) {
-                console.log('Found path match');
-                pathMatch.style.transition = 'box-shadow 0.3s ease-in-out';
-                pathMatch.style.boxShadow = '0 0 10px 3px #fef08a';
-                setTimeout(() => { 
-                    pathMatch.style.boxShadow = ''; 
-                }, 2000);
-            } else {
-                // FIXED: Actually check if path/filename contains the term before showing the message
-                const currentFile = this.getCurrentFileInfo();
-                const query = this.currentSearchQuery.toLowerCase();
-                let matchReason = '';
-                
-                if (currentFile) {
-                    const pathContains = currentFile.path.toLowerCase().includes(query);
-                    const nameContains = currentFile.name.toLowerCase().includes(query);
-                    
-                    if (pathContains && nameContains) {
-                        matchReason = 'path and filename';
-                    } else if (pathContains) {
-                        matchReason = 'file path';
-                    } else if (nameContains) {
-                        matchReason = 'filename';
-                    }
-                }
-                
-                if (matchReason) {
-                    console.log(`No content matches found for "${this.currentSearchQuery}" - file matched due to ${matchReason} containing the search term`);
-                } else {
-                    console.log(`No visible matches found for "${this.currentSearchQuery}" - file matched through search index or metadata`);
-                }
-                
-                // Show a helpful message to user
-                this.showHighlightStatus();
-            }
+            // Show helpful message to user
+            this.showHighlightStatus();
         }
+    }
+
+    scrollToFirstMatch() {
+        // This method is deprecated but kept for compatibility
+        this.initializeMatchNavigation();
     }
     
     showHighlightStatus() {
@@ -473,6 +526,12 @@ class FileSearcher {
 
     hideModal() {
         this.previewModal.classList.remove('show');
+        // Reset match navigation state
+        this.currentMatchIndex = 0;
+        this.totalMatches = 0;
+        this.matchCounter.style.display = 'none';
+        this.prevMatchBtn.style.display = 'none';
+        this.nextMatchBtn.style.display = 'none';
     }
 
     // Enhanced search term highlighting with better word boundary detection

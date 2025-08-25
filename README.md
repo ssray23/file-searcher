@@ -28,6 +28,8 @@ A lightning-fast desktop file search application with full-text content indexing
 ### Intelligent Preview System
 - **📖 Content preview** with search term highlighting
 - **🎯 Auto-scroll** to first match in document content
+- **⬅️➡️ Match navigation** - Next/previous buttons and keyboard shortcuts to navigate between highlighted matches
+- **🔢 Match counter** - Shows current match position (e.g., "2 / 5")
 - **🎨 Formatted previews** - Preserves DOCX formatting and XLSX table structure
 - **🔗 Path highlighting** - Visual indication of folder matches
 - **📍 Match indicators** - Shows why files matched (filename, path, or content)
@@ -186,12 +188,14 @@ GET /api/preview/base64-encoded-file-path
 // Backend extracts content with formatting
 previewFile() → { type: 'html', content: formattedContent }
 
-// Frontend displays with highlighting
+// Frontend displays with highlighting and navigation
 showPreview() {
     // Highlight "customer service" phrase in yellow
     // Highlight "training" terms in yellow
-    // Auto-scroll to first match
-    // Show match statistics
+    // Initialize match navigation (find all matches, show counter)
+    // Auto-scroll to first match with enhanced highlighting
+    // Enable keyboard navigation (arrow keys)
+    // Show match statistics and navigation controls
 }
 ```
 
@@ -280,6 +284,18 @@ The application automatically detects and prioritizes OneDrive locations:
 - **Responsive Design**: Adapts to different screen sizes
 - **Accessibility**: Semantic HTML and keyboard navigation
 
+### Match Navigation in Preview
+- **Visual Navigation Controls**: Sleek next/previous buttons with hover effects
+- **Real-time Match Counter**: Shows current position like "3 / 7" 
+- **Enhanced Current Match**: Orange border and glow effect for active match
+- **Keyboard Shortcuts**: 
+  - `↑` or `←` - Previous match
+  - `↓` or `→` - Next match
+  - `Esc` - Close preview
+- **Circular Navigation**: Seamlessly loops from last to first match
+- **Smooth Scrolling**: Animated transitions with temporary highlight effects
+- **Smart Visibility**: Navigation controls only appear when matches are found
+
 ### Search Interface
 - **Real-time Search**: 300ms debounced input for optimal performance
 - **Visual Feedback**: Loading states and progress indicators
@@ -294,9 +310,11 @@ The application automatically detects and prioritizes OneDrive locations:
 
 ### Preview Modal
 - **Rich Content Display**: Formatted DOCX, Excel tables, syntax highlighting
-- **Search Highlighting**: Yellow highlighting for matched terms
+- **Search Highlighting**: Yellow highlighting for matched terms with enhanced current match styling
+- **Match Navigation**: Next/previous buttons with match counter ("1 / 3") and keyboard support
+- **Keyboard Shortcuts**: Use arrow keys (↑↓←→) to navigate between matches
 - **Path Display**: Full file path with folder match highlighting
-- **Smart Scrolling**: Auto-scroll to first match
+- **Smart Scrolling**: Auto-scroll to matches with smooth animation and temporary highlighting
 - **Match Statistics**: Clear indication of why files matched
 
 ## ⚙️ Configuration Options
@@ -342,6 +360,12 @@ case 'custom':
 2. **Combine techniques**: `"project plan" 2024 budget`
 3. **Use file type filters** for faster results
 4. **Shorter terms** often yield better results
+
+### Preview Navigation Tips
+1. **Use keyboard shortcuts** for faster navigation: Arrow keys work in any direction
+2. **Watch the match counter** to see your progress through search results
+3. **Current match highlighting** makes it easy to see exactly where you are
+4. **Circular navigation** means you never reach a "dead end" - keep pressing next to cycle through all matches
 
 ### Troubleshooting
 
