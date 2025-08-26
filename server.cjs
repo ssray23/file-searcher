@@ -28,7 +28,7 @@ function resolveDirectory(directory) {
         'home': homedir,
         'desktop': path.join(basePath, 'Desktop'),
         'documents': path.join(basePath, 'Documents'),
-        'downloads': path.join(basePath, 'Downloads')
+        'downloads': path.join(homedir, 'Downloads')
     };
     if (specialDirs[directory]) {
         return specialDirs[directory];
