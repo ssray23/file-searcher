@@ -6,6 +6,7 @@ A lightning-fast desktop file search application with full-text content indexing
 
 ### Core Search Capabilities
 - **⚡ Lightning-fast search** across file names, paths, and content using SQLite FTS5
+- **🔄 Real-time index updates** - Automatically detects file changes, moves, and deletions
 - **🔍 Phrase search support** - Use quotes for exact phrase matching: `"Retail Merchandising"`
 - **📁 Smart directory targeting** with OneDrive integration
 - **🏷️ File type filtering** (Documents, Images, Text/Code, Archives)
@@ -34,6 +35,15 @@ A lightning-fast desktop file search application with full-text content indexing
 - **🔗 Path highlighting** - Visual indication of folder matches
 - **📍 Match indicators** - Shows why files matched (filename, path, or content)
 
+### Real-Time File Monitoring 🔄
+- **⚡ Instant updates** - Files added, modified, or deleted are automatically indexed
+- **📊 Live status indicator** - Green dot shows when auto-update is active
+- **🛡️ Smart resource management** - Conservative limits (max 5 folders, 2-second debounce)
+- **💻 Cross-platform watching** - Uses chokidar for reliable file system monitoring
+- **🚀 Zero-configuration** - Automatically starts watching after indexing
+- **🔄 Move detection** - Handles files moved between indexed folders
+- **🧹 Automatic cleanup** - Removes stale entries when files are deleted
+
 ## 🏗️ Architecture Overview
 
 ### System Design
@@ -45,7 +55,20 @@ A lightning-fast desktop file search application with full-text content indexing
 │ • script.js     │    │ • server.cjs    │    │ • FTS5 Search   │
 │ • styles.css    │    │ • indexer.cjs   │    │ • File Metadata │
 │ • index.html    │    │ • previewer.js  │    │ • Content Index │
+│                 │    │ • watcher.cjs   │    │                 │
 └─────────────────┘    └─────────────────┘    └─────────────────┘
+                              ▲
+                              │ Real-time
+                              │ File Events
+                              ▼
+                    ┌─────────────────┐
+                    │ File System     │
+                    │ (Chokidar)      │
+                    │                 │
+                    │ • File Changes  │
+                    │ • Move Events   │
+                    │ • Deletions     │
+                    └─────────────────┘
 ```
 
 ### Component Breakdown
@@ -55,14 +78,22 @@ A lightning-fast desktop file search application with full-text content indexing
    - API endpoints for search, preview, indexing
    - OneDrive path resolution
    - File serving and security
+   - Real-time update coordination
 
 2. **indexer.cjs** - Core indexing engine
    - SQLite FTS5 database management
    - Batch file processing with progress tracking
    - Content extraction from various file types
    - Search query processing and phrase handling
+   - Real-time file add/remove/update operations
 
-3. **previewer.js** - File preview generator
+3. **watcher.cjs** - File system monitoring (NEW)
+   - Real-time file change detection using chokidar
+   - Debounced event processing
+   - Multi-folder watching with resource limits
+   - Cross-platform file system event handling
+
+4. **previewer.js** - File preview generator
    - Content extraction for preview
    - Format-specific rendering (HTML for DOCX, tables for XLSX)
    - Error handling and timeout management
@@ -210,7 +241,9 @@ file-searcher/
 │   └── {md5-hash}.db      # Per-directory database files
 ├── server.cjs             # Express server & API endpoints
 ├── indexer.cjs            # File indexing engine with FTS5
+├── watcher.cjs            # Real-time file system monitoring (NEW)
 ├── previewer.js           # File preview generator
+├── install-watcher.bat    # Easy dependency installation (NEW)
 ├── package.json           # Dependencies and scripts
 ├── package-lock.json      # Dependency lock file
 └── README.md              # This documentation
@@ -228,8 +261,11 @@ file-searcher/
 # Clone or download the project
 cd file-searcher
 
-# Install dependencies
+# Install dependencies (including chokidar for real-time updates)
 npm install
+
+# OR use the convenient installer (Windows)
+# install-watcher.bat
 
 # Start the application
 npm start
@@ -242,12 +278,14 @@ The application will:
 1. Start on `http://localhost:3001`
 2. Automatically open in your default browser
 3. Begin indexing your current directory
+4. **NEW**: Start real-time file monitoring after indexing completes
 
 ### Dependencies
 ```json
 {
   "express": "^4.19.2",      # Web server framework
   "sqlite3": "^5.1.7",      # Database with FTS5 support
+  "chokidar": "^3.5.3",     # File system watcher
   "mammoth": "^1.7.0",      # DOCX content extraction
   "exceljs": "^4.4.0",      # XLSX processing
   "pdf-parse": "^1.1.1",    # PDF text extraction
@@ -455,7 +493,11 @@ CREATE VIRTUAL TABLE content USING fts5(
 - `POST /api/open-file` - Open file in system default application
 - `POST /api/index` - Initiate directory indexing
 - `GET /api/index/status` - Get indexing progress status
+- `POST /api/index/cleanup` - Clean up stale index entries
 - `GET /api/resolve-directory` - Resolve directory shortcuts
+- `POST /api/watcher/start` - Start file system monitoring for a folder
+- `POST /api/watcher/stop` - Stop file system monitoring for a folder
+- `GET /api/watcher/status` - Get current watching status for all folders
 
 ## 📝 License
 

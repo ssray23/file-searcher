@@ -35,8 +35,14 @@ class FileSearcher {
         this.searchRequestId = 0; // For tracking request order
         this.currentMatchIndex = 0; // Current match position
         this.totalMatches = 0; // Total number of matches
+        
+        // Watcher status elements
+        this.statusIndicator = document.getElementById('statusIndicator');
+        this.statusText = document.getElementById('statusText');
+        this.watcherStatusInterval = null;
 
         this.initializeEventListeners();
+        this.startWatcherStatusMonitoring();
         this.handleFolderChange({
             target: {
                 value: 'current'
@@ -733,6 +739,9 @@ class FileSearcher {
                 const parts = data.path.split(/[/\\]/);
                 this.pathValue.textContent = parts.pop() || data.path;
                 this.pathValue.title = data.path;
+                
+                // Update watcher status when path changes
+                setTimeout(() => this.updateWatcherStatus(), 500);
             } else {
                 this.pathValue.textContent = '...';
                 this.pathValue.title = '';
@@ -837,6 +846,46 @@ class FileSearcher {
             this.indexingStatusText.textContent = 'Starting indexing...';
             this.indexingProgressBar.value = 0;
             this.indexingProgressBar.max = 100;
+        }
+    }
+    
+    // Watcher status monitoring
+    startWatcherStatusMonitoring() {
+        // Check status every 5 seconds
+        this.watcherStatusInterval = setInterval(() => {
+            this.updateWatcherStatus();
+        }, 5000);
+        
+        // Initial check
+        this.updateWatcherStatus();
+    }
+    
+    async updateWatcherStatus() {
+        try {
+            const response = await fetch('/api/watcher/status');
+            const data = await response.json();
+            
+            if (data.success) {
+                const status = data.status;
+                const currentPath = this.pathValue.title || this.selectedDirectory;
+                const isCurrentFolderWatched = Object.keys(status.watchedFolders).some(folder => {
+                    return folder === currentPath || currentPath.includes(folder);
+                });
+                
+                if (isCurrentFolderWatched) {
+                    this.statusIndicator.style.color = '#10b981'; // Green
+                    this.statusText.textContent = 'Auto-update: On';
+                    this.statusIndicator.title = 'File changes are being monitored';
+                } else {
+                    this.statusIndicator.style.color = '#6b7280'; // Gray
+                    this.statusText.textContent = 'Auto-update: Off';
+                    this.statusIndicator.title = 'File changes are not being monitored';
+                }
+            }
+        } catch (error) {
+            // Silently handle errors to avoid spam
+            this.statusIndicator.style.color = '#ef4444'; // Red
+            this.statusText.textContent = 'Auto-update: Error';
         }
     }
 }

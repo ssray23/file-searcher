@@ -26,8 +26,31 @@ body { font-family: var(--font-family); background: var(--background-gradient); 
 .search-input::placeholder { font-family: var(--font-family); color: var(--text-secondary); }
 .cancel-btn { position: absolute; right: 0.5rem; top: 50%; transform: translateY(-50%); background: #e5e7eb; border: 1px solid #adb5bd; border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; cursor: pointer; color: #495057; }
 .folder-selection { display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; color: var(--text-secondary); font-size: 0.9rem; }
-.custom-path-input { flex-grow: 1; padding: 0.5rem 1rem; border-radius: 9999px; border: 1px solid var(--border-color); min-width: 250px; font-family: var(--font-family); }
+.custom-path-input { flex-grow: 1; padding: 0.5rem 1rem; border-radius: 9999px; border: 1px solid var(--border-color); min-width: 180px; max-width: 300px; font-family: var(--font-family); }
 .current-path { margin-left: auto; background: #f3f4f6; padding: 0.5rem 1rem; border-radius: 9999px; font-family: var(--font-family); }
+
+/* Watcher Status Indicator */
+.watcher-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 0.25rem 0.5rem;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+}
+
+.status-indicator {
+    font-size: 0.6rem;
+    transition: color 0.3s ease;
+    color: #6b7280; /* Default gray */
+}
+
+#statusText {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+}
 
 /* --- *** REVERTED TO STABLE DROPDOWN STYLES *** --- */
 .select-wrapper { position: relative; display: inline-block; border-radius: 9999px; border: 1px solid var(--border-color); background: #fff; }

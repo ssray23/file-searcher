@@ -4,9 +4,42 @@ const open = require('open');
 const os = require('os');
 const indexer = require('./indexer.cjs');
 const { previewFile } = require('./previewer.js');
+const fileWatcher = require('./watcher.cjs');
 
 const PORT = process.env.PORT || 3001;
 const app = express();
+
+// Set up file watcher event handlers
+fileWatcher.on('fileChanged', async (changeInfo) => {
+    const { type, filePath, folderPath } = changeInfo;
+    
+    try {
+        switch (type) {
+            case 'deleted':
+                await indexer.removeFileFromIndex(folderPath, filePath);
+                break;
+            case 'added':
+            case 'modified':
+                await indexer.updateFileInIndex(folderPath, filePath);
+                break;
+        }
+    } catch (error) {
+        console.error(`[Server] Error handling file change:`, error.message);
+    }
+});
+
+// Cleanup watchers on process exit
+process.on('SIGINT', () => {
+    console.log('\n[Server] Shutting down gracefully...');
+    fileWatcher.cleanup();
+    process.exit(0);
+});
+
+process.on('SIGTERM', () => {
+    console.log('\n[Server] Received SIGTERM, shutting down gracefully...');
+    fileWatcher.cleanup();
+    process.exit(0);
+});
 
 // Middleware
 app.use(express.json());
@@ -177,7 +210,16 @@ app.post('/api/index', async (req, res) => {
         console.log('Starting indexing for folder:', folder);
         
         // Start indexing (non-blocking)
-        indexer.indexFolder(folder).catch(err => {
+        indexer.indexFolder(folder).then(() => {
+            // After successful indexing, start watching the folder
+            fileWatcher.startWatching(folder).then(started => {
+                if (started) {
+                    console.log(`[Server] Started watching: ${folder}`);
+                } else {
+                    console.log(`[Server] Could not start watching: ${folder}`);
+                }
+            });
+        }).catch(err => {
             console.error('Indexing error:', err);
         });
         
@@ -211,6 +253,53 @@ app.get('/api/resolve-directory', (req, res) => {
         res.json({ success: true, path: resolvedPath });
     } catch (err) {
         console.error('Resolve directory error:', err);
+        res.status(500).json({ success: false, error: err.message });
+    }
+});
+
+// Watcher management endpoints
+app.post('/api/watcher/start', async (req, res) => {
+    try {
+        const { directory } = req.body;
+        const folder = resolveDirectory(directory);
+        const started = await fileWatcher.startWatching(folder);
+        res.json({ success: started, message: started ? 'Watcher started' : 'Could not start watcher' });
+    } catch (err) {
+        console.error('Watcher start error:', err);
+        res.status(500).json({ success: false, error: err.message });
+    }
+});
+
+app.post('/api/watcher/stop', (req, res) => {
+    try {
+        const { directory } = req.body;
+        const folder = resolveDirectory(directory);
+        const stopped = fileWatcher.stopWatching(folder);
+        res.json({ success: stopped, message: stopped ? 'Watcher stopped' : 'Watcher was not running' });
+    } catch (err) {
+        console.error('Watcher stop error:', err);
+        res.status(500).json({ success: false, error: err.message });
+    }
+});
+
+app.get('/api/watcher/status', (req, res) => {
+    try {
+        const status = fileWatcher.getWatchingStatus();
+        res.json({ success: true, status });
+    } catch (err) {
+        console.error('Watcher status error:', err);
+        res.status(500).json({ success: false, error: err.message });
+    }
+});
+
+app.post('/api/index/cleanup', async (req, res) => {
+    try {
+        const { directory } = req.body;
+        const folder = resolveDirectory(directory);
+        await indexer.cleanupStaleEntries(folder);
+        res.json({ success: true, message: 'Cleanup completed' });
+    } catch (err) {
+        console.error('Cleanup error:', err);
         res.status(500).json({ success: false, error: err.message });
     }
 });

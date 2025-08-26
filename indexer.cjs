@@ -15,6 +15,7 @@ const FILE_PROCESSING_TIMEOUT_MS = 15000;
 const BATCH_SIZE = 100;
 
 let currentIndexingToken = null;
+const watchedFolders = new Set(); // Track all indexed folders
 
 fsp.mkdir(INDEXES_DIR, { recursive: true }).catch(console.error);
 
@@ -247,6 +248,9 @@ async function indexFolder(folder) {
     currentIndexingToken = localToken;
 
     console.log(`[Indexer] Starting indexing for: ${folder}`);
+    
+    // Track this folder as indexed
+    watchedFolders.add(folder);
     
     // Clear any previous status for this folder
     activeIndexingProcesses.delete(folder);
@@ -561,6 +565,101 @@ function searchContent(folder, query) {
     });
 }
 
+// Real-time update functions for file watcher
+async function addFileToIndex(folderPath, filePath) {
+    try {
+        console.log(`[Indexer] Adding file to index: ${filePath}`);
+        const db = await initDb(folderPath);
+        
+        const file = {
+            fullpath: filePath,
+            name: path.basename(filePath),
+            extension: path.extname(filePath).toLowerCase().slice(1)
+        };
+        
+        await indexFile(db, file);
+        
+        await new Promise((resolve) => db.close(resolve));
+        console.log(`[Indexer] Successfully added ${file.name} to index`);
+    } catch (error) {
+        console.error(`[Indexer] Error adding file ${filePath}:`, error.message);
+    }
+}
+
+async function removeFileFromIndex(folderPath, filePath) {
+    try {
+        console.log(`[Indexer] Removing file from index: ${filePath}`);
+        const db = await initDb(folderPath);
+        
+        await new Promise((resolve, reject) => {
+            db.run('DELETE FROM files WHERE fullpath = ?', [filePath], function(err) {
+                if (err) return reject(err);
+                console.log(`[Indexer] Removed ${this.changes} file record(s)`);
+                resolve();
+            });
+        });
+        
+        await new Promise((resolve, reject) => {
+            db.run('DELETE FROM content WHERE fullpath = ?', [filePath], function(err) {
+                if (err) return reject(err);
+                console.log(`[Indexer] Removed ${this.changes} content record(s)`);
+                resolve();
+            });
+        });
+        
+        await new Promise((resolve) => db.close(resolve));
+        console.log(`[Indexer] Successfully removed ${path.basename(filePath)} from index`);
+    } catch (error) {
+        console.error(`[Indexer] Error removing file ${filePath}:`, error.message);
+    }
+}
+
+async function updateFileInIndex(folderPath, filePath) {
+    // For modifications, we treat it as add/replace
+    await addFileToIndex(folderPath, filePath);
+}
+
+async function cleanupStaleEntries(folderPath) {
+    try {
+        console.log(`[Indexer] Cleaning up stale entries for: ${folderPath}`);
+        const db = await initDb(folderPath);
+        
+        // Get all file paths from database
+        const dbFiles = await new Promise((resolve, reject) => {
+            db.all('SELECT fullpath FROM files', (err, rows) => {
+                if (err) return reject(err);
+                resolve(rows.map(row => row.fullpath));
+            });
+        });
+        
+        let removedCount = 0;
+        for (const dbFilePath of dbFiles) {
+            try {
+                await fs.promises.access(dbFilePath);
+            } catch {
+                // File doesn't exist, remove from index
+                await new Promise((resolve) => {
+                    db.run('DELETE FROM files WHERE fullpath = ?', [dbFilePath], resolve);
+                });
+                await new Promise((resolve) => {
+                    db.run('DELETE FROM content WHERE fullpath = ?', [dbFilePath], resolve);
+                });
+                removedCount++;
+                console.log(`[Indexer] Cleaned up stale entry: ${path.basename(dbFilePath)}`);
+            }
+        }
+        
+        await new Promise((resolve) => db.close(resolve));
+        console.log(`[Indexer] Cleanup complete - removed ${removedCount} stale entries`);
+    } catch (error) {
+        console.error(`[Indexer] Error during cleanup of ${folderPath}:`, error.message);
+    }
+}
+
+function getWatchedFolders() {
+    return Array.from(watchedFolders);
+}
+
 function cancelCurrentIndexing() {
     if (currentIndexingToken) {
         console.log('[Indexer] Cancelling current indexing operation');
@@ -572,5 +671,11 @@ module.exports = {
     indexFolder,
     searchContent,
     getIndexingStatus: (folder) => activeIndexingProcesses.get(folder) || { status: 'idle' },
-    cancelCurrentIndexing
+    cancelCurrentIndexing,
+    // New real-time update functions
+    addFileToIndex,
+    removeFileFromIndex,
+    updateFileInIndex,
+    cleanupStaleEntries,
+    getWatchedFolders
 };
