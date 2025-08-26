@@ -33,6 +33,7 @@ class FileSearcher {
         this.currentSearchQuery = ''; // Store current search query for highlighting
         this.currentSearchController = null; // For aborting requests
         this.searchRequestId = 0; // For tracking request order
+        this.isSearching = false; // Track search state
         this.currentMatchIndex = 0; // Current match position
         this.totalMatches = 0; // Total number of matches
         
@@ -125,13 +126,27 @@ class FileSearcher {
             this.currentSearchController = null;
         }
         
-        // Set up new debounced search - increased to 300ms for better performance
-        this.searchTimeout = setTimeout(() => this.performSearch(), 300);
+        // Set up new debounced search - increased to 600ms for comfortable typing
+        this.searchTimeout = setTimeout(() => this.performSearch(), 600);
+    }
+
+    isIncompleteQuotedPhrase(query) {
+        if (!query) return false;
+        
+        // Simple: if there's an odd number of quotes, it's incomplete
+        const quoteCount = (query.match(/['"]/g) || []).length;
+        return quoteCount % 2 === 1;
     }
 
     async performSearch() {
         const query = this.searchInput.value.trim();
         const fileType = this.fileTypeFilter.value;
+        
+        // Don't search if quotes are incomplete - just return silently
+        if (this.isIncompleteQuotedPhrase(query)) {
+            console.log('[Search] Skipping search - incomplete quoted phrase');
+            return; // Exit early, no search, no input disabling
+        }
         
         // Increment request ID to track this specific search
         const currentRequestId = ++this.searchRequestId;
@@ -157,6 +172,9 @@ class FileSearcher {
 
         try {
             console.log(`[Search] Starting search request #${currentRequestId} for query: "${query}"`);
+            
+            // Set searching state and update UI
+            this.setSearchingState(true, query);
             
             const params = new URLSearchParams({
                 query: query || '*',
@@ -192,6 +210,9 @@ class FileSearcher {
                 console.error(`[Search] Search failed for request #${currentRequestId}:`, data.error);
             }
             
+            // Clear searching state
+            this.setSearchingState(false);
+            
         } catch (error) {
             // Only log error if it wasn't an abort
             if (error.name !== 'AbortError') {
@@ -200,7 +221,8 @@ class FileSearcher {
                 console.log(`[Search] Request #${currentRequestId} was aborted`);
             }
         } finally {
-            // Clear the controller if this was the current request
+            // Clear searching state and controller
+            this.setSearchingState(false);
             if (this.currentSearchController && !signal.aborted) {
                 this.currentSearchController = null;
             }
@@ -222,6 +244,49 @@ class FileSearcher {
         this.resultsSection.classList.remove('show');
     }
 
+    setSearchingState(isSearching, query = '') {
+        this.isSearching = isSearching;
+        
+        if (isSearching) {
+            // Visual feedback during search
+            this.searchInput.disabled = true;
+            this.searchInput.style.borderColor = '#3b82f6';
+            this.searchInput.style.boxShadow = '0 0 0 2px rgba(59, 130, 246, 0.1)';
+            this.searchInput.placeholder = query ? `Searching "${query}"...` : 'Searching...';
+            
+            // Show a subtle spinner in the search area
+            if (!document.querySelector('.search-spinner')) {
+                const spinner = document.createElement('div');
+                spinner.className = 'search-spinner';
+                spinner.innerHTML = '⟳';
+                spinner.style.cssText = `
+                    position: absolute;
+                    right: 50px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    color: #3b82f6;
+                    animation: spin 1s linear infinite;
+                    font-size: 14px;
+                    pointer-events: none;
+                `;
+                this.searchInput.parentElement.style.position = 'relative';
+                this.searchInput.parentElement.appendChild(spinner);
+            }
+        } else {
+            // Reset visual state
+            this.searchInput.disabled = false;
+            this.searchInput.style.borderColor = '';
+            this.searchInput.style.boxShadow = '';
+            this.searchInput.placeholder = 'Search for files...';
+            
+            // Remove spinner
+            const spinner = document.querySelector('.search-spinner');
+            if (spinner) {
+                spinner.remove();
+            }
+        }
+    }
+
     clearSearch() {
         // Abort any ongoing request
         if (this.currentSearchController) {
@@ -236,6 +301,7 @@ class FileSearcher {
         }
         
         // Reset search state
+        this.setSearchingState(false);
         this.searchInput.value = '';
         this.currentSearchQuery = '';
         this.fileTypeFilter.value = 'all';

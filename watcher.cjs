@@ -35,7 +35,13 @@ class FileWatcher extends EventEmitter {
             
             // Use chokidar for better performance and cross-platform support
             const watcher = chokidar.watch(folderPath, {
-                ignored: /(^|[\/\\])\../,  // ignore dotfiles
+                ignored: [
+                    /(^|[\/\\])\../,  // ignore dotfiles
+                    /log\.txt$/,      // ignore log files to prevent feedback loops
+                    /\.log$/,         // ignore all .log files
+                    /\.tmp$/,         // ignore temporary files
+                    /node_modules/    // ignore node_modules
+                ],
                 persistent: true,
                 ignoreInitial: true,
                 followSymlinks: false,

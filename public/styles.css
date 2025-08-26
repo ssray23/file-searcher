@@ -11,6 +11,12 @@
     --row-fill-color: #f8f9fa;
     --button-dark-bg: #6c757d;
 }
+
+/* --- Animations --- */
+@keyframes spin {
+    0% { transform: translateY(-50%) rotate(0deg); }
+    100% { transform: translateY(-50%) rotate(360deg); }
+}
 body { font-family: var(--font-family); background: var(--background-gradient); color: var(--text-primary); margin: 0; padding: 2rem; display: flex; justify-content: center; align-items: flex-start; min-height: 100vh; }
 
 /* --- Layout --- */
